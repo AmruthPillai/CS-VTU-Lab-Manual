@@ -1,0 +1,134 @@
+("FILE_TYPE"	"PMAP File"
+    ("devices"
+        ("VSIN")
+        ("D1N4002")
+        ("R")
+        ("VDC")
+    )
+    ("instances"
+        ("V1"
+            ("device_name"	"VSIN")
+            ("pspice_path"	"V_V1")
+            ("level"	"0")
+            ("model_params"
+                ("BiasValue Power"
+                    ("value"	"0W")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("FREQ"
+                    ("value"	"1K")
+                    ("pspice_param"	"FREQ")
+                )
+                ("VAMPL"
+                    ("value"	"5")
+                    ("pspice_param"	"VAMPL")
+                )
+                ("VOFF"
+                    ("value"	"0")
+                    ("pspice_param"	"VOFF")
+                )
+                ("PHASE"
+                    ("value"	"0")
+                    ("pspice_param"	"PHASE")
+                )
+                ("DF"
+                    ("value"	"0")
+                    ("pspice_param"	"DF")
+                )
+                ("TD"
+                    ("value"	"0")
+                    ("pspice_param"	"TD")
+                )
+                ("AC"
+                    ("value"	"")
+                    ("pspice_param"	"AC")
+                )
+                ("DC"
+                    ("value"	"")
+                    ("pspice_param"	"DC")
+                )
+            )
+        )
+        ("D1"
+            ("device_name"	"D1N4002")
+            ("pspice_path"	"D_D1")
+            ("level"	"0")
+            ("model_params"
+                ("BiasValue Power"
+                    ("value"	"832.3uW")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("COMPONENT"
+                    ("value"	"1N4002")
+                    ("pspice_param"	"COMPONENT")
+                )
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+            )
+        )
+        ("R1"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R1")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"1K")
+                    ("pspice_param"	"VALUE")
+                )
+                ("BiasValue Power"
+                    ("value"	"1.987mW")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+            )
+        )
+        ("V2"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V2")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"2")
+                    ("pspice_param"	"DC")
+                )
+                ("BiasValue Power"
+                    ("value"	"-2.819mW")
+                    ("pspice_param"	"BiasValue Power")
+                )
+            )
+        )
+    )
+)

@@ -1,0 +1,122 @@
+(ExpressProject "Positive Clamper"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\analog.olb"
+        (DisplayName
+           "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\analog.olb")
+        (Type "Schematic Library"))
+      (File
+         "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\breakout.olb"
+        (DisplayName
+           "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\breakout.olb")
+        (Type "Schematic Library"))
+      (File "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\source.olb"
+        (DisplayName
+           "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\source.olb")
+        (Type "Schematic Library"))
+      (File
+         "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\sourcstm.olb"
+        (DisplayName
+           "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\sourcstm.olb")
+        (Type "Schematic Library"))
+      (File "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\special.olb"
+        (DisplayName
+           "C:\OrCAD\OrCAD_16.6_Lite\tools\capture\library\pspice\special.olb")
+        (Type "Schematic Library")))
+    (NoModify)
+    (File "positive clamper.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "1")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "TRUE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\positive clamper-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Model Libraries")
+    (Folder "Stimulus Files")
+    (Folder "Include Files")
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\positive clamper-pspicefiles\schematic1\bias.sim"
+        (DisplayName "SCHEMATIC1-bias")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\positive clamper-pspicefiles\schematic1\simprof.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\positive clamper-pspicefiles\schematic1\simprof.sim"
+        (DisplayName "SCHEMATIC1-SimProf")
+        (Type "PSpice Profile"))))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (D1N4002
+      (FullPartName "D1N4002.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\EVAL.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (VPULSE
+      (FullPartName "VPULSE.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (L
+      (FullPartName "L.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (VSTIM
+      (FullPartName "VSTIM.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\SOURCSTM.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory "LIBRARY\PSPICE")
+  (MPSSessionName "Amruth_Pillai")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Positive Clamper\positive clamper.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Positive Clamper\positive clamper.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 535"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 156 1450 156 730")
+        (Scroll "-75 0")
+        (Zoom "113")
+        (Occurrence "/"))
+      (Path
+         "D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\POSITIVE CLAMPER\POSITIVE CLAMPER.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))

@@ -1,0 +1,7 @@
+* source CMOS INVERTER
+V_V1         N00224 0  
++PULSE 5 0 1ns 1ns 1ns 20us 40us
+M_M1         N00251 N00224 N00229 N00229 MbreakP           
+M_M2         N00251 N00224 0 0 MbreakN           
+V_V2         N00229 0 5
+R_R1         0 N00251  100K TC=0,0 

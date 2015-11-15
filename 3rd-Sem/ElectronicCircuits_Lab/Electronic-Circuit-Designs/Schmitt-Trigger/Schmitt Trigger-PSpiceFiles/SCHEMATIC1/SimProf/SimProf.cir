@@ -1,0 +1,19 @@
+** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Schmitt Trigger\Schmitt Trigger-PSpiceFiles\SCHEMATIC1\SimProf.sim ] 
+
+** Creating circuit file "SimProf.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\Amruth Pillai\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 40ms 0 0.1ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

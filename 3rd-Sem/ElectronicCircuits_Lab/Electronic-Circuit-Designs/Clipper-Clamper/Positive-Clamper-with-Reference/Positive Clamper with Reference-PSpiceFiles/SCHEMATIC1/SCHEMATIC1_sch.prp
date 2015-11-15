@@ -1,0 +1,198 @@
+("FILE_TYPE"	"PMAP File"
+    ("devices"
+        ("VDC")
+        ("D1N4002")
+        ("VPULSE")
+        ("C")
+        ("R")
+    )
+    ("instances"
+        ("V2"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V2")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"5")
+                    ("pspice_param"	"DC")
+                )
+                ("BiasValue Power"
+                    ("value"	"0W")
+                    ("pspice_param"	"BiasValue Power")
+                )
+            )
+        )
+        ("D1"
+            ("device_name"	"D1N4002")
+            ("pspice_path"	"D_D1")
+            ("level"	"0")
+            ("model_params"
+                ("BiasValue Power"
+                    ("value"	"0W")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+                ("COMPONENT"
+                    ("value"	"1N4002")
+                    ("pspice_param"	"COMPONENT")
+                )
+            )
+        )
+        ("V1"
+            ("device_name"	"VPULSE")
+            ("pspice_path"	"V_V1")
+            ("level"	"0")
+            ("model_params"
+                ("BiasValue Power"
+                    ("value"	"0W")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("PER"
+                    ("value"	"1ms")
+                    ("pspice_param"	"PER")
+                )
+                ("TF"
+                    ("value"	"0.01us")
+                    ("pspice_param"	"TF")
+                )
+                ("TD"
+                    ("value"	"0.01ms")
+                    ("pspice_param"	"TD")
+                )
+                ("V1"
+                    ("value"	"2")
+                    ("pspice_param"	"V1")
+                )
+                ("V2"
+                    ("value"	"-2")
+                    ("pspice_param"	"V2")
+                )
+                ("TR"
+                    ("value"	"0.01us")
+                    ("pspice_param"	"TR")
+                )
+                ("PW"
+                    ("value"	"0.5ms")
+                    ("pspice_param"	"PW")
+                )
+                ("DC"
+                    ("value"	"")
+                    ("pspice_param"	"DC")
+                )
+                ("AC"
+                    ("value"	"")
+                    ("pspice_param"	"AC")
+                )
+            )
+        )
+        ("C1"
+            ("device_name"	"C")
+            ("pspice_path"	"C_C1")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"0.1uF")
+                    ("pspice_param"	"VALUE")
+                )
+                ("VC2"
+                    ("value"	"0")
+                    ("pspice_param"	"VC2")
+                )
+                ("VC1"
+                    ("value"	"0")
+                    ("pspice_param"	"VC1")
+                )
+                ("MAX_TEMP"
+                    ("value"	"CTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("SLOPE"
+                    ("value"	"CSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("KNEE"
+                    ("value"	"CBMAX")
+                    ("pspice_param"	"KNEE")
+                )
+                ("CURRENT"
+                    ("value"	"CIMAX")
+                    ("pspice_param"	"CURRENT")
+                )
+                ("VOLTAGE"
+                    ("value"	"CMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("IC"
+                    ("value"	"")
+                    ("pspice_param"	"IC")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+            )
+        )
+        ("R1"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R1")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"200K")
+                    ("pspice_param"	"VALUE")
+                )
+                ("BiasValue Power"
+                    ("value"	"0W")
+                    ("pspice_param"	"BiasValue Power")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+            )
+        )
+    )
+)

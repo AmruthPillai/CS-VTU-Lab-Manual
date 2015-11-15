@@ -1,0 +1,76 @@
+(ExpressProject "CMOS Inverter"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\cmos inverter.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\cmos inverter-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\cmos inverter-pspicefiles\schematic1\simprof.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\cmos inverter-pspicefiles\schematic1\simprof.sim"
+        (DisplayName "SCHEMATIC1-SimProf")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (MbreakN
+      (FullPartName "MbreakN.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
+      (DeviceIndex "0"))
+    (MbreakP
+      (FullPartName "MbreakP.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
+      (DeviceIndex "0"))
+    (VPULSE
+      (FullPartName "VPULSE.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CMOS Inverter\cmos inverter.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CMOS Inverter\cmos inverter.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CMOS Inverter\cmos inverter.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 535"))
+      (Tab 0)))
+  (MPSSessionName "amrut"))

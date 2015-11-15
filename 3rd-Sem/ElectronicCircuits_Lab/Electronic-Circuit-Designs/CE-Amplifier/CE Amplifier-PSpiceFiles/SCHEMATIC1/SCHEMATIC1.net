@@ -1,0 +1,12 @@
+* source CE AMPLIFIER
+C_C1         N00332 N00339  1uF  TC=0,0 
+C_C2         N00379 N00422  0.5uF  TC=0,0 
+R_R1         N00339 N00362  1k TC=0,0 
+R_R2         0 N00339  1k TC=0,0 
+R_R3         N00379 N00362  1k TC=0,0 
+R_R4         0 N00383  1k TC=0,0 
+V_V1         N00362 0 10
+Q_Q1         N00379 N00339 N00383 Q2N2222
+R_R5         0 N00422  1k TC=0,0 
+C_C3         0 N00383  100uF  TC=0,0 
+V_V2         N00332 0 DC 0Vdc AC 50mV 

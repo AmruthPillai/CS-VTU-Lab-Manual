@@ -1,0 +1,6 @@
+* source POSITIVE CLAMPER
+V_V1         N14440 0  
++PULSE 2 -2 0.01ms 0.01us 0.01us 0.5ms 1ms
+C_C1         N14440 N14447  0.1uF  TC=0,0 
+D_D1         0 N14447 D1N4002 
+R_R1         0 N14447  200K TC=0,0 

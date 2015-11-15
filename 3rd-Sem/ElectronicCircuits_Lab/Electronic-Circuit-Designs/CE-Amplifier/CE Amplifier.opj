@@ -1,0 +1,97 @@
+(ExpressProject "CE Amplifier"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\ce amplifier.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\ce amplifier-pspicefiles\schematic1\schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\ce amplifier-pspicefiles\schematic1\simprof.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\ce amplifier-pspicefiles\schematic1\simprof.sim"
+        (DisplayName "SCHEMATIC1-SimProf")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (VAC
+      (FullPartName "VAC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (Q2N2222
+      (FullPartName "Q2N2222.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\EVAL.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (IAC
+      (FullPartName "IAC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (VSIN
+      (FullPartName "VSIN.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_16.6_LITE\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 535"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 52 1691 52 521")
+        (Scroll "90 196")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path
+         "D:\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\ELECTRONIC CIRCUIT DESIGNS\CE AMPLIFIER\CE AMPLIFIER.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "amrut"))

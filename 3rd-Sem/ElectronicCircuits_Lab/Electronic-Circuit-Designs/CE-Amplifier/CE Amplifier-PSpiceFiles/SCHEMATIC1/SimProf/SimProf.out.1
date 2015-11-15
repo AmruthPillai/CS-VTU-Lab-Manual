@@ -1,0 +1,50 @@
+
+**** 11/05/15 20:34:36 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\CE
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "SimProf.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\Amruth Pillai\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.AC DEC 40 10hz 10meg
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source CE AMPLIFIER
+I_I1         N00332 0 DC 0 AC 50mV 
+C_C1         N00332 N00339  1uF  TC=0,0 
+C_C2         N00379 N00422  .47uF  TC=0,0 
+R_R1         N00339 N00362  1k TC=0,0 
+R_R2         0 N00339  1k TC=0,0 
+R_R3         N00379 N00362  1k TC=0,0 
+R_R4         0 N00383  1k TC=0,0 
+V_V1         N00362 0 10
+Q_Q1         N00379 N00339 N00383 Q2N2222
+R_R5         0 N00422  1k TC=0,0 
+C_C3         0 N00383  100uF  TC=0,0 
+
+**** RESUMING SimProf.cir ****
+.END
+
+ERROR(ORPSIM-15142): Node N00332 is floating
+

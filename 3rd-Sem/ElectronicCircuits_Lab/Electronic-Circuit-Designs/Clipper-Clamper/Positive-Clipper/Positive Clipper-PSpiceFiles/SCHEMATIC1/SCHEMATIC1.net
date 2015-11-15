@@ -1,0 +1,6 @@
+* source POSITIVE CLIPPER
+V_V1         N00174 0  
++SIN 0 5 1K 0 0 0
+D_D1         N00181 N00174 D1N4002 
+R_R1         N00188 N00181  1K TC=0,0 
+V_V2         N00188 0 2

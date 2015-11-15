@@ -1,0 +1,19 @@
+** Profile: "SCHEMATIC1-New Simulation Profile"  [ D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\Positive Clipper\positive clipper-pspicefiles\schematic1\new simulation profile.sim ] 
+
+** Creating circuit file "New Simulation Profile.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 5ms 0 0.01ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END
