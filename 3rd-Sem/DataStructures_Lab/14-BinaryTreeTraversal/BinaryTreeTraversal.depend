@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1447610955 source:c:\users\amrut\desktop\internalspractice\14. binarytreetraversal\main.cpp
+	<iostream>
+
+1447610470 source:c:\users\amrut\desktop\internalspractice\14. binarytreetraversal\btree.cpp
+	<stdlib.h>
+	<iostream>
+	<conio.h>
+
