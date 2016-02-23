@@ -1,4 +1,4 @@
-** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\CE Amplifier\CE Amplifier-PSpiceFiles\SCHEMATIC1\SimProf.sim ] 
+** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\CE-Amplifier\ce amplifier-pspicefiles\schematic1\simprof.sim ] 
 
 ** Creating circuit file "SimProf.cir" 
 ** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
@@ -6,11 +6,11 @@
 *Libraries: 
 * Profile Libraries :
 * Local Libraries :
-* From [PSPICE NETLIST] section of C:\Users\Amruth Pillai\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
 .lib "nomd.lib" 
 
 *Analysis directives: 
-.AC DEC 40 10hz 10meg
+.AC DEC 40 20 20meg
 .OPTIONS ADVCONV
 .PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
 .INC "..\SCHEMATIC1.net" 

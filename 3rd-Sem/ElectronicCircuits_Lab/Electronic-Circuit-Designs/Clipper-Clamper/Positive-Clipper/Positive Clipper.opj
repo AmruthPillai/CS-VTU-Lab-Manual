@@ -54,23 +54,19 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clipper\positive clipper.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clipper\positive clipper.dsn"
+         "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources"))
+      (Select "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clipper\positive clipper.dsn"
+         "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 213"))
-      (Tab 0))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 52 1238 52 304")
-        (Scroll "250 196")
-        (Zoom "200")
-        (Occurrence "/"))
-      (Path
-         "D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\POSITIVE CLIPPER\POSITIVE CLIPPER.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "PAGE1")))
-  (MPSSessionName "Amruth_Pillai"))
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 213"))
+      (Tab 0)))
+  (MPSSessionName "amrut"))

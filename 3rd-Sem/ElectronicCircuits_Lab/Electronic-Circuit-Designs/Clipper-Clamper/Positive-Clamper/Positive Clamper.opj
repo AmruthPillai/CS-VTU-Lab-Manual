@@ -93,16 +93,19 @@
       (LibraryName "..\..\LIBRARY\PSPICE\SOURCSTM.OLB")
       (DeviceIndex "0")))
   (LastUsedLibraryBrowseDirectory "LIBRARY\PSPICE")
-  (MPSSessionName "Amruth_Pillai")
+  (MPSSessionName "amrut")
   (GlobalState
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Positive Clamper\positive clamper.dsn")
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper\positive clamper.dsn")
       (Path "Design Resources"
-         "D:\Documents\Dropbox\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Positive Clamper\positive clamper.dsn"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper\positive clamper.dsn"
          "SCHEMATIC1")
-      (Path "Outputs"))
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper\positive clamper.dsn"
+         "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -112,11 +115,11 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 156 1450 156 730")
+        (Placement "44 0 1 -1 -1 -8 -31 0 1294 0 574")
         (Scroll "-75 0")
         (Zoom "113")
         (Occurrence "/"))
       (Path
-         "D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\POSITIVE CLAMPER\POSITIVE CLAMPER.DSN")
+         "D:\DOCUMENTS\DESIGN & DEVELOPMENT\GITHUB REPOSITORIES\CS-VTU-LAB-MANUAL\3RD-SEM\ELECTRONICCIRCUITS_LAB\ELECTRONIC-CIRCUIT-DESIGNS\CLIPPER-CLAMPER\POSITIVE-CLAMPER\POSITIVE CLAMPER.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1"))))

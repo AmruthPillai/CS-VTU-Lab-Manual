@@ -1,4 +1,4 @@
-** Profile: "SCHEMATIC1-sIMpROF"  [ D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD Lab\Double Ended Clipper\Double Ended Clipper-PSpiceFiles\SCHEMATIC1\sIMpROF.sim ] 
+** Profile: "SCHEMATIC1-sIMpROF"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Double-Ended-Clipper\double ended clipper-pspicefiles\schematic1\simprof.sim ] 
 
 ** Creating circuit file "sIMpROF.cir" 
 ** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
@@ -6,7 +6,7 @@
 *Libraries: 
 * Profile Libraries :
 * Local Libraries :
-* From [PSPICE NETLIST] section of C:\Users\Amruth Pillai\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
 .lib "nomd.lib" 
 
 *Analysis directives: 

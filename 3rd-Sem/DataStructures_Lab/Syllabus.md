@@ -21,8 +21,8 @@ arithmetic operators. The arithmetic operators are +(add), - (subtract), * (mult
     * Data members: Employee_Number (an integer), Employee_Name (a string of characters), Basic_Salary (an integer), All_Allowances(an integer), IT (an integer), Net_Salary (an integer).
     * Member functions: to read the data of an employee, to calculate Net_Salary and to print the values of all the data members.
     * (All_Allowances = 123% of Basic;
-Income Tax (IT) = 30% of the gross salary (= basic_Salary _ All_Allowance);
-Net_Salary = Basic_Salary + All_Allowances - IT)
+	  Income Tax (IT) = 30% of the gross salary (= basic_Salary _ All_Allowance);
+      Net_Salary = Basic_Salary + All_Allowances - IT)
 
 #####6. StringClass
   * Design, develop, and execute a program in C++ to create a class called STRING and implement the following operations. Display the results after every operation by overloading the operator <<.
@@ -51,7 +51,7 @@ Net_Salary = Basic_Salary + All_Allowances - IT)
   * Design, develop, and execute a program in C to implement a doubly linked list where each node consists of integers. The program should support the following operations:
     * i. Create a doubly linked list by adding each node at the front.
     * ii. Insert a new node to the left of the node whose key value is read as an input.
-    * iii. Delete the node of a given data if it is found, otherwise displayappropriate message.
+    * iii. Delete the node of a given data if it is found, otherwise display appropriate message.
     * iv. Display the contents of the list.
   * (Note: Only either (a,b and d) or (a, c and d) may be asked in the examination)
 

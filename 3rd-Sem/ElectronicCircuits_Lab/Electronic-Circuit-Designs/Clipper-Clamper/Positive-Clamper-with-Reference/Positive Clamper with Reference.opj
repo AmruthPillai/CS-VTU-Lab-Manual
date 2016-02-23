@@ -32,7 +32,15 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Outputs"))
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper-with-Reference\positive clamper with reference.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper-with-Reference\positive clamper with reference.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Clipper-Clamper\Positive-Clamper-with-Reference\positive clamper with reference.dsn"
+         "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -42,11 +50,12 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 234 1554 234 803")
-        (Scroll "-107 0")
-        (Zoom "109")
+        (Placement "44 0 1 -1 -1 -8 -31 260 1554 260 834")
+        (Scroll "0 169")
+        (Zoom "162")
         (Occurrence "/"))
       (Path
-         "D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\POSITIVE CLAMPER WITH REFERENCE\POSITIVE CLAMPER WITH REFERENCE.DSN")
+         "D:\DOCUMENTS\DESIGN & DEVELOPMENT\GITHUB REPOSITORIES\CS-VTU-LAB-MANUAL\3RD-SEM\ELECTRONICCIRCUITS_LAB\ELECTRONIC-CIRCUIT-DESIGNS\CLIPPER-CLAMPER\POSITIVE-CLAMPER-WITH-REFERENCE\POSITIVE CLAMPER WITH REFERENCE.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "PAGE1"))))
+      (Page "PAGE1")))
+  (MPSSessionName "amrut"))

@@ -13,7 +13,7 @@
             ("level"	"0")
             ("model_params"
                 ("VALUE"
-                    ("value"	"1uF")
+                    ("value"	"0.47uF")
                     ("pspice_param"	"VALUE")
                 )
                 ("TC2"

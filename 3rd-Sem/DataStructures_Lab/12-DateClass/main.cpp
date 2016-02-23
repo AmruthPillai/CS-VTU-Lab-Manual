@@ -17,7 +17,6 @@ public:
          a[1] = a[3] = a[5] = a[7] = a[8] = a[10] = a[12] = 31;
          a[4] = a[6] = a[9] = a[11] = 30;
          a[2] = 28;
-         dd = mm = yy = 1;
     }
 
     void getDate ();
@@ -36,8 +35,8 @@ void Date :: getDate () {
 void Date :: getNumber () {
     int month = 1;
     dateNumber = (yy * 365) + (yy / 4);
-    if ((yy % 4) > 0)
-    dateNumber++;
+    if ((yy % 4) == 0)
+        dateNumber++;
     while (month != mm) {
         dateNumber += a[month];
         if ((yy % 4 == 0) && (month == 2))

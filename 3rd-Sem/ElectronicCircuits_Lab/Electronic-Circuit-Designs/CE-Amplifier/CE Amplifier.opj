@@ -69,13 +69,13 @@
     (FileView
       (Path "Design Resources")
       (Path "Design Resources"
-         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn")
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\CE-Amplifier\ce amplifier.dsn")
       (Path "Design Resources"
-         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\CE-Amplifier\ce amplifier.dsn"
          "SCHEMATIC1")
       (Path "Outputs")
       (Select "Design Resources"
-         "D:\Documents\Dayanand Sagar College of Engineering\3rd Semester\EC & LD Lab\Electronic Circuit Designs\CE Amplifier\ce amplifier.dsn"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\CE-Amplifier\ce amplifier.dsn"
          "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
@@ -86,12 +86,12 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 52 1691 52 521")
-        (Scroll "90 196")
-        (Zoom "200")
+        (Placement "44 0 1 -1 -1 -8 -31 234 1580 234 703")
+        (Scroll "0 65")
+        (Zoom "137")
         (Occurrence "/"))
       (Path
-         "D:\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\ELECTRONIC CIRCUIT DESIGNS\CE AMPLIFIER\CE AMPLIFIER.DSN")
+         "D:\DOCUMENTS\DESIGN & DEVELOPMENT\GITHUB REPOSITORIES\CS-VTU-LAB-MANUAL\3RD-SEM\ELECTRONICCIRCUITS_LAB\ELECTRONIC-CIRCUIT-DESIGNS\CE-AMPLIFIER\CE AMPLIFIER.DSN")
       (Schematic "SCHEMATIC1")
       (Page "PAGE1")))
   (MPSSessionName "amrut"))

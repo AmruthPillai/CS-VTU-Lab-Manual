@@ -47,7 +47,7 @@ int Octal :: operator + (int numToAdd) {
         octal /= 10;
     }
 
-    return decimal + numToAdd;;
+    return decimal + numToAdd;
 }
 
 // Overloading << operator to display Octal Number

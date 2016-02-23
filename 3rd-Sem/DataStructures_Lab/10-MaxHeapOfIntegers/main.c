@@ -9,7 +9,7 @@ Display the array at the end of insertion phase.
 void maxHeap(int a[], int k) {
     int p, temp;
 
-    while (k != 0) {
+    while (k > 1) {
         p = k / 2;
 
         if (a[p] > a[k])

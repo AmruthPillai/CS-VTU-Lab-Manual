@@ -59,21 +59,30 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Outputs"))
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Relaxation-Oscillator\relaxation oscillator.dsn")
+      (Path "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Relaxation-Oscillator\relaxation oscillator.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircuits_Lab\Electronic-Circuit-Designs\Relaxation-Oscillator\relaxation oscillator.dsn"
+         "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 535"))
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 535"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 52 1639 52 626")
-        (Scroll "314 328")
-        (Zoom "226")
+        (Placement "44 0 1 -1 -1 -8 -31 0 1587 0 574")
+        (Scroll "-17 183")
+        (Zoom "155")
         (Occurrence "/"))
       (Path
-         "D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD LAB\RELAXATION OSCILLATOR\RELAXATION OSCILLATOR.DSN")
+         "D:\DOCUMENTS\DESIGN & DEVELOPMENT\GITHUB REPOSITORIES\CS-VTU-LAB-MANUAL\3RD-SEM\ELECTRONICCIRCUITS_LAB\ELECTRONIC-CIRCUIT-DESIGNS\RELAXATION-OSCILLATOR\RELAXATION OSCILLATOR.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "PAGE1"))))
+      (Page "PAGE1")))
+  (MPSSessionName "amrut"))
