@@ -6,8 +6,8 @@
 
 .model SMALL
 
-Include READCH.INC
-Include PRINTCH.INC
+Include ReadCharacter.inc
+Include PrintCharacter.inc
 
 .data
 	LOC		dB	100	DUP(0)
