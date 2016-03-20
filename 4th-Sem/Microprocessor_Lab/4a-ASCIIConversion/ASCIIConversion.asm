@@ -1,56 +1,65 @@
 ; Assembly Level Program 4a
 ; Read an alphanumeric character and display its equivalent ASCII code at the center of the screen.
 
-.model small
+.model SMALL
+
+CLRSCR MACRO
+	MOV AH, 00h
+	MOV AL, 03h
+	INT 10h
+ENDM
+
+SETCURSOR MACRO
+	MOV AH, 02h
+	MOV BH, 00h
+	MOV DH, 12d
+	MOV DL, 39d
+	INT 10H
+ENDM
 
 .data
-msg db "Enter the charecter to check the ASCII value$"
-no db ?
-ms1 db ' ','-',' '
-bcd db 4 dup(0)
+	MSG1	dB	10, 13, 'Enter an alphanumeric character: $'
 
 .code
-start:   mov ax,@data
-         mov ds,ax
-         lea dx,msg
-         mov ah,09h
-         int 21h
-lp1:   mov ah,01h
-         int 21h
-         cmp al,1ah
-         je ter
-         mov no,al
-         mov al,00h
-         mov cx,00h
-         mov dx,1850h
-         mov ah,06h
-         mov bh,07h
-         int 10h
-         mov dx,0c23h
-         mov ah,02h
-         mov bh,00h
-         int 10h
-         call cvt
-         lea dx,no
-         mov ah,09h
-         int 21h
-         jmp lp1
-ter:   mov ah,4ch
-         int 21h
+	MOV AX, @DATA
+	MOV DS, AX
 
-         cvt proc
-         push bx
-         mov [bcd+3],'$'
-         mov al,no
-         mov cl,0ah
-         mov bx,02h
-lp:      mov ah,00h
-         div cl
-         add ah,'0'
-         mov bcd[bx],ah
-         dec bx
-         jns lp
-         pop bx
-         ret
-         cvt endp
-end start
+	CLRSCR
+	
+	; Print Message in Data Segment
+	LEA DX, MSG1
+	MOV AH, 09h
+	INT 21h
+	
+	; Read Character from User
+	MOV AH, 01h
+	INT 21h
+	
+	MOV AH, 00h
+	MOV BX, 10d
+	PUSH BX
+
+Conversion:
+	MOV DX, 00h
+	DIV BX
+	PUSH DX
+	
+	CMP AX, 00h
+	JNE Conversion
+	
+	SETCURSOR
+
+Display:
+	POP DX
+	CMP DX, 10
+	JE Exit
+	
+	ADD DL, 30h
+	MOV AH, 02h
+	INT 21h
+	JMP Display
+
+Exit:
+	MOV AH, 4Ch
+	INT 21h
+END
