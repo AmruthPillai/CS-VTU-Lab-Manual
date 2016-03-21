@@ -1,13 +1,13 @@
 ; Assembly Level Program 7a
 ; Read your name from the keyboard and display it at a specified location on the screen in front of the message What is your name? You must clear the entire screen before display.
 
+.model SMALL
+
 READCH MACRO LOC
 	MOV AH, 01h
 	INT 21h
 	MOV LOC, AL
 ENDM
-
-.model SMALL
 
 CLRSCR MACRO
 	MOV AH, 00h
