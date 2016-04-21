@@ -25,7 +25,7 @@ int main() {
     for (i = 1; i <= n; i++)
         s[i] = 0;
 
-    printf("The Breadth First Search Traversed is:\n");
+    printf("The Breadth First Search Traversal is:\n");
 
     breadthFirstSearch(a, n, source, s);
 
