@@ -12,14 +12,10 @@ b) Implement a BCD Up-Down Counter on the Logic Controller Interface.
 b) Read the status of two 8-bit inputs (X & Y) from the Logic Controller Interface and display X*Y.
 
 4. a) Read an alphanumeric character and display its equivalent ASCII code at the center of the screen.  
-b) Display messages FIRE and HELP alternately with flickering effects on a 7-segment display interface for a suitable period of time. Ensure a 
-flashing rate that makes it easy to read both the messages (Examiner does not specify these delay values nor is it necessary for the student to 
-compute these values).
+b) Display messages FIRE and HELP alternately with flickering effects on a 7-segment display interface for a suitable period of time. Ensure a flashing rate that makes it easy to read both the messages (Examiner does not specify these delay values nor is it necessary for the student to compute these values).
 
 5. a) Reverse a given string and check whether it is a palindrome or not.  
-b) Assume any suitable message of 12 characters length and display it in the rolling fashion on a 7-segment display interface for a suitable period 
-of time. Ensure a flashing rate that makes it easy to read both the messages. (Examiner does not specify these delay values nor is it 
-necessary for the student to compute these values).
+b) Assume any suitable message of 12 characters length and display it in the rolling fashion on a 7-segment display interface for a suitable period of time. Ensure a flashing rate that makes it easy to read both the messages. (Examiner does not specify these delay values nor is it necessary for the student to compute these values).
 
 6. a) Read two strings, store them in locations STR1 and STR2. Check whether they are equal or not and display appropriate messages. Also 
 display the length of the stored strings.  
@@ -28,8 +24,7 @@ number of times on a 7-segment display interface.
 
 7. a) Read your name from the keyboard and display it at a specified location on the screen after the message "What is your name?" You must 
 clear the entire screen before display.  
-b) Scan a 8 x 3 keypad for key closure and to store the code of the key pressed in a memory location or display on screen. Also display row and 
-column numbers of the key pressed.
+b) Scan a 8 x 3 keypad for key closure and to store the code of the key pressed in a memory location or display on screen. Also display row and column numbers of the key pressed.
 
 8. a) Compute nCr using recursive procedure. Assume that 'n' and 'r' are non-negative integers.  
 b) Drive a Stepper Motor interface to rotate the motor in specified direction (clockwise or counter-clockwise) by N steps (Direction and N 
