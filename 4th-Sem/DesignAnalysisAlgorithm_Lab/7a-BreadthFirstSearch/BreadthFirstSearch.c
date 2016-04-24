@@ -1,16 +1,11 @@
 /*
 Algorithm 7a - Breadth First Search
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 Print all the nodes reachable from a given starting node in a digraph using BFS method.
 */
 
 #include <stdio.h>
 #include <conio.h>
 
-<<<<<<< HEAD
 int breadthFirstSearch(int a[10][10], int n, int source, int s[10]);
 
 int main() {
@@ -58,7 +53,7 @@ int breadthFirstSearch(int a[10][10], int n, int source, int s[10]) {
 
 	return 0;
 }
-=======
+
 void breadthFirstSearch(int a[10][10], int n, int source, int s[100]);
 
 int main() {
@@ -123,4 +118,3 @@ Enter the source node: 5
 The Breadth First Search Traversed is:
  5  3  6  1  4  2
 */
->>>>>>> origin/master
