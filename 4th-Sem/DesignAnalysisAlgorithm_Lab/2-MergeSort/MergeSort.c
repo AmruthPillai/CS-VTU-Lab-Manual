@@ -13,71 +13,76 @@ int merge(int a[], int low, int mid, int high);
 
 int total_threads = 0;
 
-int main() {
+int main()
+{
     int a[1000], n, i;
-        double time_taken;
-        clock_t begin_clock = 0, end_clock = 0;
+    double time_taken;
+    clock_t begin_clock = 0, end_clock = 0;
 
     printf("Enter the number of elements: ");
     scanf("%d", &n);
 
     printf("Entering random values into array:\n");
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         a[i] = rand() % 1000;
         printf("%d ", a[i]);
     }
 
-        begin_clock = clock();
+    begin_clock = clock();
     mergeSort(a, 1, n);
-        end_clock = clock();
+    end_clock = clock();
 
     printf("\nSorted Elements are:\n");
     for (i = 1; i <= n; i++)
         printf("%d ", a[i]);
 
-        time_taken = (end_clock - begin_clock) / (double) CLOCKS_PER_SEC;
+    time_taken = (end_clock - begin_clock) / (double) CLOCKS_PER_SEC;
 
-        printf("\nThe time taken for Merge Sort is: %f\n", time_taken);
-        printf("\nThe total number of threads created were: %d\n", total_threads);
+    printf("\nThe time taken for Merge Sort is: %f\n", time_taken);
+    printf("\nThe total number of threads created were: %d\n", total_threads);
 
     return 0;
 }
 
-int mergeSort(int a[], int low, int high) {
+int mergeSort(int a[], int low, int high)
+{
     int i, j, mid, thread_count, thread_id;
 
-        for (i = 1; i <= 10000; i++)
-                for (j = 1; j <= 1000; j++);
+    for (i = 1; i <= 10000; i++)
+        for (j = 1; j <= 1000; j++);
 
-        #pragma omp parallel shared(a, low, mid, high, thread_count, thread_id)
+    #pragma omp parallel shared(a, low, mid, high, thread_count, thread_id)
+    {
+        if (low < high)
         {
-                if (low < high)
-                {
-                        #pragma omp sections nowait
-                        {
-                                mid = (low + high) / 2;
-                                mergeSort(a, low, mid);
-                                mergeSort(a, mid + 1, high);
-                                merge(a, low, mid, high);
-                        }
-                }
-
-                thread_id = omp_get_thread_num();
-
-                if (thread_id == 0) {
-                        thread_count = omp_get_num_threads();
-
-                        if (total_threads < thread_count)
-                                total_threads = thread_count;
-
-                        printf("\nThe thread being used is: %d", thread_count);
-                }
+            #pragma omp sections nowait
+            {
+                mid = (low + high) / 2;
+                mergeSort(a, low, mid);
+                mergeSort(a, mid + 1, high);
+                merge(a, low, mid, high);
+            }
         }
+
+        thread_id = omp_get_thread_num();
+
+        if (thread_id == 0)
+        {
+            thread_count = omp_get_num_threads();
+
+            if (total_threads < thread_count)
+                total_threads = thread_count;
+
+            printf("\nThe thread being used is: %d", thread_count);
+        }
+    }
 
     return 0;
 }
 
-int merge(int a[], int low, int mid, int high) {
+int merge(int a[], int low, int mid, int high)
+{
     int i = low, j = mid + 1, k = low, b[1000];
 
     while (i <= mid && j <= high)
