@@ -11,8 +11,7 @@ int count = 0;
 int place(int x[10], int k);
 int nQueens(int n);
 
-int main()
-{
+int main() {
     int n;
 
     printf("Enter the number of queens: ");
@@ -23,12 +22,10 @@ int main()
     return 0;
 }
 
-int place(int x[10], int k)
-{
+int place(int x[10], int k) {
     int i, n;
 
-    for (i = 1; i <= k - 1; i++)
-    {
+    for (i = 1; i <= k - 1; i++) {
         if (x[k] == x[i])
             return 0;
 
@@ -39,37 +36,30 @@ int place(int x[10], int k)
     return 1;
 }
 
-int nQueens(int n)
-{
+int nQueens(int n) {
     int k = 1, x[10], i;
 
     x[k] = 0;
 
-    while (k != 0)
-    {
+    while (k != 0) {
         x[k]++;
 
         while (x[k] <= n && place(x, k) == 0)
             x[k]++;
 
-        if (x[k] <= n)
-        {
-            if (k == n)
-            {
+        if (x[k] <= n) {
+            if (k == n) {
                 count++;
 
                 printf("\nThe Solution #%d is: ", count);
 
                 for (i = 1; i <= n; i++)
                     printf(" %d ", x[i]);
-            }
-            else
-            {
+            } else {
                 k++;
                 x[k] = 0;
             }
-        }
-        else
+        } else
             k--;
     }
 
