@@ -13,10 +13,13 @@
 	STR2	dB	10, 13, 'Element Not Found!$'
 	
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 	
+	; Clear AX Register
 	MOV AX, 00h
+	
 	MOV CX, LEN
 	MOV DX, KEY
 	
@@ -27,6 +30,7 @@ Search:
 	MOV BX, CX
 	ADD BX, AX
 	SHR BX, 01h ; Divides by 2
+	
 	MOV SI, BX
 	SHL SI, 01h ; Multiplies with 2
 	
@@ -50,14 +54,18 @@ Found:
 	ADD BL, '1'
 	MOV POS, BL
 	LEA DX, STR1
-	JMP Exit
+	JMP Display
 	
 NotFound:
 	LEA DX, STR2
 	
-Exit:
+Display:
+	; Display Message
 	MOV AH, 09h
 	INT 21h
+	
+Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END

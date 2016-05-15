@@ -36,6 +36,7 @@ UpCounter:
 	CMP AL, 00h
 	JNZ UpCounter
 	
+	; Set Counter to 99
 	MOV DX, PA
 	MOV AL, 99h
 	
@@ -51,6 +52,7 @@ DownCounter:
 	JNZ DownCounter
 	
 Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 	

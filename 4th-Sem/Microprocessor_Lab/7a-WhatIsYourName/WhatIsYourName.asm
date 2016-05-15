@@ -3,26 +3,6 @@
 
 .model SMALL
 
-READCH MACRO LOC
-	MOV AH, 01h
-	INT 21h
-	MOV LOC, AL
-ENDM
-
-CLRSCR MACRO
-	MOV AH, 00h
-	MOV AL, 03h
-	INT 10h
-ENDM
-
-SETCURSOR MACRO
-	MOV AH, 02h
-	MOV BH, 00h
-	MOV DH, 2
-	MOV DL, 20
-	INT 10h
-ENDM
-
 .data
 	MSG1	dB	10, 13, 'Enter your name: $'
 	MSG2	dB	10, 13, 'What is your name? $'
@@ -30,37 +10,59 @@ ENDM
 	ARRAY	dB	40h	DUP(?)
 	
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 	
-	MOV SI, 00h
+	; Point SI to First Position of ARRAY
+	MOV SI, ARRAY
 	
+	; Display Message
 	LEA DX, MSG1
 	MOV AH, 09h
 	INT 21h
 	
 ReadName:
-	READCH ARRAY[SI]
+	; Read Input from Keyboard
+	MOV AH, 01h
+	INT 21h
+	
+	; Copy Input to ARRAY
+	MOV [SI], AL
 	INC SI
-	CMP AL, 13
+	
+	; Check for Return/Enter Key
+	CMP AL, 0Dh
 	JNZ ReadName
 	
-	MOV ARRAY[SI], '$'
+	; Add Terminating Character at End of String
+	MOV [SI], '$'
 	
-	CLRSCR
-	SETCURSOR
+	; Clear Screen
+	MOV AH, 00h
+	MOV AL, 03h
+	INT 10h
 	
+	; Set Cursor to 2x20
+	MOV AH, 02h
+	MOV BH, 00h
+	MOV DH, 2d
+	MOV DL, 20d
+	INT 10h
+	
+	; Display Message
 	LEA DX, MSG2
 	MOV AH, 09h
 	INT 21h
 	
-	MOV SI, 00h
-	
 DisplayName:
-	LEA DX, ARRAY[SI]
+	; Display Message
+	LEA DX, ARRAY
 	MOV AH, 09h
 	INT 21h
 	
+Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END

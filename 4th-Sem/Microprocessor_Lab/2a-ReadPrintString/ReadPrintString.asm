@@ -15,19 +15,26 @@ Include PrintCharacter.inc
 	STR2	dB	10, 13, 'Entered String is: $'
 	
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 	
+	; Clear Counter Register
 	MOV CX, 00h
 	
+	; Display Message
 	LEA DX, STR1
 	MOV AH, 09h
 	INT 21h
 	
+	; Point SI to First Position of LOC
 	LEA SI, LOC
 	
 Read:
+	; Call READCH Macro
 	READCH
+	
+	; Check if Return/Enter Key was pressed
 	CMP AL, 0Dh
 	JE Display
 	
@@ -37,18 +44,22 @@ Read:
 	JMP Read
 	
 Display:
+	; Display Message
 	LEA DX, STR2
 	MOV AH, 09h
 	INT 21h
 	
+	; Point SI to First Position of LOC
 	LEA SI, LOC
 	
 Print:
+	; Call PRINTCH Macro
 	PRINTCH [SI]
 	INC SI
 	Loop Print
 	
+Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END
-	

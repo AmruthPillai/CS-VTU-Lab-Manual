@@ -7,6 +7,7 @@
 	MSG1	dB	10, 13, 'Enter an alphanumeric character: $'
 
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 
@@ -54,6 +55,7 @@ Display:
 	JMP Display
 
 Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END

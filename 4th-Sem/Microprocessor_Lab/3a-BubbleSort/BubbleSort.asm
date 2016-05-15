@@ -8,22 +8,27 @@
 	LEN		dB	$-ARRAY
 	
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 	
+	; Clear Counter Register
 	MOV CX, 00h
+	
 	MOV CL, LEN
 	DEC CL
 	
 OuterLoop:
 	MOV BX, CX
+	
+	; Point SI to First Position of ARRAY
 	LEA SI, ARRAY
 	
 InnerLoop:
 	MOV AL, [SI]
 	INC SI
 	CMP [SI], AL
-	JBE NoSwap
+	JAE NoSwap
 	
 	XCHG [SI], AL
 	MOV [SI-1], AL
@@ -35,6 +40,7 @@ NoSwap:
 	LOOP OuterLoop
 	
 Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END

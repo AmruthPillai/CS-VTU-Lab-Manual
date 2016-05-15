@@ -7,8 +7,10 @@
 	PA	EQU	0E400h
 	PB	EQU	0E401h
 	PC	EQU	0E402h
+	
 	CR	EQU	0E403h
 	CW	dB	82h
+	
 	M1	dB	10, 13, 'Select an 8-bit Number from the Logic Controller Interface...$'
 	
 .code
