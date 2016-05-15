@@ -76,4 +76,17 @@ Display PROC NEAR
 	
 	RET
 Display ENDP
+
+Delay PROC NEAR
+	MOV SI, 0FFFFh
+	Loop1:
+	MOV DI, 04FFFh
+	Loop2:
+	DEC DI
+	JNZ Loop2
+	DEC SI
+	JNZ Loop1
+	RET
+Delay ENDP
+
 END
