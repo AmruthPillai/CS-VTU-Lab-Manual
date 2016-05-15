@@ -12,13 +12,16 @@
 	COUNT	dB	00h
 	
 .code
+	; Initialize Data Segment
 	MOV AX, @DATA
 	MOV DS, AX
 	
+	; Set Control Word Format
 	MOV DX, CR
 	MOV AL, CW
 	OUT DX, AL
 	
+	; Set Counter to 00
 	MOV DX, PA
 	MOV AL, 00h
 	
@@ -27,6 +30,7 @@ UpCounter:
 	CALL Delay
 	
 	INC AL
+	; Decimal Adjust AL after Addition
 	DAA
 	
 	CMP AL, 00h
@@ -40,6 +44,7 @@ DownCounter:
 	CALL Delay
 	
 	DEC AL
+	; Decimal Adjust AL after Subtraction
 	DAS
 	
 	CMP AL, 99h

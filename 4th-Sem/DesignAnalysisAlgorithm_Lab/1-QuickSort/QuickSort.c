@@ -4,12 +4,15 @@ Algorithm 1 - Quick Sort
 Sort a given set of elements using the Quick Sort method and determine the time required to sort the elements. Repeat the experiment for different values of n, the number of elements in the list to be sorted and plot a graph of the time taken versus n. The elements can be read from a file or can be generated using the random number generator.
 */
 
+// Header Files
 #include <stdio.h>
 #include <stdlib.h>
 
+// Function Prototype
 int quickSort(int a[], int low, int high);
 int partition(int a[], int low, int high);
 
+// Main Function
 int main() {
     int a[100], n, i;
 
@@ -18,6 +21,7 @@ int main() {
 
     printf("Entering random values into array:\n");
     for (i = 1; i <= n; i++) {
+        // Generate Random Numbers from 0 to 100
         a[i] = rand() % 100;
         printf("%d ", a[i]);
     }
