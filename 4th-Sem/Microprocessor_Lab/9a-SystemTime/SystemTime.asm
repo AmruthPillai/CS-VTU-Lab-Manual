@@ -1,4 +1,4 @@
-; Assembly Level Program 12a
+; Assembly Level Program 9a
 ; Read the current time from the system and display it in the standard format on the screen. 
 
 .model SMALL

@@ -1,4 +1,4 @@
-; Assembly Level Program 13a
+; Assembly Level Program 10a
 ; Program to simulate a Decimal Up Counter to display 00 to 99.
 
 .model SMALL

@@ -1,5 +1,5 @@
 ; Assembly Level Program 6b
-; Convert a 16-bit binary value (assumed to be an unsigned integer)to BCD and display it from left to right and right to left for specified number of times on a 7-segment display interface.
+; Convert a 16-bit binary value (assumed to be an unsigned integer) to BCD and display it from left to right and right to left for specified number of times on a 7-segment display interface.
 
 .model SMALL
 

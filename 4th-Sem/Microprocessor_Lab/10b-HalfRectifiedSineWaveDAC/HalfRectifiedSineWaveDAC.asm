@@ -1,5 +1,5 @@
 ; Assembly Level Program 10b
-; Generate a Half Rectified Sine wave form using the DAC interface. (The output of the DAC is to be displayed on the CRO).  
+; Generate a Half Rectified Sine Wave form using the DAC interface. (The output of the DAC is to be displayed on the CRO).  
 
 .model SMALL
 

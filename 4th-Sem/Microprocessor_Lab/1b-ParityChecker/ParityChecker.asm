@@ -7,7 +7,6 @@
 	PA	EQU	0E400h
 	PB	EQU	0E401h
 	PC	EQU	0E402h
-	
 	CR	EQU	0E403h
 	CW	dB	82h
 	

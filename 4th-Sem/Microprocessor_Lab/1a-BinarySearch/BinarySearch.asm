@@ -32,7 +32,7 @@ Search:
 	SHR BX, 01h ; Divides by 2
 	
 	MOV SI, BX
-	SHL SI, 01h ; Multiplies with 2
+	SHL SI, 01h ; Multiply with 2
 	
 	CMP ARRAY[SI], DX
 	JB newLow
@@ -51,7 +51,7 @@ newLow:
 	JMP Search
 	
 Found:
-	ADD BL, '1'
+	INC BL
 	MOV POS, BL
 	LEA DX, STR1
 	JMP Display

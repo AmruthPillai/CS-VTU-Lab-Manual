@@ -1,4 +1,4 @@
-; Assembly Level Program 15a
+; Assembly Level Program 12a
 ; Write an Assembly Level Program to create a file with a given File Name
 
 .model SMALL

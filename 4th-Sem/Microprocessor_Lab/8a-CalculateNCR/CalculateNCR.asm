@@ -1,4 +1,4 @@
-; Assembly Level Program 9a
+; Assembly Level Program 8a
 ; Compute nCr using recursive procedure. Assume that ‘n’ and ‘r’ are non-negative integers.
 
 .model SMALL
