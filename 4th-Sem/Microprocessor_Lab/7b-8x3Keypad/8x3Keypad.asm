@@ -80,6 +80,7 @@ Looper:
 	JMP Looper
 
 FirstRow:
+	; Move to First Row, First Column
 	MOV ROW, 31h
 	MOV COL, 31h
 	LEA SI, KEYS
@@ -89,11 +90,14 @@ FirstRow:
 		SHR AL, 01h
 		JC Display
 		
+		; Move to Next Column
 		INC COL
+		; Move to Next Key in Table
 		INC SI
 	JMP Loop1
 	
 SecondRow:
+	; Move to Second Row, First Column
 	MOV ROW, 32h
 	MOV COL, 31h
 	LEA SI, KEYS+8
@@ -103,11 +107,14 @@ SecondRow:
 		SHR AL, 01h
 		JC Display
 		
+		; Move to Next Column
 		INC COL
+		; Move to Next Key in Table
 		INC SI
 	JMP Loop2
 	
 ThirdRow:
+	; Move to Third Row, First Column
 	MOV ROW, 33h
 	MOV COL, 31h
 	LEA SI, KEYS+16
@@ -117,7 +124,9 @@ ThirdRow:
 		SHR AL, 01h
 		JC Display
 		
+		; Move to Next Column
 		INC COL
+		; Move to Next Key in Table
 		INC SI
 	JMP Loop3
 	
@@ -132,6 +141,7 @@ Display:
 	PRINTNUM [SI]
 	
 Exit:
+	; Terminate the Program
 	MOV AH, 4Ch
 	INT 21h
 END
