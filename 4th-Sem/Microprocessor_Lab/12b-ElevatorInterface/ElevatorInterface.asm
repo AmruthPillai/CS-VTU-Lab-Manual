@@ -26,22 +26,26 @@
 	
 	; Move to Ground Floor Initially
 	MOV DX, PA
-	MOV AL, 0Fh
+	MOV AL, 0F0h
 	OUT DX, AL
 	
 	; Point SI to First Position of CLEAR
 	LEA SI, CLEAR
 	
 NoRequest:
+	; Check for User Request till AL not equal to 0Fh
 	CALL Request
 	JZ NoRequest
 	
+	; If AL is 1110
 	SHR AL, 01h
 	JNC GroundFloor
+	; If AL is 1101
 	SHR AL, 01h
 	JNC FirstFloor
-	SHR AL, 01h
+	; If AL is 1011
 	JNC SecondFloor
+	; If AL is 0111
 	JMP ThirdFloor
 	
 GroundFloor:
@@ -50,6 +54,7 @@ GroundFloor:
 	JMP Exit
 
 FirstFloor:
+	; Move Up 3 LEDs
 	MOV CX, 03h
 	LEA SI, CLEAR+1
 	
@@ -57,11 +62,13 @@ FirstFloor:
 	CALL Delay
 	CALL Reset
 	
+	; Move Down 3 LEDs
 	MOV CX, 03h
 	CALL MoveDown
 	JMP Exit
 	
 SecondFloor:
+	; Move Up 6 LEDs
 	MOV CX, 06h
 	LEA SI, CLEAR+2
 	
@@ -69,11 +76,13 @@ SecondFloor:
 	CALL Delay
 	CALL Reset
 	
+	; Move Down 6 LEDs
 	MOV CX, 06h
 	CALL MoveDown
 	JMP Exit
 	
 ThirdFloor:
+	; Move Up 9 LEDs
 	MOV CX, 09h
 	LEA SI, CLEAR+3
 	
@@ -81,6 +90,7 @@ ThirdFloor:
 	CALL Delay
 	CALL Reset
 	
+	; Move Down 9 LEDs
 	MOV CX, 09h
 	CALL MoveDown
 	
@@ -92,25 +102,31 @@ Request PROC NEAR
 	; Wait for Key Press from User
 	MOV DX, PB
 	IN AL, DX
-	; Logical AND with Lower Nibble of AL
+	
+	; Clearing First 4 Bits of AL
 	AND AL, 0Fh
+	
+	; Checking if AL has Any Value
 	CMP AL, 0Fh
 	RET
 Request ENDP
 
 Reset PROC NEAR
 	PUSH AX
+	
 	MOV DX, PA
 	; Fetch Value from CLEAR Table
 	MOV AL, [SI]
 	OUT DX, AL
+	
 	POP AX
 	RET
 Reset ENDP
 
 MoveUp PROC NEAR
+	; Point to the First Floor LED
 	MOV AL, 0F0H
-	MOV DX, PB
+	MOV DX, PA
 	
 	GoUp:
 		OUT DX, AL
@@ -123,7 +139,7 @@ MoveUp PROC NEAR
 MoveUp ENDP
 
 MoveDown PROC NEAR
-	MOV DX, PB
+	MOV DX, PA
 	
 	GoDown:
 		OUT DX, AL
@@ -136,6 +152,7 @@ MoveDown PROC NEAR
 MoveDown ENDP
 
 Delay PROC NEAR
+	PUSH SI
 	MOV SI, 0FFFFh
 	Loop1:
 	MOV DI, 04FFFh
@@ -144,6 +161,7 @@ Delay PROC NEAR
 	JNZ Loop2
 	DEC SI
 	JNZ Loop1
+	POP SI
 	RET
 Delay ENDP
 
