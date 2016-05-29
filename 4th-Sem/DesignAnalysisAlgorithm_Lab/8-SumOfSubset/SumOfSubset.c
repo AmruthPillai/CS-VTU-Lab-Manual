@@ -1,13 +1,13 @@
 /*
 Algorithm 8 - Sum of Subset
+
 Find a subset of a given set S = {sl, s2,.....,sn} of n positive integers whose sum is equal to a given positive integer d. For example, if S= {1, 2, 5, 6, 8} and d = 9 there are two solutions{1,2,6}and{1,8}.
 A suitable message is to be displayed if the given problem instance doesn't have a solution.
 */
 
 #include <stdio.h>
-#include <conio.h>
 
-int n, a[100], i, x[100], total;
+int n, a[100], i, x[100], total, sol_no;
 
 void sumOfSubset(int sum, int k, int rem);
 
@@ -18,27 +18,26 @@ void main() {
     scanf("%d", &n);
 
     printf("Enter the elements: ");
-    for (i = 0; i < n; i++)
+    for (i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+        rem += a[i];
+    }
 
     printf("Enter the sum total to be computed: ");
     scanf("%d", &total);
 
-    for (i = 0; i < n; i++) {
-        x[i] = 0;
-        rem += a[i];
-    }
-
-    sumOfSubset(0, 0, rem);
+    printf("The possible combinations are:\n");
+    sumOfSubset(0, 1, rem);
 }
 
 void sumOfSubset(int sum, int k, int rem) {
     x[k] = 1;
 
     if (sum + a[k] == total) {
-        for (i = 0; i <= k; i++)
+        printf("Solution #%d:\t", ++sol_no);
+        for (i = 1; i <= k; i++)
             if (x[i])
-                printf(" %d ", a[i]);
+                printf("%d\t", a[i]);
         printf("\n");
     } else if (sum + a[k] + a[k + 1] <= total)
         sumOfSubset(sum + a[k], k + 1, rem - a[k]);
@@ -50,18 +49,23 @@ void sumOfSubset(int sum, int k, int rem) {
 }
 
 /*
-OUTPUT:
+Output
+------
 Enter the number of elements: 10
+
 Enter the elements: 1 2 3 4 5 6 7 8 9 10
+
 Enter the sum total to be computed: 10
- 1  2  3  4
- 1  2  7
- 1  3  6
- 1  4  5
- 1  9
- 2  3  5
- 2  8
- 3  7
- 4  6
- 10
+
+The possible combinations are:
+Solution #1:    1       2       3       4
+Solution #2:    1       2       7
+Solution #3:    1       3       6
+Solution #4:    1       4       5
+Solution #5:    1       9
+Solution #6:    2       3       5
+Solution #7:    2       8
+Solution #8:    3       7
+Solution #9:    4       6
+Solution #10:   10
 */

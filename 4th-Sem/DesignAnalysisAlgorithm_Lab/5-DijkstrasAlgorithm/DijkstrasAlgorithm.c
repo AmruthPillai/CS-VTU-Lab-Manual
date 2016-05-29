@@ -5,7 +5,6 @@ From a given vertex in a weighted connected graph, find shortest paths to other 
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int dijkstrasAlgorithm(int a[10][10], int n, int source);
 
@@ -29,11 +28,12 @@ int main() {
 }
 
 int dijkstrasAlgorithm(int a[10][10], int n, int source) {
-    int d[10], s[10], i, j, min, u, v;
+    int d[10], s[10], p[10], i, j, min, u, v;
 
     for (i = 1; i <= n; i++) {
         d[i] = a[source][i];
         s[i] = 0;
+        p[i] = source;
     }
 
     s[source] = 1;
@@ -50,12 +50,52 @@ int dijkstrasAlgorithm(int a[10][10], int n, int source) {
 
         s[u] = 1;
 
-        for (v = 1; v <= n; v++)
-            if (s[v] == 0 && ( d[u] + a[u][v] ) < d[v])
+        for (v = 1; v <= n; v++) {
+            if (s[v] == 0 && d[v] > ( d[u] + a[u][v] )) {
                 d[v] = d[u] + a[u][v];
+                p[v] = u;
+            }
+        }
     }
 
-    printf("Source to Destination\n");
-    for (i = 1; i <= n; i++)
-        printf("%d => %d is %d\n", source, i, d[i]);
+    printf("Shortest Path from All Vertices are:\n");
+    for (i = 1; i <= n; i++) {
+        if (d[i] == 0)
+            printf("%d <- %d = %d\n", i, source, d[i]);
+        else {
+            j = i;
+
+            while (j != source) {
+                printf("%d <- ", j);
+                j = p[j];
+            }
+
+            printf("%d = %d\n", source, d[i]);
+        }
+    }
 }
+
+/*
+Output
+------
+Enter the number of nodes: 6
+
+Enter the Cost Adjacency Matrix:
+0 15 10 999 45 999
+999 0 15 999 20 999
+20 999 0 20 999 999
+999 10 999 0 35 999
+999 999 999 30 0 999
+999 999 999 4 999 0
+
+Enter the source node: 6
+
+Shortest Path from All Vertices are:
+1 <- 3 <- 2 <- 4 <- 6 = 49
+2 <- 4 <- 6 = 14
+3 <- 2 <- 4 <- 6 = 29
+4 <- 6 = 4
+5 <- 2 <- 4 <- 6 = 34
+6 <- 6 = 0
+*/
+

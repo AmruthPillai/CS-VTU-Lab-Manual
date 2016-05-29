@@ -5,18 +5,17 @@ Obtain the Topological ordering of vertices in a given digraph.
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int topologicalSort(int a[10][10], int n, int flag[10]);
+int topologicalSort(int a[10][10], int n, int indegree[10]);
 
 int main() {
-    int a[10][10], flag[10], i, j, n;
+    int a[10][10], indegree[10], i, j, n;
 
     printf("Enter the number of nodes: ");
     scanf("%d", &n);
 
     for (i = 1; i <= n; i++)
-        flag[i] = 0;
+        indegree[i] = 0;
 
     printf("Enter the Adjacency Matrix:\n");
     for (i = 1; i <= n; i++) {
@@ -24,29 +23,45 @@ int main() {
             scanf("%d", &a[i][j]);
 
             if (a[i][j] == 1)
-                flag[j]++;
+                indegree[j]++;
         }
     }
 
     printf("The Topological Sorted Order is:\n");
-    topologicalSort(a, n, flag);
+    topologicalSort(a, n, indegree);
 
     return 0;
 }
 
-int topologicalSort(int a[10][10], int n, int flag[10]) {
+int topologicalSort(int a[10][10], int n, int indegree[10]) {
     int i, j;
 
     for (i = 1; i <= n; i++) {
-        if (flag[i] == 0) {
-            printf("%d ", i);
-            flag[i] = -1;
+        if (indegree[i] == 0) {
+            printf("%d\t", i);
+            indegree[i] = -1;
 
             for (j = 1; j <= n; j++)
                 if (a[i][j] == 1)
-                    flag[j]--;
+                    indegree[j]--;
 
-            i = 0;
+            i = 1;
         }
     }
 }
+
+/*
+Output
+------
+Enter the number of nodes: 5
+
+Enter the Adjacency Matrix:
+0 0 1 0 0
+0 0 1 0 0
+0 0 0 1 1
+0 0 0 0 0
+0 0 0 1 0
+
+The Topological Sorted Order is:
+1   2   3   5   4
+*/

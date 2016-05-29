@@ -1,10 +1,10 @@
 /*
 Algorithm 2 - Merge Sort
+
 Using OpenMP, implement a parallelized Merge Sort algorithm to sort a given set of elements and determine the time required to sort the elements. Repeat the experiment for different values of n, the number of elements in the list to be sorted and plot a graph of the time taken versus n. The elements can be read from a file or can be generated using the random number generator.
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <omp.h>
 #include <time.h>
 
@@ -37,8 +37,8 @@ int main() {
 
     time_taken = (end_clock - begin_clock) / (double) CLOCKS_PER_SEC;
 
-    printf("\nThe time taken for Merge Sort is: %f\n", time_taken);
-    printf("\nThe total number of threads created were: %d\n", total_threads);
+    printf("\nThe time taken for Merge Sort is: %f", time_taken);
+    printf("\nThe total number of threads created were: %d", total_threads);
 
     return 0;
 }
@@ -97,3 +97,21 @@ int merge(int a[], int low, int mid, int high) {
     for (i = low; i <= high; i++)
         a[i] = b[i];
 }
+
+/*
+Output
+------
+Enter the number of elements: 10
+
+Entering random values into array:
+41 467 334 500 169 724 478 358 962 464
+
+The thread being used is: 8
+The thread being used is: 1
+
+Sorted Elements are:
+41 169 334 358 464 467 478 500 724 962
+
+The time taken for Merge Sort is: 0.415000
+The total number of threads created were: 8
+*/

@@ -5,7 +5,6 @@ Find Minimum Cost Spanning Tree of a given undirected graph using Kruskal's algo
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 struct edge {
 	int begv, endv, cost;
@@ -33,7 +32,7 @@ int main() {
 }
 
 int getParent(int parent[20], int v) {
-	while (parent[v] != 1)
+	while (parent[v])
 		v = parent[v];
 
 	return v;
@@ -43,6 +42,7 @@ int kruskals(int a[10][10], int n) {
 	E e[100], temp;
 	int count = 0, i, j, parent[20], sum = 0, parent_i, parent_j, no_of_edges = 0;
 
+    // Creating Sparse Structure for Non-Zero Edges
 	for (i = 1; i <= n; i++) {
 		for (j = 1; j <= n; j++) {
 			if (a[i][j] != 0 && a[i][j] != 999) {
@@ -54,26 +54,22 @@ int kruskals(int a[10][10], int n) {
 		}
 	}
 
-	for (i = 1; i <= count - 1; i++) {
-		for (j = 1; j <= count - 1; j++) {
+	count--;
+
+    // Sorting the Edges in Ascending Order
+    for (i = 1; i <= count; i++) {
+		for (j = 1; j <= count; j++) {
 			if (e[j + 1].cost < e[j].cost) {
-				temp.begv = e[j + 1].begv;
-				temp.endv = e[j + 1].endv;
-				temp.cost = e[j + 1].cost;
-
-				e[j + 1].begv = e[j].begv;
-				e[j + 1].endv = e[j].endv;
-				e[j + 1].cost = e[j].cost;
-
-				e[j].begv = temp.begv;
-				e[j].endv = temp.endv;
-				e[j].cost = temp.cost;
+				temp = e[j + 1];
+				e[j + 1] = e[j];
+				e[j] = temp;
 			}
 		}
-	}
+    }
 
+    // Initializing Parent Array to 0
 	for (i = 1; i <= n; i++)
-		parent[i] = -1;
+		parent[i] = 0;
 
 	for (i = 1; i <= count; i++) {
 		parent_i = getParent(parent, e[i].begv);
@@ -94,3 +90,25 @@ int kruskals(int a[10][10], int n) {
 
 	return 0;
 }
+
+/*
+Output
+------
+Enter the number of nodes: 6
+
+Enter the cost adjacency matrix:
+0 6 999 2 999 999
+6 0 3 1 999 999
+999 3 0 999 4 9
+2 1 999 0 8 999
+999 999 4 8 0 7
+999 999 9 999 7 0
+
+2 -> 4 = 1
+1 -> 4 = 2
+2 -> 3 = 3
+3 -> 5 = 4
+5 -> 6 = 7
+
+The cost of minimum spanning tree is: 17
+*/

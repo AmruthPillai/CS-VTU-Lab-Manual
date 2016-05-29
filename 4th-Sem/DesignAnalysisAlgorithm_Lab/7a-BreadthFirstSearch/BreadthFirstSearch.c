@@ -1,15 +1,15 @@
 /*
 Algorithm 7a - Breadth First Search
+
 Print all the nodes reachable from a given starting node in a digraph using BFS method.
 */
 
 #include <stdio.h>
-#include <conio.h>
 
-int breadthFirstSearch(int a[10][10], int n, int source, int s[10]);
+int breadthFirstSearch(int a[10][10], int n, int source);
 
 int main() {
-	int a[10][10], n, source, s[10], i, j;
+	int a[10][10], n, source, visited[10], i, j;
 
 	printf("Enter the number of nodes: ");
 	scanf("%d", &n);
@@ -19,52 +19,74 @@ int main() {
 		for (j = 1;  j <= n; j++)
 			scanf("%d", &a[i][j]);
 
-	for (i = 1; i <= n; i++)
-		s[i] = 0;
-
 	printf("Enter the source node: ");
 	scanf("%d", &source);
 
-	breadthFirstSearch(a, n, source, s);
+	breadthFirstSearch(a, n, source);
 
 	return 0;
 }
 
-int breadthFirstSearch(int a[10][10], int n, int source, int s[10]) {
-	int f = 1, r = 1, q[10], i;
+int breadthFirstSearch(int a[10][10], int n, int source) {
+	int f = 1, r = 1, k = 1, q[10], t[10][2], i, visited[10] = {0};
 
 	q[r++] = source;
-	s[source] = 1;
+	visited[source] = 1;
 
 	while (f < r) {
 		source = q[f++];
 
 		for (i = 1; i <= n; i++) {
-			if ( s[i] == 0 && a[source][i] == 1 ) {
+			if ( visited[i] == 0 && a[source][i] == 1 ) {
 				q[r++] = i;
-				s[i] = 1;
+				visited[i] = 1;
+
+				t[k][0] = source;
+				t[k][1] = i;
+				k++;
 			}
 		}
 	}
 
-	printf("The elements according to Breadth First Search are:\n");
 	for (i = 1; i <= n; i++)
-		printf(" %d ", q[i]);
+		if (visited[i])
+			printf("%d is reachable\n", i);
+		else
+			printf("%d is not reachable\n", i);
+
+	printf("The Breadth First Search Traversal is:\n");
+	for (i = 1; i < k; i++)
+		printf("%d -> %d\n", t[i][0], t[i][1]);
 
 	return 0;
 }
 
 /*
-OUTPUT:
+Output
+------
 Enter the number of nodes: 6
-Enter the cost adjacency matrix:
+
+Enter the adjacency matrix:
 0 1 1 0 0 0
 1 0 0 1 0 0
 1 0 0 0 1 0
 0 1 0 0 0 1
 0 0 1 0 0 1
 0 0 0 1 1 0
+
 Enter the source node: 5
-The Breadth First Search Traversed is:
- 5  3  6  1  4  2
+
+1 is reachable
+2 is reachable
+3 is reachable
+4 is reachable
+5 is reachable
+6 is reachable
+
+The Breadth First Search Traversal is:
+5 -> 3
+5 -> 6
+3 -> 1
+6 -> 4
+1 -> 2
 */

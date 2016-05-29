@@ -6,10 +6,11 @@ Implement N Queen's problem using Back Tracking
 
 #include <stdio.h>
 
-int count = 0;
+int x[10], count;
 
-int place(int x[10], int k);
-int nQueens(int n);
+int nQueens(int k, int n);
+int place(int k, int i);
+int display(int n);
 
 int main() {
     int n;
@@ -17,51 +18,75 @@ int main() {
     printf("Enter the number of queens: ");
     scanf("%d", &n);
 
-    nQueens(n);
+    nQueens(1, n);
+
+    if (count == 0)
+        printf("\nNo possible solutions for the number of queens!");
+    else
+        printf("\nNumber of possible solutions for %d queens is: %d", n, count);
 
     return 0;
 }
 
-int place(int x[10], int k) {
-    int i, n;
+int nQueens(int k, int n) {
+    int i;
 
-    for (i = 1; i <= k - 1; i++) {
-        if (x[k] == x[i])
-            return 0;
+    for (i = 1; i <= n; i++) {
+        if ( place(k, i) ) {
+            x[k] = i;
 
-        if (abs(i - k) == abs(x[i] - x[k]))
-            return 0;
+            if (k == n)
+                display(n);
+            else
+                nQueens(k + 1, n);
+        }
     }
+}
+
+int place(int k, int i) {
+    int j;
+
+    for (j = 1; j < k; j++)
+        if ( (x[j] == i) || (j - x[j] == k - i) || (j + x[j] == k + i) )
+            return 0;
 
     return 1;
 }
 
-int nQueens(int n) {
-    int k = 1, x[10], i;
+int display(int n) {
+    int i, j;
+    char c[10][10];
 
-    x[k] = 0;
+    for (i = 1; i <= n; i++)
+        for (j = 1; j <= n; j++)
+            c[i][j] = '-';
 
-    while (k != 0) {
-        x[k]++;
+    for (i = 1; i <= n; i++)
+        c[i][x[i]] = 'Q';
 
-        while (x[k] <= n && place(x, k) == 0)
-            x[k]++;
-
-        if (x[k] <= n) {
-            if (k == n) {
-                count++;
-
-                printf("\nThe Solution #%d is: ", count);
-
-                for (i = 1; i <= n; i++)
-                    printf(" %d ", x[i]);
-            } else {
-                k++;
-                x[k] = 0;
-            }
-        } else
-            k--;
+    printf("\nSolution #%d:\n", ++count);
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++)
+            printf("%c\t", c[i][j]);
+        printf("\n");
     }
-
-    return 0;
 }
+
+/*
+OUTPUT:
+Enter the number of queens: 4
+
+Solution #1:
+-       Q       -       -
+-       -       -       Q
+Q       -       -       -
+-       -       Q       -
+
+Solution #2:
+-       -       Q       -
+Q       -       -       -
+-       -       -       Q
+-       Q       -       -
+
+Number of possible solutions for 4 queens is: 2
+*/

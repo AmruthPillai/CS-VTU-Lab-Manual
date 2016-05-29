@@ -1,7 +1,10 @@
 /*
 Algorithm 10 - Prim's Algorithm
+
 Find Minimum Cost Spanning Tree of a given undirected graph using Prim's algorithm.
 */
+
+#include <stdio.h>
 
 int primsAlgorithm(int a[10][10], int n, int source);
 
@@ -43,11 +46,9 @@ int primsAlgorithm(int a[10][10], int n, int source) {
         min = 999;
 
         for (j = 1; j <= n; j++) {
-            if (s[j] == 0) {
-                if (d[j] < min) {
-                    min = d[j];
-                    u = j;
-                }
+            if (s[j] == 0 && d[j] < min) {
+                min = d[j];
+                u = j;
             }
         }
 
@@ -63,14 +64,18 @@ int primsAlgorithm(int a[10][10], int n, int source) {
 }
 
 /*
-OUTPUT:
+Output
+------
 Enter the number of nodes: 5
+
 Enter the cost adjacency matrix:
 0 16 2 8 10
 16 0 2 4 20
 8 2 0 18 12
 8 4 18 0 3
 16 20 12 3 0
+
 Enter the source node: 1
+
 Cost of Minimum Spanning Tree is 11!
 */

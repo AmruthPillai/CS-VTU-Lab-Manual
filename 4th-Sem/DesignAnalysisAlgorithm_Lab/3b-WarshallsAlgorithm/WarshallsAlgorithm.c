@@ -5,12 +5,11 @@ Compute the transitive closure of a given directed graph using Warshall's algori
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int warshallsAlgorithm(int a[10][10], int n);
 
 int main() {
-    int a[10][10], flag[10], i, j, n;
+    int a[10][10], i, j, n;
 
     printf("Enter the number of nodes: ");
     scanf("%d", &n);
@@ -39,4 +38,24 @@ int warshallsAlgorithm(int a[10][10], int n) {
         for (i = 1; i <= n; i++)
             for (j = 1; j <= n; j++)
                 a[i][j] = a[i][j] || ( a[i][k] && a[k][j] );
+
+    return 0;
 }
+
+/*
+Output
+------
+Enter the number of nodes: 4
+
+Enter the Adjacency Matrix:
+0 1 1 1
+1 0 0 0
+1 0 0 0
+1 0 0 0
+
+The Path Matrix after Applying Transitive Closure is:
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+*/

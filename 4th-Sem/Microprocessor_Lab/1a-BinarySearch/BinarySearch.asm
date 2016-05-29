@@ -52,6 +52,8 @@ newLow:
 	
 Found:
 	INC BL
+	; Convert BL to ASCII
+	ADD BL, 30h
 	MOV POS, BL
 	LEA DX, STR1
 	JMP Display
