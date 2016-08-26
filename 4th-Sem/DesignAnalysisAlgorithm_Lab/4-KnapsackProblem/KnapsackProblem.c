@@ -21,7 +21,7 @@ int main() {
     for (i = 1; i <= n; i++)
         scanf("%d", &weight[i]);
 
-    printf("Enter the values of each item: ");
+    printf("Enter the profits of each item: ");
     for (i = 1; i <= n; i++)
         scanf("%d", &cost[i]);
 

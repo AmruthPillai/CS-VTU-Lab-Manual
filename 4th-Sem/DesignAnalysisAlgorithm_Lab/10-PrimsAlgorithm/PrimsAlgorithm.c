@@ -46,7 +46,7 @@ int primsAlgorithm(int a[10][10], int n, int source) {
         min = 999;
 
         for (j = 1; j <= n; j++) {
-            if (s[j] == 0 && d[j] < min) {
+            if (s[j] == 0 && min > d[j]) {
                 min = d[j];
                 u = j;
             }

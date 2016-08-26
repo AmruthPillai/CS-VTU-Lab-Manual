@@ -40,7 +40,7 @@ int getParent(int parent[20], int v) {
 
 int kruskals(int a[10][10], int n) {
 	E e[100], temp;
-	int count = 0, i, j, parent[20], sum = 0, parent_i, parent_j, no_of_edges = 0;
+	int count = 0, i, j, parent[20] = {0}, sum = 0, parent_i, parent_j, no_of_edges = 0;
 
     // Creating Sparse Structure for Non-Zero Edges
 	for (i = 1; i <= n; i++) {
@@ -67,10 +67,7 @@ int kruskals(int a[10][10], int n) {
 		}
     }
 
-    // Initializing Parent Array to 0
-	for (i = 1; i <= n; i++)
-		parent[i] = 0;
-
+    printf("Minimum Spanning Tree Path is:\n");
 	for (i = 1; i <= count; i++) {
 		parent_i = getParent(parent, e[i].begv);
 		parent_j = getParent(parent, e[i].endv);

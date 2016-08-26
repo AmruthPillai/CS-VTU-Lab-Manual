@@ -10,7 +10,7 @@ int quickSort(int a[], int low, int high);
 int partition(int a[], int low, int high);
 
 int main() {
-    int a[100], n, i;
+    int a[1000], n, i;
 
     printf("Enter the number of elements: ");
     scanf("%d", &n);

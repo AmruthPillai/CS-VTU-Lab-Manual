@@ -73,7 +73,8 @@ int display(int n) {
 }
 
 /*
-OUTPUT:
+Output
+------
 Enter the number of queens: 4
 
 Solution #1:

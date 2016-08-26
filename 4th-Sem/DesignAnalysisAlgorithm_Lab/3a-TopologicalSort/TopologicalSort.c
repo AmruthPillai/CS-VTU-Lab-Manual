@@ -9,13 +9,10 @@ Obtain the Topological ordering of vertices in a given digraph.
 int topologicalSort(int a[10][10], int n, int indegree[10]);
 
 int main() {
-    int a[10][10], indegree[10], i, j, n;
+    int a[10][10], indegree[10] = {0}, i, j, n;
 
     printf("Enter the number of nodes: ");
     scanf("%d", &n);
-
-    for (i = 1; i <= n; i++)
-        indegree[i] = 0;
 
     printf("Enter the Adjacency Matrix:\n");
     for (i = 1; i <= n; i++) {
@@ -39,7 +36,7 @@ int topologicalSort(int a[10][10], int n, int indegree[10]) {
     for (i = 1; i <= n; i++) {
         if (indegree[i] == 0) {
             printf("%d\t", i);
-            indegree[i] = -1;
+            indegree[i]--;
 
             for (j = 1; j <= n; j++)
                 if (a[i][j] == 1)

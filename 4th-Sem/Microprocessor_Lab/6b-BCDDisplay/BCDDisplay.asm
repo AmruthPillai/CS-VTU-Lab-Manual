@@ -30,16 +30,16 @@
 	MOV AX, NUM
 	
 	MOV BX, 10000d
-	CALL CONV
+	CALL Convert
 	
 	MOV BX, 1000d
-	CALL CONV
+	CALL Convert
 	
 	MOV BX,100d
-	CALL CONV
+	CALL Convert
 
 	MOV BX,10d
-	CALL CONV
+	CALL Convert
 	
 	MOV [SI], DL
 	MOV CX, 05h
@@ -87,8 +87,9 @@ Exit:
 	INT 21h
 
 Convert PROC NEAR
-	XOR DX, DX
+	MOV DX, 00h
 	DIV BX
+	
 	MOV [SI], AL
 	MOV AX, DX
 	INC SI

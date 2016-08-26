@@ -28,11 +28,10 @@ int main() {
 }
 
 int dijkstrasAlgorithm(int a[10][10], int n, int source) {
-    int d[10], s[10], p[10], i, j, min, u, v;
+    int d[10], s[10] = {0}, p[10], i, j, min, u, v;
 
     for (i = 1; i <= n; i++) {
         d[i] = a[source][i];
-        s[i] = 0;
         p[i] = source;
     }
 
@@ -42,7 +41,7 @@ int dijkstrasAlgorithm(int a[10][10], int n, int source) {
         min = 999;
 
         for (j = 1; j <= n; j++) {
-            if (s[j] == 0 && d[j] < min) {
+            if (s[j] == 0 && min > d[j]) {
                 min = d[j];
                 u = j;
             }

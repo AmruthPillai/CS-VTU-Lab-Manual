@@ -9,6 +9,7 @@ Implement All-Pairs Shortest Paths Problem using Floyd's algorithm. Parallelize 
 
 int total_threads;
 
+int minimum(int a, int b);
 void floydsAlgorithm(int a[10][10], int n);
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
     printf("All-Pairs Shortest Paths is as follows:\n");
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= n; j++)
-            printf(" %d ", a[i][j]);
+            printf("d ", a[i][j]);
         printf("\n");
     }
 
@@ -39,6 +40,10 @@ int main() {
     printf("\nThe time taken to perform Floyd's Algorithm is: %f\n", time_taken);
 
     return 0;
+}
+
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
 }
 
 void floydsAlgorithm(int a[10][10], int n) {
@@ -52,17 +57,10 @@ void floydsAlgorithm(int a[10][10], int n) {
     {
         #pragma omp sections nowait
         {
-        for (k = 1; k <= n; k++) {
-            for (i = 1; i <= n; i++) {
-                for (j = 1; j <= n; j++) {
-                    min = a[i][j];
-
-                    if (a[i][k] + a[k][j] < a[i][j])
-                        a[i][j] = a[i][k] + a[k][j];
-                }
-                a[i][j] = min;
-            }
-        }
+            for (k = 1; k <= n; k++)
+                for (i = 1; i <= n; i++)
+                    for (j = 1; j <= n; j++)
+                        a[i][j] = minimum(a[i][j], a[i][k] + a[k][j]);
         }
 
         thread_id = omp_get_thread_num();
