@@ -20,13 +20,7 @@ Example: 3+5=8
 	expr:expr'+'expr {$$=$1+$3;}
 	    |expr'-'expr {$$=$1-$3;}
 	    |expr'*'expr {$$=$1*$3;}
-	    |expr'/'expr 
-	     {
-	     	if($3==0)
-	     		yyerror("Cannot Divide by Zero!");
-	     	else
-	     		{$$=$1/$3;}
-	     }
+	    |expr'/'expr {$$=$1/$3;}
 	    |'('expr')' {$$=$2;}
 	    |NUMBER
 	    ;
@@ -58,6 +52,11 @@ Example: 3+5=8
 	.		return yytext[0];
 	\n		return 0;
 	%%
+
+## How to Run:  
+    yacc -d 5a.y  
+    lex 5a.l  
+    cc lex.yy.c y.tab.c y.tab.h  
 
 ##Output:
 	1. Enter the expression
