@@ -1,8 +1,9 @@
 ##Aim:
-Program to recognize strings 'aaab', 'abbb', 'ab' and 'a' using the grammar (anbn, n>= 0).
+Program to recognize strings 'aaab', 'abbb', 'ab' and 'a' using the grammar (a^nb^n, n >= 0).
 
 ##Description: 
-<p>The program has three parts defination section,rule section,subroutine section. The program accepts equal number of a's and b's as valid inputs. The grammar is S->A S B, A->a ,b->b . </p>
+The program has three parts defination section, rule section, subroutine section. The program accepts equal number of a's and b's as valid inputs.  
+The grammar is S->A S B, A->a ,b->b.
 
 ##Program: 5b.y (Yacc Specification)
 ##Code:
@@ -45,24 +46,24 @@ Program to recognize strings 'aaab', 'abbb', 'ab' and 'a' using the grammar (anb
 	\n return 0;
 	%%
 
-## How to Run:  
-    yacc -d 5b.y  
-    lex 5b.l  
-    cc lex.yy.c y.tab.c y.tab.h  
+## How to Run:
+    yacc -d 5b.y
+    lex 5b.l
+    cc lex.yy.c y.tab.c y.tab.h
 
-###Output:
+##Output:
 	Enter a string of a's and b's:
 	aaab
 	Invalid Grammar
-	
+
 	Enter a string of a's and b's:
 	abbb
 	Invalid Grammar
-	
+
 	Enter a string of a's and b's:
 	ab
 	Valid Grammar
-	
+
 	Enter a string of a's and b's:
 	a
 	Invalid Grammar
