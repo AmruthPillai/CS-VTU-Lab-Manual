@@ -30,10 +30,10 @@ The program has three parts:definition section,rule section,subroutine section. 
 	{
 		printf("Enter a string of a's and b's:\n");
 		yyparse();
-		if(count>=10)
-		printf("Valid Grammar\n");
+		if (count >= 10)
+			printf("Valid Grammar\n");
 		else
-		printf("Invalid Grammar\n");
+			printf("Invalid Grammar\n");
 	}
 
 ##Program: 6.l (Lex Specification)
