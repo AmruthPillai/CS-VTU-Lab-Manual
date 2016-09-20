@@ -44,6 +44,7 @@ Example for invalid expressions are a+* or (23*3)/(78 etc.
     %{
     #include"y.tab.h"
     %}
+    %option noyywrap
     %%
     [0-9]+                  return NUMBER;
     [a-zA-Z][a-zA-Z0-9]*    return ID;
@@ -51,22 +52,19 @@ Example for invalid expressions are a+* or (23*3)/(78 etc.
     \n                      return 0;
     %%
 
+## How to Run:  
+    yacc -d 04a_RecognizeOperators.y  
+    lex 04a_RecognizeOperators.l  
+    cc lex.yy.c y.tab.c y.tab.h  
 
+##Output:  
+    1.Enter the expression
+    a+b
+    Valid expression
 
-##Output:
-
-1.Enter the expression
-
-a+b
-
-Valid expression
-
-
-2.Enter the expression
-
-a+
-
-Invalid expression
+    2.Enter the expression
+    a+
+    Invalid expression
 
 
 
