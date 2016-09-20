@@ -46,18 +46,18 @@ Example: 3+5=8
 
 ##Program: 5a.l (LEX specification)
 ##Code:
-%{
-	#include "y.tab.h"
-	extern int yylval;
-%}
-
-%option noyywrap
-
-%%
-[0-9]+		{yylval=atoi(yytext); return NUMBER;}
-.		return yytext[0];
-\n		return 0;
-%%
+	%{
+		#include "y.tab.h"
+		extern int yylval;
+	%}
+	
+	%option noyywrap
+	
+	%%
+	[0-9]+		{yylval=atoi(yytext); return NUMBER;}
+	.		return yytext[0];
+	\n		return 0;
+	%%
 
 ##Output:
 	1. Enter the expression
