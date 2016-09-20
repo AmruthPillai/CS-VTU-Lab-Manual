@@ -5,7 +5,7 @@ Program to recognize a valid arithmetic expression that uses operators +, -, * a
 This program checks if the given arithmetic expression is valid or not.An arithmetic expression contains operators like +,-,* and /. For example : 12+23-8 or (a+b)*c etc are valid expressions.
 Example for invalid expressions are a+* or (23*3)/(78 etc.
 
-##Program : 4a.y (Yacc Specification)
+##Program: 4a.y (Yacc Specification)
 ##Code:
 	%{
 		#include <stdio.h>
@@ -37,7 +37,7 @@ Example for invalid expressions are a+* or (23*3)/(78 etc.
 		exit(0);
 	}
 
-##Program :4a.l (Lex Specification)
+##Program: 4a.l (Lex Specification)
 ##Code:
 	%{
 		#include "y.tab.h"
@@ -53,8 +53,8 @@ Example for invalid expressions are a+* or (23*3)/(78 etc.
 	%%
 
 ## How to Run:  
-    yacc -d 04a_RecognizeOperators.y  
-    lex 04a_RecognizeOperators.l  
+    yacc -d 4a.y  
+    lex 4a.l  
     cc lex.yy.c y.tab.c y.tab.h  
 
 ##Output:  
