@@ -1,0 +1,7 @@
+student{clear:both;float:left;}
+name {  background: red; color: white }
+usn {  color: red;}
+collegeName { display:none}
+branch {color:orange;text-align: right; }
+year{background: red; color: yellow; }
+email{color: blue;}
