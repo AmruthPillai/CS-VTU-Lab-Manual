@@ -1,7 +1,7 @@
 %{
-	int a[4] = {0, 0, 0, 0};
-	int valid = 1, i;
-	int nop = 0;
+int a[4] = {0, 0, 0, 0};
+int valid = 1, i;
+int nop = 0;
 %}
 %x OPER
 %%

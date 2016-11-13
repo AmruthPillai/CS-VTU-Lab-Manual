@@ -1,3 +1,9 @@
+%{
+#include <stdlib.h>
+%}
+
+%name parse
+
 %token NUMBER
 %left '+''-''*''/'
 %%
