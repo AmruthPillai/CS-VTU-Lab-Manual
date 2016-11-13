@@ -1,4 +1,10 @@
+%{
+#include <stdlib.h>
+%}
+
+%name parse
 %token DIGIT ALPHA
+
 %%
 var:ALPHA
 |var ALPHA
@@ -7,14 +13,14 @@ var:ALPHA
 %%
 
 int yyerror() {
-	printf("Invalid Expression.\n");
+	printf("Invalid Variable.\n");
 	exit(0);
 }
 
 int main(int argc, char *argv[]) {
 	printf("Enter the variable: ");
 	yyparse();
-	printf("Valid Variable.");
+	printf("Valid Variable.\n");
 	return 0;
 }
 
