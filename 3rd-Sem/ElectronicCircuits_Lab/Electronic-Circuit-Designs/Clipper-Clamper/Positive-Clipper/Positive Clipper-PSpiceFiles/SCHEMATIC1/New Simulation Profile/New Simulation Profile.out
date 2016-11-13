@@ -1,0 +1,115 @@
+
+**** 11/16/15 19:55:32 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-New Simulation Profile"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\E
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "New Simulation Profile.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 5ms 0 0.01ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source POSITIVE CLIPPER
+V_V1         N00174 0  
++SIN 0 5 1K 0 0 0
+D_D1         N00181 N00174 D1N4002 
+R_R1         N00188 N00181  1K TC=0,0 
+V_V2         N00188 0 2
+
+**** RESUMING "New Simulation Profile.cir" ****
+.END
+
+**** 11/16/15 19:55:32 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-New Simulation Profile"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\E
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         
+          IS   14.110000E-09 
+           N    1.984        
+         ISR  100.000000E-12 
+         IKF   94.81         
+          BV  100.1          
+         IBV   10            
+          RS     .03389      
+          TT    4.761000E-06 
+         CJO   51.170000E-12 
+          VJ     .3905       
+           M     .2762       
+
+
+**** 11/16/15 19:55:32 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-New Simulation Profile"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\E
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00174)    0.0000 (N00181)     .5905 (N00188)    2.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         1.410E-03
+    V_V2        -1.410E-03
+
+    TOTAL POWER DISSIPATION   2.82E-03  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 11/16/15 19:55:32 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-New Simulation Profile"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\E
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .08
+

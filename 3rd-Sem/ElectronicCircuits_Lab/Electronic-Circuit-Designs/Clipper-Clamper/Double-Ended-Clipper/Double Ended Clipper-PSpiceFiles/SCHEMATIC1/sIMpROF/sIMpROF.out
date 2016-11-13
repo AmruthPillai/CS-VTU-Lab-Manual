@@ -1,0 +1,118 @@
+
+**** 11/16/15 19:59:26 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sIMpROF"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "sIMpROF.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 5ms 0 0.01ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source DOUBLE ENDED CLIPPER
+V_V1         N00225 0  
++SIN 0 5 1k 0 0 0
+D_D1         N00232 N00239 D1N4002 
+D_D2         N00269 N00232 D1N4002 
+R_R1         N00225 N00232  1K TC=0,0 
+V_V2         N00239 0 2
+V_V3         0 N00269 2
+
+**** RESUMING sIMpROF.cir ****
+.END
+
+**** 11/16/15 19:59:26 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sIMpROF"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         
+          IS   14.110000E-09 
+           N    1.984        
+         ISR  100.000000E-12 
+         IKF   94.81         
+          BV  100.1          
+         IBV   10            
+          RS     .03389      
+          TT    4.761000E-06 
+         CJO   51.170000E-12 
+          VJ     .3905       
+           M     .2762       
+
+
+**** 11/16/15 19:59:26 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sIMpROF"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00225)    0.0000 (N00232) 316.6E-24 (N00239)    2.0000 (N00269)   -2.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         3.166E-25
+    V_V2        -1.428E-08
+    V_V3        -1.428E-08
+
+    TOTAL POWER DISSIPATION   5.71E-08  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 11/16/15 19:59:26 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-sIMpROF"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .05
+

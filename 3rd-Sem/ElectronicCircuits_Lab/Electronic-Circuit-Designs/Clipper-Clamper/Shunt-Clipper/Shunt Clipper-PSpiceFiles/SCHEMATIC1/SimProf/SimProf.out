@@ -1,0 +1,115 @@
+
+**** 11/05/15 19:39:35 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD Lab\Sh
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "SimProf.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\Amruth Pillai\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 5ms 0 0.01ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source SHUNT CLIPPER
+V_V1         N00151 0  
++SIN 0 5 1K 0 0 0
+D_D1         N00158 N00165 D1N4002 
+R_R1         N00151 N00158  1K TC=0,0 
+V_V2         N00165 0 2
+
+**** RESUMING SimProf.cir ****
+.END
+
+**** 11/05/15 19:39:35 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD Lab\Sh
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D1N4002         
+          IS   14.110000E-09 
+           N    1.984        
+         ISR  100.000000E-12 
+         IKF   94.81         
+          BV  100.1          
+         IBV   10            
+          RS     .03389      
+          TT    4.761000E-06 
+         CJO   51.170000E-12 
+          VJ     .3905       
+           M     .2762       
+
+
+**** 11/05/15 19:39:35 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD Lab\Sh
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00151)    0.0000 (N00158) 14.28E-06 (N00165)    2.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         1.428E-08
+    V_V2        -1.428E-08
+
+    TOTAL POWER DISSIPATION   2.86E-08  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 11/05/15 19:39:35 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\DOCUMENTS\DROPBOX\DOCUMENTS\DAYANAND SAGAR COLLEGE OF ENGINEERING\3RD SEMESTER\EC & LD Lab\Sh
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .02
+

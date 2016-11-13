@@ -1,0 +1,171 @@
+
+**** 11/26/15 16:31:30 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "SimProf.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\Users\amrut\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/16.6.0/PSpice.ini file:
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 5ms 0 0.01ms 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source SCHMITT TRIGGER
+X_U1         N00281 N00285 N000562 N000563 N00370 uA741
+V_V1         0 N000563 10
+V_V2         N000562 0 10
+V_V3         N00285 0  
++SIN 0 10 100 0 0 0
+R_R1         N00277 N00281  1k TC=0,0 
+R_R2         N00281 N00370  1k TC=0,0 
+V_V4         N00277 0 0
+
+**** RESUMING SimProf.cir ****
+.END
+
+**** 11/26/15 16:31:30 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 11/26/15 16:31:30 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+       LEVEL    1            
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+         ISS    0            
+          RE    0            
+          RC    0            
+         CJE    0            
+         VJE     .75         
+         CJC    0            
+         VJC     .75         
+         MJC     .33         
+        XCJC    1            
+         CJS    0            
+         VJS     .75         
+          KF    0            
+          AF    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 11/26/15 16:31:30 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00277)    0.0000 (N00281)-19.25E-06 (N00285)    0.0000 (N00370) 41.22E-06     
+
+(X_U1.6)-5.019E-09 (X_U1.7) 44.25E-06 (X_U1.8) 44.25E-06 (X_U1.9)    0.0000     
+
+(N000562)   10.0000                   (N000563)  -10.0000                       
+
+(X_U1.10)    -.6077                   (X_U1.11)    9.9603                       
+
+(X_U1.12)    9.9603                   (X_U1.13)    -.5938                       
+
+(X_U1.14)    -.5938                   (X_U1.53)    9.0000                       
+
+(X_U1.54)   -9.0000                   (X_U1.90) 60.48E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.116E-03
+    V_V2        -1.116E-03
+    V_V3        -7.977E-08
+    V_V4        -1.925E-08
+    X_U1.vb     -5.019E-14
+    X_U1.vc      9.001E-12
+    X_U1.ve      9.001E-12
+    X_U1.vlim    6.048E-08
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   2.23E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 11/26/15 16:31:30 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-SimProf"  [ D:\Documents\Design & Development\GitHub Repositories\CS-VTU-Lab-Manual\3rd-Sem\ElectronicCircui
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .05
+
