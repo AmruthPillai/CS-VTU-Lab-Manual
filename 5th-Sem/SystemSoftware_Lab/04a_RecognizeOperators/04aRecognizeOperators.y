@@ -1,14 +1,20 @@
+%{
+#include <stdlib.h>
+%}
+
+%name parse
+
 %token NUMBER ID
-%token '+''-'
-%token '*''/'
+%left '+''-'
+%left '*''/'
+
 %%
 exp:exp'+'exp
 |exp'-'exp
 |exp'*'exp
 |exp'/'exp
 |NUMBER
-|ID
-;
+|ID ;
 %%
 
 int main(int argc, char *argv[]) {

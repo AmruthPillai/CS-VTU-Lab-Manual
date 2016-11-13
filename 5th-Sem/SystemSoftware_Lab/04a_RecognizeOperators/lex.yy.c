@@ -285,12 +285,11 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 	*yy_cp = '\0'; \
 	yy_c_buf_p = yy_cp;
 
-#define YY_NUM_RULES 6
-#define YY_END_OF_BUFFER 7
-static yyconst short int yy_accept[17] =
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
+static yyconst short int yy_accept[11] =
     {   0,
-        0,    0,    0,    0,    7,    6,    6,    3,    4,    3,
-        2,    1,    5,    2,    1,    0
+        0,    0,    6,    4,    3,    1,    2,    1,    2,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -299,16 +298,16 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    1,    1,    1,    1,    4,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    3,    3,    3,
+        3,    3,    3,    3,    3,    3,    3,    1,    1,    1,
+        1,    1,    1,    1,    4,    4,    4,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
+        1,    1,    1,    1,    1,    1,    4,    4,    4,    4,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
+        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -327,33 +326,31 @@ static yyconst int yy_ec[256] =
 
 static yyconst int yy_meta[5] =
     {   0,
-        1,    2,    1,    3
+        1,    1,    2,    3
     } ;
 
-static yyconst short int yy_base[21] =
+static yyconst short int yy_base[13] =
     {   0,
-       13,   12,    0,    0,   14,   18,    2,   18,   18,    0,
-        0,    0,   18,    0,    0,   18,    6,    8,    9,   12
+        0,    0,    8,    9,    9,    0,    0,    0,    0,    9,
+        5,    3
     } ;
 
-static yyconst short int yy_def[21] =
+static yyconst short int yy_def[13] =
     {   0,
-       17,   17,   16,    3,   16,   16,   16,   16,   16,   18,
-       19,   20,   16,   19,   20,    0,   16,   16,   16,   16
+       10,    1,   10,   10,   10,   11,   12,   11,   12,    0,
+       10,   10
     } ;
 
-static yyconst short int yy_nxt[23] =
+static yyconst short int yy_nxt[14] =
     {   0,
-        8,    9,   10,    8,   11,   12,    6,    6,    6,   14,
-       13,   14,   15,   16,   15,    7,    7,    5,   16,   16,
-       16,   16
+        4,    5,    6,    7,    9,    9,    8,   10,    3,   10,
+       10,   10,   10
     } ;
 
-static yyconst short int yy_chk[23] =
+static yyconst short int yy_chk[14] =
     {   0,
-        3,    3,    3,    3,    7,    7,   17,   17,   17,   19,
-       18,   19,   20,    5,   20,    2,    1,   16,   16,   16,
-       16,   16
+        1,    1,    1,    1,   12,   12,   11,    3,   10,   10,
+       10,   10,   10
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -367,13 +364,11 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "01bCommentLines.l"
+#line 1 "04aRecognizeOperators.l"
 #define INITIAL 0
-#line 2 "01bCommentLines.l"
-int c = 0;
-#define COMMENT 1
-
-#line 377 "lex.yy.c"
+#line 2 "04aRecognizeOperators.l"
+#include "y.tab.h"
+#line 372 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -535,9 +530,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 5 "01bCommentLines.l"
+#line 4 "04aRecognizeOperators.l"
 
-#line 541 "lex.yy.c"
+#line 536 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -588,13 +583,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 17 )
+				if ( yy_current_state >= 11 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 18 );
+		while ( yy_base[yy_current_state] != 9 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -622,37 +617,31 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 6 "01bCommentLines.l"
-{ c++; }
+#line 5 "04aRecognizeOperators.l"
+return NUMBER;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 7 "01bCommentLines.l"
-{ BEGIN COMMENT; }
+#line 6 "04aRecognizeOperators.l"
+return ID;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "01bCommentLines.l"
-;
+#line 7 "04aRecognizeOperators.l"
+return 0;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 9 "01bCommentLines.l"
-;
+#line 8 "04aRecognizeOperators.l"
+return yytext[0];
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 10 "01bCommentLines.l"
-{ BEGIN 0; c++; }
-	YY_BREAK
-case 6:
-YY_RULE_SETUP
-#line 11 "01bCommentLines.l"
+#line 9 "04aRecognizeOperators.l"
 ECHO;
 	YY_BREAK
-#line 654 "lex.yy.c"
+#line 644 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
-case YY_STATE_EOF(COMMENT):
 	yyterminate();
 
 	case YY_END_OF_BUFFER:
@@ -943,7 +932,7 @@ static yy_state_type yy_get_previous_state()
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 17 )
+			if ( yy_current_state >= 11 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -978,11 +967,11 @@ yy_state_type yy_current_state;
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 17 )
+		if ( yy_current_state >= 11 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 16);
+	yy_is_jam = (yy_current_state == 10);
 
 	return yy_is_jam ? 0 : yy_current_state;
 	}
@@ -1541,21 +1530,5 @@ int main()
 	return 0;
 	}
 #endif
-#line 11 "01bCommentLines.l"
+#line 9 "04aRecognizeOperators.l"
 
-
-int main(int argc, char *argv[]) {
-	if (argc != 3) {
-		printf("No input file provided!\n");
-		return 0;
-	} else {
-		yyin = fopen(argv[1], "r");
-		yyout = fopen(argv[2], "w");
-		yylex();
-		printf("Number of comments in the file is %d.\n", c);
-	}
-}
-
-int yywrap() {
-	return 1;
-}

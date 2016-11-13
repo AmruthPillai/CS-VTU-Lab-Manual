@@ -1,5 +1,5 @@
 %{
-	int char_count = 0, word_count = 0, line_count = 0, space_count = 0;
+int char_count = 0, word_count = 0, line_count = 0, space_count = 0;
 %}
 %%
 [^ \t\n]+ { word_count++; char_count+=yyleng; }
