@@ -7,5 +7,6 @@ WHERE S.snum IN (SELECT E1.snum
 	WHERE E1.cname = C1.cname AND
 		E2.cname = C2.cname AND
 		E1.snum = E2.snum AND
+		-- <> means 'NOT EQUAL TO'
 		C1.cname <> C2.cname AND
 		C1.meets_at = C2.meets_at);
