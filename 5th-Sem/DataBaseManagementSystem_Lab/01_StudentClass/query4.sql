@@ -3,12 +3,11 @@
 SELECT DISTINCT F.fname
 FROM Faculty F
 WHERE NOT EXISTS (
-			SELECT * 
-			FROM Class C
-			WHERE (C.room) NOT IN (
-						SELECT C1.room
-						FROM Class C1
-						WHERE C1.fid = F.fid
-					)
-		)
-; 
+	SELECT *
+	FROM Class C1
+	WHERE C1.room NOT IN (
+		SELECT C2.room
+		FROM Class C2
+		WHERE C2.fid = F.fid
+	)
+);
