@@ -1,20 +1,16 @@
 -- Find the author of the book which has maximum sales.
 
-SELECT DISTINCT A.NAME
-FROM Author A, Catalog C, OrderDetails ODM
-WHERE 
-	A.authorid = C.authorid AND 
-	ODM.bookid = C.bookid AND
-	EXISTS (
-			SELECT OD.bookid, SUM(OD.quantity)
-			FROM OrderDetails OD
-			WHERE OD.bookid = ODM.bookid
-			GROUP BY bookid
-			HAVING SUM(OD.quantity) >= ALL (
-							SELECT SUM(quantity)
-							FROM OrderDetails
-							GROUP BY bookid
-							)
+SELECT A.name
+FROM Author A
+WHERE A.authorid IN (
+	SELECT BC.authorid
+	FROM Book_Catalog BC
+	WHERE BC.bookid IN (
+		SELECT OD.bookid
+		FROM Order_Details OD
+		WHERE OD.quantity = (
+			SELECT MAX(OD.quantity)
+			FROM Order_Details OD
 		)
-;
-			
+	)
+);
