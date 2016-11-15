@@ -14,7 +14,9 @@
 ##Contributors
 
 1. Amruth Pillai ( [Facebook](https://www.facebook.com/AmruthPillai) | [GitHub](https://github.com/AmruthPillai) )
+2. Rohan Kumar ( [GitHub](https://github.com/Rohan-Kumar) )
 2. Shreesha KS ( [GitHub](https://github.com/SreeshaKS) )
+2. Varsha Jambunathan ( [GitHub](https://github.com/VarshaJambunathan) )
 
 Please feel free to fork this repository and make the changes you feel, and if the updated code is much easier to read and understand, create a pull request and I'll have it merged with the master repo. You will also be listed as a noted contributor to the repo.
 Do spread the word and let every CS student be benefitted by this generic source of information.
