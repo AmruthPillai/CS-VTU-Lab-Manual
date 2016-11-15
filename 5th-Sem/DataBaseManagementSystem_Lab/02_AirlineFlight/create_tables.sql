@@ -5,14 +5,15 @@ CREATE TABLE Flights (
 	ffrom VARCHAR(15),
 	tto VARCHAR(15),
 	distance INTEGER,
-	departs TIMESTAMP,
-	arrives TIMESTAMP,
+	-- DATE Format: 'DD-MON-YY'
+	-- DATE Example: '31-DEC-12'
+	departs DATE,
+	arrives DATE,
 	price REAL,
 	PRIMARY KEY (flno)
 );
 
 DESC Flights;
-
 
 -- Creating Aircraft table
 
@@ -25,7 +26,6 @@ CREATE TABLE Aircraft (
 
 DESC Aircraft;
 
-
 -- Creating Employees table
 
 CREATE TABLE Employees (
@@ -36,7 +36,6 @@ CREATE TABLE Employees (
 );
 
 DESC Employees;
-
 
 -- Creating Certified table
 
@@ -49,4 +48,3 @@ CREATE TABLE Certified (
 );
 
 DESC Certified;
-
