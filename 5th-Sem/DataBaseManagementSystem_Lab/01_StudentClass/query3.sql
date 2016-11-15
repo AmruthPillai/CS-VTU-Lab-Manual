@@ -2,7 +2,8 @@
 
 SELECT DISTINCT S.sname
 FROM Student S
-WHERE S.snum IN (SELECT E1.snum
+WHERE S.snum IN (
+	SELECT E1.snum
 	FROM Enrolled E1, Enrolled E2, Class C1, Class C2
 	WHERE E1.cname = C1.cname AND
 		E2.cname = C2.cname AND
