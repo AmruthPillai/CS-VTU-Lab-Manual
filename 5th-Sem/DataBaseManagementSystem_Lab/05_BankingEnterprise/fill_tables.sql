@@ -1,85 +1,67 @@
 -- Filling Branch table with values
 
-INSERT INTO Branch VALUES
-	('CHAMRAJPET', 'BANGALORE', 50000),
-	('RESIDENCY ROAD', 'BANGALORE', 10000),
-	('M G ROAD', 'BOMBAY', 100000),
-	('CP', 'DELHI', 100000),
-	('JANTARMANTAR', 'DELHI', 100000)
-;
+INSERT INTO Branch VALUES ('CHAMRAJPET', 'BANGALORE', 50000);
+INSERT INTO Branch VALUES ('RESIDENCY ROAD', 'BANGALORE', 10000);
+INSERT INTO Branch VALUES ('M G ROAD', 'BOMBAY', 100000);
+INSERT INTO Branch VALUES ('CP', 'DELHI', 100000);
+INSERT INTO Branch VALUES ('JANTARMANTAR', 'DELHI', 100000);
 
-SELECT * FROM Branch;		
+SELECT * FROM Branch;
 
+-- Filling Account table with values
 
--- Filling BankAccount table with values
+INSERT INTO Account VALUES (1, 'CHAMRAJPET', 2000);
+INSERT INTO Account VALUES (2, 'RESIDENCY ROAD', 5000);
+INSERT INTO Account VALUES (3, 'M G ROAD', 6000);
+INSERT INTO Account VALUES (4, 'CP', 9999);
+INSERT INTO Account VALUES (5, 'JANTARMANTAR', 999);
+INSERT INTO Account VALUES (6, 'M G ROAD', 999);
+INSERT INTO Account VALUES (8, 'RESIDENCY ROAD', 999);
+INSERT INTO Account VALUES (9, 'CP', 10000);
+INSERT INTO Account VALUES (10, 'RESIDENCY ROAD', 5000);
+INSERT INTO Account VALUES (11, 'JANTARMANTAR', 9999);
 
-INSERT INTO BankAccount VALUES
-	(1, 'CHAMRAJPET', 2000),
-	(2, 'RESIDENCY ROAD', 5000),
-	(3, 'M G ROAD', 6000),
-	(4, 'CP', 9999),
-	(5, 'JANTARMANTAR', 999),
-	(6, 'M G ROAD', 999),
-	(8, 'RESIDENCY ROAD', 999),
-	(9, 'CP', 10000),
-	(10, 'RESIDENCY ROAD', 5000),
-	(11, 'JANTARMANTAR', 9999)
-;
+SELECT * FROM Account;
 
-SELECT * FROM BankAccount;
+-- Filling Customer table with values
 
+INSERT INTO Customer VALUES ('ANNE', 'BULL TEMPLE ROAD', 'BANGALORE');
+INSERT INTO Customer VALUES ('DANNY', 'BANNERGATTA ROAD', 'BANGALORE');
+INSERT INTO Customer VALUES ('TOM', 'J C ROAD', 'BANGALORE');
+INSERT INTO Customer VALUES ('NICK', 'CP', 'DELHI');
+INSERT INTO Customer VALUES ('ROVER', 'JANTARMANTAR', 'DELHI');
 
--- Filling BankCustomer table with values
+SELECT * FROM Customer;
 
-INSERT INTO BankCustomer VALUES
-	('ANNE', 'BULL TEMPLE ROAD', 'BANGALORE'),
-	('DANNY', 'BANNERGATTA ROAD', 'BANGALORE'),
-	('TOM', 'J C ROAD', 'BANGALORE'),
-	('NICK', 'CP', 'DELHI'),
-	('ROVER', 'JANTARMANTAR', 'DELHI')
-;
+-- Filling Depositor table with values
 
-SELECT * FROM BankCustomer;
+INSERT INTO Depositor VALUES ('ANNE', 1);
+INSERT INTO Depositor VALUES ('DANNY', 2);
+INSERT INTO Depositor VALUES ('NICK', 4);
+INSERT INTO Depositor VALUES ('ROVER', 5);
+INSERT INTO Depositor VALUES ('ANNE', 8);
+INSERT INTO Depositor VALUES ('NICK', 9);
+INSERT INTO Depositor VALUES ('DANNY', 10);
+INSERT INTO Depositor VALUES ('NICK', 11);
 
-
--- Filling Depositer table with values
-
-INSERT INTO Depositer VALUES
-	('ANNE', 1),
-	('DANNY', 2),	
-	('NICK', 4),
-	('ROVER', 5),	
-	('ANNE', 8),
-	('NICK', 9),
-	('DANNY', 10),
-	('NICK', 11)
-;
-
-SELECT * FROM Depositer;
-
+SELECT * FROM Depositor;
 
 -- Filling Loan table with values
 
-INSERT INTO Loan VALUES
-	(1, 'CHAMRAJPET', 1000),
-	(2, 'RESIDENCY ROAD', 2000),
-	(3, 'M G ROAD', 3000),
-	(4, 'CP', 4000),
-	(5, 'JANTARMANTAR', 5000)
-;
+INSERT INTO Loan VALUES(1, 'CHAMRAJPET', 1000);
+INSERT INTO Loan VALUES(2, 'RESIDENCY ROAD', 2000);
+INSERT INTO Loan VALUES(3, 'M G ROAD', 3000);
+INSERT INTO Loan VALUES(4, 'CP', 4000);
+INSERT INTO Loan VALUES(5, 'JANTARMANTAR', 5000);
 
 SELECT * FROM Loan;
 
-
 -- Filling Borrower table with values
 
-INSERT INTO Borrower VALUES
-	('ANNE', 1),
-	('ANNE', 2),
-	('TOM', 3),
-	('NICK', 4),
-	('ROVER', 5)
-;
+INSERT INTO Borrower VALUES ('ANNE', 1);
+INSERT INTO Borrower VALUES ('ANNE', 2);
+INSERT INTO Borrower VALUES ('TOM', 3);
+INSERT INTO Borrower VALUES ('NICK', 4);
+INSERT INTO Borrower VALUES ('ROVER', 5);
 
 SELECT * FROM Borrower;
-
