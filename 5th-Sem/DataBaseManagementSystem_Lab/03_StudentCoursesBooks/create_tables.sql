@@ -10,32 +10,29 @@ CREATE TABLE Student (
 
 DESC Student;
 
-
 -- Creating Course table
 
 CREATE TABLE Course (
-	course INT,
+	courseno INT,
 	cname VARCHAR(30),
 	dept VARCHAR(30),
-	PRIMARY KEY (course)
+	PRIMARY KEY (courseno)
 ); 
 
 DESC Course;
-
 
 -- Creating Enroll table
 
 CREATE TABLE Enroll (
 	regno VARCHAR(30),
-	course INT,
+	courseno INT,
 	sem INT,
 	marks INT,
-	PRIMARY KEY (regno, course, sem),
+	PRIMARY KEY (regno, courseno),
 	FOREIGN KEY (regno) REFERENCES Student(regno),
-	FOREIGN KEY (course) REFERENCES Course(course)); 
+	FOREIGN KEY (courseno) REFERENCES Course(courseno)); 
 
 DESC Enroll;
-
 
 -- Creating Text table
 
@@ -49,18 +46,15 @@ CREATE TABLE Text (
 
 DESC Text;
 
+-- Creating Book_Adoption table
 
--- Creating BookAdoption table
-
-CREATE TABLE BookAdoption (
-	course INT,
+CREATE TABLE Book_Adoption (
+	courseno INT,
 	sem INT,
 	bookisbn INT,
-	PRIMARY KEY (course, sem, bookisbn),
-	FOREIGN KEY (course) REFERENCES Course (course),
+	PRIMARY KEY (courseno, bookisbn),
+	FOREIGN KEY (courseno) REFERENCES Course (courseno),
 	FOREIGN KEY (bookisbn) REFERENCES Text (bookisbn)
 ); 
 
-DESC BookAdoption;
-
-
+DESC Book_Adoption;

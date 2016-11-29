@@ -10,7 +10,6 @@ CREATE TABLE Author (
 
 DESC Author;
 
-
 -- Creating Publisher table
 
 CREATE TABLE Publisher (
@@ -23,21 +22,19 @@ CREATE TABLE Publisher (
 
 DESC Publisher;
 
+-- Creating Book_Category table
 
--- Creating BookCategory table
-
-CREATE TABLE BookCategory (
+CREATE TABLE Book_Category (
 	categoryid INT ,
 	description VARCHAR(30),
 	PRIMARY KEY (categoryid)
 );
 
-DESC BookCategory;
+DESC Book_Category;
 
+-- Creating Book_Catalog table
 
--- Creating Catalog table
-
-CREATE TABLE Catalog (
+CREATE TABLE Book_Catalog (
 	bookid INT,
 	title VARCHAR(30),
 	authorid INT,
@@ -48,20 +45,19 @@ CREATE TABLE Catalog (
 	PRIMARY KEY (bookid),
 	FOREIGN KEY (authorid) REFERENCES Author (authorid),
 	FOREIGN KEY (publisherid) REFERENCES Publisher (publisherid),
-	FOREIGN KEY (categoryid) REFERENCES BookCategory (categoryid)
+	FOREIGN KEY (categoryid) REFERENCES Book_Category (categoryid)
 );
 
-DESC Catalog;
+DESC Book_Catalog;
 
+-- Creating Order_Details table
 
--- Creating OrderDetails table
-
-CREATE TABLE OrderDetails (
+CREATE TABLE Order_Details (
 	orderno INT,
 	bookid INT,
 	quantity INT,
 	PRIMARY KEY (orderno, bookid),
-	FOREIGN KEY (bookid) REFERENCES Catalog(bookid)
+	FOREIGN KEY (bookid) REFERENCES Book_Catalog(bookid)
 );
 
-DESC OrderDetails;
+DESC Order_Details;

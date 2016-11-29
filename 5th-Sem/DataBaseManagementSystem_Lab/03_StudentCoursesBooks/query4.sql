@@ -1,19 +1,15 @@
--- Produce a list of text books (include Course #, Book-ISBN, Book-title) in the alphabetical order for courses
--- offered by the ‘CS’ department that use more than two books.
+-- Produce a list of text books (include Course Number, Book ISBN, Book Title) in the alphabetical order for courses offered by the ‘CS’ department that use more than two books.
 
-SELECT C.course, T.bookisbn, T.booktitle 
-FROM Course C, BookAdoption BA, Text T 
-WHERE 
-	C.course = BA.course AND
+SELECT C.courseno, T.bookisbn, T.booktitle
+FROM Course C, Book_Adoption BA, Text T
+WHERE C.courseno = BA.courseno AND
 	BA.bookisbn = T.bookisbn AND 
 	C.dept = 'CS' AND
 	EXISTS (
 			SELECT *
-			FROM BookAdoption BA1
-			WHERE BA1.course = C.course
-			GROUP BY BA1.course
-			HAVING COUNT(BA1.course) > 2
+			FROM Book_Adoption BA1
+			WHERE BA1.courseno = C.courseno
+			GROUP BY BA1.courseno
+			HAVING COUNT(BA1.courseno) > 2
 		) 
-ORDER BY T.booktitle
-
-; 
+ORDER BY T.booktitle;

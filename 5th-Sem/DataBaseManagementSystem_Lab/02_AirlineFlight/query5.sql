@@ -2,8 +2,6 @@
 
 SELECT DISTINCT E.ename 
 FROM Employees E, Certified C, Aircraft A
-WHERE 
-	E.eid = C.eid AND
+WHERE E.eid = C.eid AND
 	A.aid = C.aid AND
-	A.aname = 'Boeing'
-;
+	A.aname = 'Boeing';

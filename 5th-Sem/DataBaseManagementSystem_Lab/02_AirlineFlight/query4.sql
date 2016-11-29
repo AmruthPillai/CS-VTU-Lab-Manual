@@ -1,13 +1,8 @@
--- For all aircraft with cruisingrange over 1000 Kms,. Find the name of the aircraft and the average salary of all 
--- pilots certified for this aircraft.
+-- For all aircraft with cruising range over 1000 Kms, find the name of the aircraft and the average salary of all pilots certified for this aircraft.
 
-SELECT A.aname, AVG (E.SALARY) 
+SELECT A.aname, AVG(E.salary) 
 FROM Aircraft A, Certified C, Employees E
-WHERE 
-	A.aid = C.aid AND
-	C.eid = E.eid AND 
+WHERE A.aid = C.aid AND
+	E.eid = C.eid AND
 	A.cruisingrange > 1000
-
-GROUP BY A.aid, A.aname
-
-;
+GROUP BY A.aid, A.aname;
