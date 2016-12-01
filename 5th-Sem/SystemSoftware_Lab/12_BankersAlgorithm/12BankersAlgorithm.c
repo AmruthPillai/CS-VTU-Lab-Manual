@@ -1,115 +1,170 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 
-#define true 1
-#define false 0
+int n,m,i,j; //n=no. of processes, m= recources
+int all[10][10],max[10][10],need[10][10],avail[10],work[10],req[10];
+int count=0;
 
-int process,count,m,i,sequence[15];
-int n,alloc[10][10],max[10][10],avail[10],work[10],finish[10];
-int j,need[10][10],a;
+struct process {
+	char process[10]; // to name the process like process=0 implies process 0 = P0
+	int flag; //used to check safe sequence
+} p[10];
 
-void init();
-void readmatrix(int T[10][10]);
-void readvector(int V[10]);
-void findneed();
-void printtable(int T[10][10]);
-void selectprocess();
-void executeprocess(int p);
-void releaseresource();
-
-void main() {
-	init();
-	findneed();
-	do {
-		selectprocess();
-		executeprocess(process);
-		releaseresource();
-		finish[process]=true;
-	} while(count < m);
-
-	printf("Safe Sequence is:\n");
-	for(i = 0; i < m; i++)
-		printf("%d\t",sequence[i]);
-	exit(0);
-}
-
-void init() {
-	printf("Enter the no. of processes:\n");
-	scanf("%d",&m);
-	printf("Enter the no. of resources:\n");
+void input() {
+	printf("\n Enter total num of processes:");
 	scanf("%d",&n);
-	printf("Enter the Allocation Matrix:\n");
-	readmatrix(alloc);
-	printf("Enter the Maximum Matrix:\n");
-	readmatrix(max);
-	printf("Enter the Available Vector:\n");
-	readvector(avail);
+	for(i=0;i<n;i++) {
+		printf("\nprocess:-");
+		scanf("%s",p[i].process);
+	}
+	printf("\nEnter the number of resources:");
+	scanf("%d",&m);
 
-	for(i=0;i<n;i++)
-		work[i]=avail[i];
+	printf("\nEnter allocation matrix:");
+	for(i=0;i<n;i++) {
+		for(j=0;j<m;j++) {
+			scanf("%d",&all[i][j]);
+		}
+	}
 
-	for(i=0;i<m;i++)
-		finish[i]=false;
-}
+	printf("\nEnter max matrix:");
+	for(i=0;i<n;i++) {
+		for(j=0;j<m;j++) {
+			scanf("%d",&max[i][j]);
+		}
+	}
 
-void readmatrix(int T[10][10]) {
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++)
-			scanf("%d",&T[i][j]);
-}
-
-void readvector(int V[10]) {
-	for(i=0;i<n;i++)
-		scanf("%d",&V[i]);
-}
-
-void findneed() {
-	for(i=0;i<m;i++)
-		for(j=0;j<n;j++)
-			need[i][j]=max[i][j]-alloc[i][j];
-	printf("Need Matrix is:\n");
-	printtable(need);
-}
-
-void printtable(int T[10][10]) {
-	for(i=0;i<m;i++) {
-		for(j=0;j<n;j++)
-			printf("%d\t",T[i][j]);
+	printf("\nNeed Matrix:");
+	for(i=0;i<n;i++) {
+		for(j=0;j<m;j++) {
+			need[i][j]=max[i][j]-all[i][j];
+			printf("%d",need[i][j]);
+		}
 		printf("\n");
 	}
+
+	printf("\n Enter Available");
+	for(i=0;i<m;i++) {
+		scanf("%d",&avail[i]);
+	}
 }
 
-void selectprocess() {
-	int flag;
-	for(i=0;i<m;i++) {
-		for(j=0;j<n;j++) {
-			if(need[i][j]<=work[j])
-				flag=1;
-			else {
-				flag=0;
-				break;
+void safeseq() {
+	int sseq[10],ss=0,chk=0,chki=0;
+
+	for(j=0;j<m;j++)
+        work[j] = avail[j];//initialise work=available
+
+	for(i=0;i<n;i++)
+        p[i].flag = 0;//initialise finish[i]=false for i=0,1,2...
+
+	while(count != n) {
+		for(i=0;i<n;i++) {
+			chk=0;
+			for(j=0;j<m;j++) {
+				if(p[i].flag==0) {
+					if(need[i][j]<=work[j])
+                        chk++;
+				}
+
+				if(chk==m) 	{
+					for(j=0;j<m;j++) {
+						work[j] = work[j]+all[i][j];
+						p[i].flag = 1;
+					}
+					sseq[ss] = i;
+					ss++;
+					count++;
+				}
 			}
 		}
+	}
+	for(i=0;i<n;i++) {
+		if(p[i].flag==1)
+            chki++;
+	}
 
-		if(flag==1 && finish[i]==false) {
-			process=i;
-			count++;
-			break;
+	if(chki>=n) {
+		printf("\n System is in safe state");
+		for(i=0;i<n;i++)
+            printf("%d",sseq[i]);
+	} else
+		printf("\nsystem is not safe");
+}
+
+void request() {
+	int processreq;
+
+	printf("\n Enter the process process that is requesting:");
+	scanf("%d",&processreq);
+
+	printf("\n enter the reqested array:");
+	for(i=0;i<m;i++)
+        scanf("%d",&req[i]);
+
+	for(j=0;j<m;j++) {
+		if(req[j]<=need[processreq][j]) {
+			if(req[j]<=avail[j]) {
+				avail[j]=avail[j]-req[j];
+				all[processreq][j]=all[processreq][j]+req[j];
+				need[processreq][j]=need[processreq][j]-req[j];
+				printf("avail:%d",avail[j]);
+			}
+			printf("\tneed: %d\n",need[processreq][j]);
+		} else {
+			printf("\n Process is not in safe state and hence request cannot be granted");
+			exit(0);
 		}
 	}
+	printf("\nrequest can be granted");
+}
 
-	if(flag==0)	{
-		printf("System is Unsafe!\n");
-		exit(0);
+void print() {
+	printf("no. of processes=%d",n);
+	printf("no. of resources=%d",m);
+
+	printf("\npid\t max \t allocated \t need");
+	for(i=0;i<n;i++)
+	{
+		printf("\n%d\t",i);
+		for(j=0;j<m;j++) printf(" %d ",max[i][j]); printf("\t");
+		for(j=0;j<m;j++) printf(" %d ",all[i][j]); printf("\t");
+		for(j=0;j<m;j++) printf(" %d ",need[i][j]); printf("\t");
 	}
+
+	printf("\nAvailable: ");
+	for(i=0;i<m;i++)
+        printf("%d ",avail[i]);
 }
 
-void executeprocess(int p) {
-	printf("%d executed!\n", p);
-	sequence[a++]=p;
-}
 
-void releaseresource() {
-	for(j=0;j<n;j++)
-		work[j]=work[j]+alloc[process][j];
+int main() {
+	int ch;
+
+	do {
+		printf("\n menu:");
+		printf("\n 1.Input:");
+		printf("\n 2.Safe Seq:");
+		printf("\n 3.Request:");
+		printf("\n 4.Print:");
+		printf("\n 5.exit:");
+		printf("\n Ent choice");
+		scanf("%d",&ch);
+
+		switch(ch) {
+			case 1: input();
+                    break;
+			case 2: safeseq();
+                    break;
+			case 3: request();
+                    break;
+			case 4: print();
+                    break;
+			case 5: exit(0);
+                    break;
+		}
+	} while(ch != n);
+
+	return 0;
 }
