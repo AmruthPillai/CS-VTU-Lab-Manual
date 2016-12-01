@@ -45,17 +45,12 @@ int main() {
 
 ## Output
 ```
-> cc -fopenmp 11.c
-> ./a.out
-enter the no of terms of fibonacci series which have to be generated
-5
-id of thread involved in thes computation of fib no 3 is=0
-id of thread involved in the computation of fib no 4 is=0
-id of thread involved in the computation of fib no 5 is=0
-the elements of fib series are
-0,id of the thread displaying this no is =  1
-1,id of the thread displaying this no is =  1
-1,id of the thread displaying this no is =  1
-2,id of the thread displaying this no is =  1
-3,id of the thread displaying this no is =  1
+$ cc -fopenmp 11.c
+$ ./a.out
+
+Enter the no. of terms of Fibonacci Series which have to be generated:  
+7
+
+The elements of Fibonacci Series are:  
+0       1       1       2       3       5       8
 ```
