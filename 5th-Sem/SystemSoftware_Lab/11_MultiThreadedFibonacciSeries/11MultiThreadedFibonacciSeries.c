@@ -1,29 +1,39 @@
-#include<stdio.h>
-#include<omp.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <omp.h>
 
-int main() {
-    int n, a[100], i;
+int main()
+{
+    int n, a[100], i, j, random;
 
     omp_set_num_threads(2);
-    printf("Enter the no. of terms of Fibonacci Series which have to be generated: ");
+    printf("Enter the no. of Fibonacci Series to be generated: ");
     scanf("%d", &n);
 
-    a[0] = 0;
+    a[0] = 1;
     a[1] = 1;
 
-    #pragma omp parallel
+    for (j = 0; j < n; j++)
     {
-        #pragma omp single
-        for(i = 2; i < n; i++)
-            a[i] = a[i-2] + a[i-1];
+        random = rand() % 24;
 
-        #pragma omp barrier
-        #pragma omp single
+        #pragma omp parallel
         {
-            printf("The elements of Fibonacci Series are:\n");
-            for(i = 0; i < n; i++)
-                printf("%d\t", a[i]);
+            #pragma omp critical
+            for(i = 2; i < random; i++)
+                a[i] = a[i-2] + a[i-1];
+
+            #pragma omp barrier
+            #pragma omp single
+            {
+                printf("The elements of Fibonacci Series for %d are:\n", random);
+                for(i = 0; i < random; i++)
+                    printf("%d\t", a[i]);
+
+                printf("\n");
+            }
         }
     }
+
     return 0;
 }
