@@ -1,5 +1,6 @@
 %{
-int c = 0;
+int c;
+char infile[30], outfile[30];
 %}
 %x COMMENT
 %%
@@ -9,17 +10,19 @@ int c = 0;
 <COMMENT>\n ;
 <COMMENT>"*/" { BEGIN 0; c++; }
 %%
-
-int main(int argc, char *argv[]) {
-	if (argc != 3) {
-		printf("No input file provided!\n");
-		return 0;
-	} else {
-		yyin = fopen(argv[1], "r");
-		yyout = fopen(argv[2], "w");
-		yylex();
-		printf("Number of comments in the file is %d.\n", c);
-	}
+int main() {
+	printf("Enter the input file: ");
+	scanf("%s", infile);
+	printf("Enter the output file: ");
+	scanf("%s", outfile);
+	
+	yyin = fopen(infile, "r");
+	yyout = fopen(outfile, "w");
+	
+	yylex();
+	
+	printf("Number of comments in the file is %d.\n", c);
+	return 0;
 }
 
 int yywrap() {

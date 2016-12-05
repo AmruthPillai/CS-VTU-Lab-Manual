@@ -1,7 +1,7 @@
 for x in $*
 do
-	echo "cat>$x<<end
-	abc
-	def
-	end"
-done > recreate
+echo "cat>$x<<end
+abc
+def
+end"
+done > recreate.sh

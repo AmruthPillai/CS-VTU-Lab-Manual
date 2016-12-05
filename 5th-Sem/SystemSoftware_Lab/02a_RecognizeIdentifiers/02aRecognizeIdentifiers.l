@@ -1,38 +1,29 @@
 %{
-int a[4] = {0, 0, 0, 0};
-int valid = 1, i;
-int nop = 0;
+int op_count, br_count, id_count, a[4] = {0,0,0,0};
 %}
-%x OPER
 %%
-[a-zA-Z0-9]+ { BEGIN OPER; nop++; }
-"+" { if (valid) { valid = 0; i = 0; } else terminate(); }
-"-" { if (valid) { valid = 0; i = 1; } else terminate(); }
-"*" { if (valid) { valid = 0; i = 2; } else terminate(); }
-"/" { if (valid) { valid = 0; i = 3; } else terminate(); }
-[a-zA-Z0-9]+ { nop++; if (!valid) { valid = 1; a[i]++; } else terminate(); }
-. { if (valid) { valid = 0; terminate(); } else return 0; }
-\n { if (!valid) terminate(); else return 0; }
-. terminate();
-\n terminate();
+"+" { a[0]++; }
+"-" { a[1]++; }
+"*" { a[2]++; }
+"/" { a[3]++; }
+"(" { br_count++; }
+")" { br_count--; }
+[a-zA-Z0-9]+ { id_count++; printf("\nIdentifier Found: %s", yytext); }
 %%
-
-int terminate() {
-	printf("Invalid Expression.");
-	exit(0);
-}
-
 int main() {
-	printf("Enter Expression: ");
+	printf("Enter the expression: ");
 	yylex();
-	printf("Expression is Valid!");
+	printf("\nOperator Count:\n");
+	printf("Addition: %d\nSubtraction: %d\nMultiplication: %d\nDivision: %d\n", a[0], a[1], a[2], a[3]);
+	printf("\nNumber of Identifiers: %d\n", id_count);
+
+	op_count = a[0] + a[1] + a[2] + a[3];
+
+	if (op_count >= id_count || br_count != 0 || id_count == 1)
+		printf("\nIt is an invalid expression!\n");
+	else
+		printf("\nIt is a valid expression!\n");
 	
-	printf("No. of + is: %d\n", a[0]);
-	printf("No. of - is: %d\n", a[1]);
-	printf("No. of * is: %d\n", a[2]);
-	printf("No. of / is: %d\n", a[3]);
-	
-	printf("No. of operands is: %d\n", nop);
 	return 0;
 }
 

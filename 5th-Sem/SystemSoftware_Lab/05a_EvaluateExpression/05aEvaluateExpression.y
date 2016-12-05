@@ -1,19 +1,19 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 %}
 
-%name parse
-
 %token NUMBER
 %left '+''-''*''/'
+
 %%
-exp:expr {printf("Result is %d.\n", $1); return 0;}
+exp:expr { printf("Result is %d.\n", $$); return 0; }
 expr:expr'+'expr {$$=$1+$3;}
 |expr'-'expr {$$=$1-$3;}
 |expr'*'expr {$$=$1*$3;}
 |expr'/'expr {$$=$1/$3;}
-|NUMBER
-;
+|'('expr')' {$$=$2;}
+|NUMBER ;
 %%
 
 int yyerror() {
@@ -21,9 +21,13 @@ int yyerror() {
 	exit(0);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
 	printf("Enter the expression: ");
 	yyparse();
 	printf("Valid Expression.\n");
 	return 0;
+}
+
+int yywrap() {
+	return 1;
 }

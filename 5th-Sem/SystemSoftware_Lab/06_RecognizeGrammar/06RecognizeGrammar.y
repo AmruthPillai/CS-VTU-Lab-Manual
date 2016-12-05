@@ -1,9 +1,9 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 int count = 0;
 %}
 
-%name parse
 %token A B
 
 %%
@@ -17,7 +17,7 @@ int yyerror() {
 	exit(0);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
 	printf("Enter a string of a's & b's: ");
 	yyparse();
 	if (count >= 10) {
@@ -25,4 +25,8 @@ int main(int argc, char *argv[]) {
 	} else {
 		printf("Invalid Grammar.\n");
 	}
+}
+
+int yywrap() {
+	return 1;
 }

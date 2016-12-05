@@ -1,23 +1,19 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 %}
-
-%name parse
-
 %token NUMBER ID
-%left '+''-'
-%left '*''/'
-
+%left '+''-''*''/'
 %%
 exp:exp'+'exp
 |exp'-'exp
 |exp'*'exp
 |exp'/'exp
+|'('exp')'
 |NUMBER
 |ID ;
 %%
-
-int main(int argc, char *argv[]) {
+int main() {
 	printf("Enter the expression: ");
 	yyparse();
 	printf("Valid expression.\n");

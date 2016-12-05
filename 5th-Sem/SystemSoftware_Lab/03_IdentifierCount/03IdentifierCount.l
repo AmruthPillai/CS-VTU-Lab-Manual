@@ -1,47 +1,24 @@
 %{
-	int int_count = 0, float_count = 0, char_count = 0, double_count = 0;
+int id_count;
+char infile[30];
 %}
-ID [a-zA-Z][a-zA-Z0-9]*
-I "int"
-F "float"
-C "char"
-D "double"
-%s DEFN1
-%s DEFN2
-%s DEFN3
-%s DEFN4
+ID [a-zA-Z][a-zA-Z0-9]+
+DECL "int "|"float "|"char "|"double "
+%x DEFN
 %%
-\t ;
-{I} { BEGIN DEFN1; }
-<DEFN1>{ID}"," { int_count++; printf("%s\n", yytext); }
-<DEFN1>{ID}";" { int_count++; BEGIN 0; printf("%s\n", yytext); }
-{F} { BEGIN DEFN2; }
-<DEFN2>{ID}"," { float_count++; printf("%s\n", yytext); }
-<DEFN2>{ID}";" { float_count++; BEGIN 0; printf("%s\n", yytext); }
-{C} { BEGIN DEFN3; }
-<DEFN3>{ID}"," { char_count++; printf("%s\n", yytext); }
-<DEFN3>{ID}";" { char_count++; BEGIN 0; printf("%s\n", yytext); }
-{D} { BEGIN DEFN4; }
-<DEFN4>{ID}"," { double_count++; printf("%s\n", yytext); }
-<DEFN4>{ID}";" { double_count++; BEGIN 0; printf("%s\n", yytext); }
-\n ;
+{DECL} BEGIN DEFN;
+<DEFN>{ID}, { id_count++; }
+<DEFN>{ID}; { id_count++; BEGIN 0; }
 . ;
 %%
-
-int main(int argc, char *argv[]) {
-	if (argc != 2) {
-		printf("Error.\n");
-		return 0;
-	}
-	yyin = fopen(argv[1], "r");
-	printf("The identifiers are:\n");
+int main() {
+	printf("Enter filename: ");
+	scanf("%s", infile);
+	yyin = fopen(infile, "r");
+	
 	yylex();
-	
-	printf("The no. of int identifiers are: %d\n", int_count);
-	printf("The no. of float identifiers are: %d\n", float_count);
-	printf("The no. of char identifiers are: %d\n", char_count);
-	printf("The no. of double identifiers are: %d\n", double_count);
-	
+
+	printf("\nThe total number of identifiers: %d\n", id_count);
 	return 0;
 }
 

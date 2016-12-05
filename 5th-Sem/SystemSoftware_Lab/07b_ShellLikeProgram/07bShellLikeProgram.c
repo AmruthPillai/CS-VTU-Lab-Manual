@@ -1,13 +1,18 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
-#include <sys/types.h>
 
 int main(int argc, char *argv[]) {
+	int pid = fork();
 	char cmd[20];
-	system("clear");
-	do {
-		printf("[PROMPT]$\n");
-		gets(cmd);
-		system(cmd);
-	} while (strcmp(cmd, "exit"));
+	
+	if (pid == 0) {
+		system("clear");
+		do {
+			printf("$ ");
+			gets(cmd);
+			system(cmd);
+		} while (strcmp(cmd, "exit"));
+	} else wait(0);
 }
