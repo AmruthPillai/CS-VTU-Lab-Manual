@@ -1,12 +1,12 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 %}
 
-%name parse
 %token A B
 
 %%
-S:A S B
+S:A S B 
 | ;
 %%
 
