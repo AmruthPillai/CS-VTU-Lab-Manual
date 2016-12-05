@@ -1,15 +1,14 @@
 %{
+#include <stdio.h>
 #include <stdlib.h>
 %}
 
-%name parse
 %token DIGIT ALPHA
 
 %%
 var:ALPHA
 |var ALPHA
-|var DIGIT
-;
+|var DIGIT ;
 %%
 
 int yyerror() {
@@ -17,7 +16,7 @@ int yyerror() {
 	exit(0);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
 	printf("Enter the variable: ");
 	yyparse();
 	printf("Valid Variable.\n");
