@@ -1,0 +1,32 @@
+<html>
+  <title> Welcome template for books </title>
+  <body>
+    <form>
+      <p> Entered book title is <%= @booktitle %> </p>
+      <table border=1>
+        <tr>
+          <th>Accession No.</th>
+          <th>Book Title</th>
+          <th>Authors </th>
+          <th>Publishers </th>
+          <th>Edition </th>
+        </tr>
+        <% @bookz.each do |bk|
+          @id = bk.id
+          @accession= bk.accession_no;
+          @title = bk.title
+          @authors = bk.authors
+          @publisher = bk.publisher
+          @edition = bk.edition %>
+          <tr>
+       	    <td> <%= @accession %></td>
+      		  <td><%= @title %> </td>
+      		  <td><%= @authors %></td>
+            <td> <%= @publisher %></td>
+            <td> <%= @edition %></td>
+          </tr>
+        <% end %>
+      </table>
+    </form>
+  </body>
+</html>
