@@ -6,21 +6,25 @@
 %token DIGIT ALPHA
 
 %%
-var:ALPHA
-|var ALPHA
-|var DIGIT ;
+
+var : ALPHA
+| var ALPHA
+| var DIGIT ;
+
 %%
 
-int yyerror() {
-	printf("Invalid Variable.\n");
-	exit(0);
+int main(int argc, char *argv[]) {
+	printf("Enter a variable name: ");
+
+	yyparse();
+
+	printf("Valid Variable!\n");
+	return 0;
 }
 
-int main() {
-	printf("Enter the variable: ");
-	yyparse();
-	printf("Valid Variable.\n");
-	return 0;
+int yyerror() {
+	printf("Invalid Variable!\n");
+	exit(1);
 }
 
 int yywrap() {
