@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
 	int p = fork();
-	
+
 	if (p == 0) {
 		printf("I am Child Process.\n");
 		printf("My Parent Process ID is: %d\n", getppid());
