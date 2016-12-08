@@ -3,10 +3,8 @@ Non-recursive shell script that accepts any number of arguments and prints them 
 For Example: If the script is named `args.sh`, then executing `sh args A B C` should produce C B A on the standard output.
 
 ## Description
-```
-$#: Contains the total number of input arguments.
-$*: Contains all the input arguments
-```
+`$#`: Contains the total number of input arguments.  
+`$*`: Contains all the input arguments.  
 
 ## Code
 ```
