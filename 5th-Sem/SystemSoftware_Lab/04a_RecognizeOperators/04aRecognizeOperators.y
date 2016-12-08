@@ -2,27 +2,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 %}
+
 %token NUMBER ID
 %left '+''-''*''/'
+
 %%
-exp:exp'+'exp
-|exp'-'exp
-|exp'*'exp
-|exp'/'exp
-|'('exp')'
-|NUMBER
-|ID ;
+
+exp : exp'+'exp
+| exp'-'exp
+| exp'*'exp
+| exp'/'exp
+| '('exp')'
+| NUMBER
+| ID ;
+
 %%
-int main() {
+
+int main(int argc, char *argv[]) {
 	printf("Enter the expression: ");
+
 	yyparse();
-	printf("Valid expression.\n");
+
+	printf("Valid Expression!\n");
 	return 0;
 }
 
 int yyerror() {
-	printf("Invalid expression.\n");
-	exit(0);
+	printf("Invalid Expression!\n");
+	exit(1);
 }
 
 int yywrap() {
