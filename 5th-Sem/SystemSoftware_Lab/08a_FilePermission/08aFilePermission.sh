@@ -1,8 +1,7 @@
-#!/bin/sh
-
+#!/bin/bash
 if [ $# -ne 2 ]
 then
-	echo "Please Enter 2 Arguments"
+	echo "Please enter 2 filenames as arguments."
 	exit
 fi
 
