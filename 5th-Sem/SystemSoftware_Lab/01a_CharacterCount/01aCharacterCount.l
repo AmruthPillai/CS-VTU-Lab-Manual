@@ -2,30 +2,32 @@
 int char_count, word_count, line_count, space_count;
 char infile[30];
 %}
+
 %%
 
-[^ \t\n]+ { word_count++; char_count+=yyleng; }
-\n { line_count++; char_count++; }
-\t { space_count+=8; char_count++; }
+[^ \t\n] { word_count++; char_count+=yyleng; }
 " " { space_count++; char_count++; }
+\t { space_count+=8; char_count++; }
+\n { line_count++; char_count++; }
+
 %%
 
-int main() {
-        printf("Enter filename: ");
-        scanf("%s", infile);
+int main(int argc, char *argv[]) {
+    printf("Enter the filename: ");
+    scanf("%s", infile);
 
-        yyin = fopen(infile, "r");
-        yylex();
+    yyin = fopen(infile, "r");
+    yylex();
+    fclose(yyin);
 
-        fclose(yyin);
-        printf("Line count is %d.\n", line_count);
-        printf("Word count is %d.\n", word_count);
-        printf("Space count is %d.\n", space_count);
-        printf("Character count is %d.\n", char_count);
+    printf("Character Count:\t\t%d\n", char_count);
+    printf("Word Count:\t\t%d\n", word_count);
+    printf("Line Count:\t\t%d\n", line_count);
+    printf("Space Count:\t\t%d\n", space_count);
 
-        return 0;
+    return 0;
 }
 
 int yywrap() {
-        return 1;
+    return 1;
 }
