@@ -1,73 +1,74 @@
-##Aim:
+## Aim
 Program to evaluate an arithmetic expression involving operators +, -, * and /.
- 
-##Description:
-This program is to solve or to evaluate the given arithmatic expression using the operators +,-,* and /.  
-Example: 3+5=8
 
-##Program: 5a.y (YACC specification)
-##Code:
-	%{
-		#include<stdio.h>
-		#include<stdlib.h>
-	%}
-	
-	%token NUMBER
-	%left '+''-''*''/'
-	
-	%%
-	exp:expr {printf("Result is %d\n",$1); return 0;}
-	expr:expr'+'expr {$$=$1+$3;}
-	    |expr'-'expr {$$=$1-$3;}
-	    |expr'*'expr {$$=$1*$3;}
-	    |expr'/'expr {$$=$1/$3;}
-	    |'('expr')' {$$=$2;}
-	    |NUMBER
-	    ;
-	%%
-	
-	yyerror() {
-		printf("Invalid expression\n");
-		exit(0);
-	}
-	
-	int main() {
-		printf("Enter the expression\n");
-		yyparse();
-		printf("Valid expression\n");
-		return 0;
-	}
+## Description
+This program is to solve or to evaluate the given arithmetic expression using the operators +, -, * and /. Example: 3 + 5 = 8
 
-##Program: 5a.l (LEX specification)
-##Code:
-	%{
-		#include "y.tab.h"
-		extern int yylval;
-	%}
-	
-	%option noyywrap
-	
-	%%
-	[0-9]+		{yylval=atoi(yytext); return NUMBER;}
-	.		return yytext[0];
-	\n		return 0;
-	%%
+## Code
+### Lex
+```
+%{
+#include "y.tab.h"
+extern int yylval;
+%}
 
-## How to Run:  
-    yacc -d 5a.y  
-    lex 5a.l  
-    cc lex.yy.c y.tab.c y.tab.h  
+%%
 
-##Output:
-	1. Enter the expression
-	2+6
-	Result is 8
-	Valid expression
-	
-	2. Enter the expression
-	2*
-	Invalid expression
+[0-9]+ { yylval = atoi(yytext); return NUMBER; }
+\n { return 0; }
+. { return yytext[0]; }
 
+%%
+```
+### Yacc
+```
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
 
+%token NUMBER
+%left '+''-''*''/'
 
+%%
 
+exp : expr { printf("Result:\t%d\n", $$); return 0; }
+expr : expr'+'expr { $$ = $1 + $3; }
+| expr'-'expr { $$ = $1 - $3; }
+| expr'*'expr { $$ = $1 * $3; }
+| expr'/'expr { $$ = $1 / $3; }
+| '('expr')' { $$ = $2; }
+| NUMBER ;
+
+%%
+
+int main(int argc, char *argv[]) {
+	printf("Enter the expression: ");
+
+	yyparse();
+
+	return 0;
+}
+
+int yyerror() {
+	printf("Invalid Expression!\n");
+	exit(1);
+}
+
+int yywrap() {
+	return 1;
+}
+```
+
+## Execution
+```
+lex 05aEvaluateExpression.l
+yacc -dy 05aEvaluateExpression.y
+gcc lex.yy.c y.tab.c
+```
+
+## Output
+```
+Enter the expression: 123+25
+Result: 148
+```
