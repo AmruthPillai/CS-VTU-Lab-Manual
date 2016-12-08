@@ -1,16 +1,9 @@
-#! /bin/bash
-
-if [ $# -eq 0 ]
-then
-	echo "No Arguments."
-	exit
-fi
-
-echo "The total number of arguments are $#"
-echo "The arguments are $*"
+#!/bin/bash
+echo "The total number of arguments are: $#"
+echo "The arguments are: $*"
 
 for i in $*
-do 
+do
 	rev=$i" "$rev
 done
 
