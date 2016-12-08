@@ -16,30 +16,34 @@ F<sub>n</sub> = F<sub>(n-1)</sub> + F<sub>(n-2)</sub>
 #include <stdlib.h>
 #include <omp.h>
 
-int main()
-{
+int main() {
     int n, a[100], i, j, random;
 
     omp_set_num_threads(2);
+
     printf("Enter the no. of Fibonacci Series to be generated: ");
     scanf("%d", &n);
 
     a[0] = 1;
     a[1] = 1;
 
-    for (j = 0; j < n; j++)
-    {
+    for (j = 0; j < n; j++) {
         random = rand() % 24;
 
         #pragma omp parallel
         {
             #pragma omp critical
-            for(i = 2; i < random; i++)
-                a[i] = a[i-2] + a[i-1];
+            if (omp_get_thread_num() == 0) {
+                printf("There are %d threads.\n", omp_get_num_threads());
+                printf("Thread #%d is generating numbers...\n", omp_get_thread_num());
+                for(i = 2; i < random; i++)
+                    a[i] = a[i-2] + a[i-1];
+            }
 
             #pragma omp barrier
             #pragma omp single
             {
+                printf("Thread #%d is printing numbers...\n", omp_get_thread_num());
                 printf("The elements of Fibonacci Series for %d are:\n", random);
                 for(i = 0; i < random; i++)
                     printf("%d\t", a[i]);
@@ -58,17 +62,36 @@ int main()
 $ cc -fopenmp 11.c
 $ ./a.out
 
-Enter the no. of Fibonacci Series to be generated: 4
+Enter the no. of Fibonacci Series to be generated: 5
 
+There are 2 threads.
+Thread #0 is generating numbers...
+Thread #0 is printing numbers...
 The elements of Fibonacci Series for 7 are:
-1	1	2	3	5	8	13	
+1       1       2       3       5       8       13
 
-The elements of Fibonacci Series for 1 are:
-1	
+There are 2 threads.
+Thread #0 is generating numbers...
+Thread #1 is printing numbers...
+The elements of Fibonacci Series for 22 are:
+1       1       2       3       5       8       13      21      34      55     89       144     233     377     610     987     1597    2584    4181    6765   10946    17711
 
+There are 2 threads.
+Thread #0 is generating numbers...
+Thread #1 is printing numbers...
+The elements of Fibonacci Series for 9 are:
+1       1       2       3       5       8       13      21      34
+
+There are 2 threads.
+Thread #0 is generating numbers...
+Thread #1 is printing numbers...
+The elements of Fibonacci Series for 19 are:
+1       1       2       3       5       8       13      21      34      55     89       144     233     377     610     987     1597    2584    4181
+
+There are 2 threads.
+Thread #0 is generating numbers...
+Thread #1 is printing numbers...
 The elements of Fibonacci Series for 17 are:
-1	1	2	3	5	8	13	21	34	55	89	144	233	377	610	987	1597	
+1       1       2       3       5       8       13      21      34      55     89       144     233     377     610     987     1597
 
-The elements of Fibonacci Series for 2 are:
-1	1	
 ```
