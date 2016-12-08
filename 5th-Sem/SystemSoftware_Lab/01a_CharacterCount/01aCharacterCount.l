@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     yylex();
     fclose(yyin);
 
-    printf("Character Count:\t\t%d\n", char_count);
+    printf("Character Count:\t%d\n", char_count);
     printf("Word Count:\t\t%d\n", word_count);
     printf("Line Count:\t\t%d\n", line_count);
     printf("Space Count:\t\t%d\n", space_count);
