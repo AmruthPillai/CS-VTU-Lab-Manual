@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
 
     yyin = fopen(infile, "r");
     yylex();
-    fclose(yyin);
 
     printf("Character Count:\t%d\n", char_count);
     printf("Word Count:\t\t%d\n", word_count);

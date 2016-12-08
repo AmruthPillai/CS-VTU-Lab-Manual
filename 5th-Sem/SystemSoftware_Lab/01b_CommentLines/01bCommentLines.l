@@ -1,29 +1,30 @@
 %{
-int c;
+int comment_count;
 char infile[30], outfile[30];
 %}
+
 %x COMMENT
+
 %%
 
-"//".* { c++; }
+"//".* { comment_count++; }
 "/*".* { BEGIN COMMENT; }
 <COMMENT>. ;
-<COMMENT>\n ;
-<COMMENT>"*/" { BEGIN 0; c++; }
+<COMMENT>"*/" { comment_count++; BEGIN 0; }
+
 %%
 
-int main() {
-	printf("Enter the input file: ");
+int main(int argc, char *argv[]) {
+	printf("Enter the input filename: ");
 	scanf("%s", infile);
-	printf("Enter the output file: ");
+	printf("Enter the output filename: ");
 	scanf("%s", outfile);
 
 	yyin = fopen(infile, "r");
 	yyout = fopen(outfile, "w");
-
 	yylex();
 
-	printf("Number of comments in the file is %d.\n", c);
+	printf("Number of comments in the file:\t%d", comment_count);
 	return 0;
 }
 
