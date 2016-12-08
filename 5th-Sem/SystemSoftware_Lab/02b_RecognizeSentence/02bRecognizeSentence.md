@@ -1,39 +1,66 @@
-#AIM:
+## Aim
 Program to recognize whether a given sentence is simple or compound.
-##DESCRIPTION:
-The user is expected to develop a code which recognizes a sentence as either simple or compound.The design considers that we use and, or, but & between.The user can specify more rules as per his/her choice.
 
-##CODE:
-<pre>%{
-`#`include&lt;stdio.h>
-int valid=1;
+## Description
+The user is expected to develop a code which recognizes a sentence as either simple or compound. The design considers that we use and, or, but & between. The user can specify more rules as per his/her choice.
+
+## Code
+```
+%{
+int valid;
 %}
-id [a-zA-Z0-9]*
+
+w [a-zA-Z]+
+
 %%
-{id}" and "{id} {valid=0;}
-{id}" or "{id} {valid=0;}
-{id}" but "{id} {valid=0;}
-{id}" between "{id} {valid=0;}
+
+{w}" and "{w} |
+{w}" AND "{w} |
+{w}" or "{w} |
+{w}" OR "{w} |
+{w}" but "{w} |
+{w}" BUT "{w} |
+{w}" between "{w} |
+{w}" BETWEEN "{w} { valid = 1; }
+\n { return 0; }
 . ;
-\n {return 0;}
+
 %%
-main()
-{
-	printf("Enter a sentence\n");
+
+int main(int argc, char *argv[]) {
+	printf("Enter a sentence: ");
+
 	yylex();
-	if(valid==1)
-	printf("Its a simple sentence\n");
+
+	if (valid == 0)
+		printf("It is a simple sentence!\n");
 	else
-	printf("Its a compound sentence\n");
-}</pre> 
-##OUTPUT:
-<pre>Enter a sentence
-hi and bye
-Its a compound sentence</pre>
+		printf("It is a complex sentence!\n");
 
-<pre>Enter a sentence
-anand
-Its a simple sentence</pre>
+	return 0;
+}
 
+int yywrap() {
+	return 1;
+}
+```
 
+## Execution
+```
+lex 02bRecognizeSentence.l
+gcc lex.yy.c
+./a.out
+```
 
+## Output
+#### Test Case #1: Complex Sentence
+```
+Enter a sentence: Harry and Ron loved Hermione
+It is a complex sentence!
+```
+
+#### Test Case #2: Simple Sentence
+```
+Enter a sentence: Bananas
+It is a simple sentence!
+```

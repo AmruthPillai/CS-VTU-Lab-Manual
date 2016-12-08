@@ -1,23 +1,35 @@
 %{
-int valid = 1;
+int valid;
 %}
-id [a-zA-Z0-9]*
+
+w [a-zA-Z]+
+
 %%
-{id}" and "{id} |
-{id}" AND "{id} |
-{id}" or "{id} |
-{id}" OR "{id} |
-{id}" but "{id} |
-{id}" BUT "{id} { valid = 0; }
+
+{w}" and "{w} |
+{w}" AND "{w} |
+{w}" or "{w} |
+{w}" OR "{w} |
+{w}" but "{w} |
+{w}" BUT "{w} |
+{w}" between "{w} |
+{w}" BETWEEN "{w} { valid = 1; }
+\n { return 0; }
 . ;
+
 %%
-int main() {
+
+int main(int argc, char *argv[]) {
 	printf("Enter a sentence: ");
+
 	yylex();
-	if (valid)
-		printf("It's a simple sentence!\n");
+
+	if (valid == 0)
+		printf("It is a simple sentence!\n");
 	else
-		printf("It's a compound sentence!\n");
+		printf("It is a complex sentence!\n");
+
+	return 0;
 }
 
 int yywrap() {
