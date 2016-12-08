@@ -1,8 +1,8 @@
-## Aim:
+## Aim
 To Design, develop and execute a program in C / C++ to simulate the working of Shortest Remaining Time and Round-Robin Scheduling Algorithms.
 
-## Description:
-### Shortest Remaining Time:
+## Description
+### Shortest Remaining Time
 ```
 Also known as shortest remaining time first (SRTF), is a scheduling method that is a preemptive version of shortest job next scheduling. In this scheduling algorithm, the process with the smallest amount of time remaining until completion is selected to execute. Since the currently executing process is the one with the shortest amount of time remaining by definition, and since that time should only reduce as execution progresses, processes will always run until they complete or a new process is added that requires a smaller amount of time. Shortest remaining time scheduling is the preemptive counter part of SJF and is useful in time sharing system. In SRT, process with the smallest estimated run time to completion is run next, in SJF once a job begin executing, it runs to completion. In SRT a running process may be preempted by a user process with a shorter estimated run time. Consider an example, where three processes arrived in the order P1, P2, P3 at the time mentioned below, and then the average waiting time using SJF scheduling algorithm will be calculated as:
 
@@ -20,7 +20,7 @@ Waiting time for P3 = 2 millisecond
 Average waiting time = (7+3+2) / 3 = 4 millisecond
 ```
 
-### Round Robin Scheduling:
+### Round Robin Scheduling
 ```
 The basic purpose of this algorithm is to support time sharing system. This algorithm is similar to the FCFS algorithm but now it is preempted FCFS scheduling. The preempted take place after a fixed interval of time called quantum time of time slice. Its implementation requires timer interrupt based on which the preemption take place. Consider the set of the processes lined up in the ready queue. The processes are taken out of the ready queue in FCFS order. Let us suppose that a process has been taken up for execution now. The execution cannot go beyond that time slice. This process may either finish up its execution before the time goes off or CPU will be preempted from it after the timer goes off and this cause an interrupt to the operating system. At this time, context switching will take place. The next process will be taken up from the ready queue. The process, which is left by the CPU, will be added to the tail of the ready queue.
 
