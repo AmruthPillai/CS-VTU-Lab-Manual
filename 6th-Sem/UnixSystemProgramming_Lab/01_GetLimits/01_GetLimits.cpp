@@ -12,6 +12,6 @@ int main() {
 	cout << "Max. Path Length:\t\t" << pathconf("/", _PC_PATH_MAX) << endl;
 	cout << "Max. Characters in a Filename:\t" << pathconf("/", _PC_NAME_MAX) << endl;
 	cout << "Max. no. of Open Files:\t\t" << sysconf(_SC_OPEN_MAX) << endl;
-	
+
 	return 0;
 }

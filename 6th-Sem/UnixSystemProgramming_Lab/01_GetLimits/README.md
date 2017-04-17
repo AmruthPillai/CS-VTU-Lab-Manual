@@ -1,4 +1,3 @@
-
 ## Aim
 To Write a C/C++ POSIX compliant program to check the following limits:
 * No. of clock ticks
