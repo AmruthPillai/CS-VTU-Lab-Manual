@@ -8,8 +8,8 @@ int main()
 	pid = fork();
 
 	if (pid == 0) {
-		pid = fork();
     printf("First child: My PID is %d\n", getpid());
+		pid = fork();
 		if (pid == 0) {
 			sleep(1);
 			printf("Second child: My PID is %d\n", getpid());

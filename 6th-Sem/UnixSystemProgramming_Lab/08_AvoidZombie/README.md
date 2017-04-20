@@ -18,8 +18,8 @@ int main()
 	pid = fork();
 
 	if (pid == 0) {
-		pid = fork();
     printf("First child: My PID is %d\n", getpid());
+		pid = fork();
 		if (pid == 0) {
 			sleep(1);
 			printf("Second child: My PID is %d\n", getpid());
@@ -42,7 +42,9 @@ g++ 08_AvoidZombie.cpp
 
 ## Output
 ```
-1772  1771 S    ttys000  -bash
-2195  1772 S+   ttys000  ./a.out
-2196  2195 Z    ttys000  [a.out] <defunct>
+First child: My PID is 1130
+Second child: My PID is 1131
+  PID  PPID STAT TTY      COMMAND
+ 1048  1046 S    ttys000  -bash
+ 1129  1048 S+   ttys000  ./a.out
 ```
