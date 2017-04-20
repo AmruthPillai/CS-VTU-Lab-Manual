@@ -36,7 +36,7 @@ int main()
 
 ## Execution
 ```
-g++ 08_AvoidZombie.cpp  
+cc 08_AvoidZombie.c  
 ./a.out  
 ```
 
