@@ -12,13 +12,12 @@ We call sleep in the second child to ensure that the first child terminates befo
 #include <stdlib.h>
 #include <unistd.h>
 
-int main()
-{
+int main() {
 	int pid;
 	pid = fork();
 
 	if (pid == 0) {
-    printf("First child: My PID is %d\n", getpid());
+		printf("First child: My PID is %d\n", getpid());
 		pid = fork();
 		if (pid == 0) {
 			sleep(1);
