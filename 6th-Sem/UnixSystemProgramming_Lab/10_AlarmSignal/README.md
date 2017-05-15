@@ -32,7 +32,7 @@ int main() {
 
 ## Execution
 ```
-cc 10_AlarmSignal.c
+g++ 10_AlarmSignal.cpp
 ./a.out
 ```
 
