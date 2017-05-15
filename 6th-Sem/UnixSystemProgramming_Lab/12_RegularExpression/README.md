@@ -133,10 +133,10 @@ int yyerror() {
 
 int getREindex(const char *str) {
   int i = strlen(str) - 1;
-  for (; i >= 0; --i) {
+
+  for (; i >= 0; --i)
     if (str[i] == 'e' && str[i - 1] == 'r')
-    return i - 1;
-  }
+      return i - 1;
 }
 ```
 
