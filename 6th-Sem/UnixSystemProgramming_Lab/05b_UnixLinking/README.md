@@ -7,15 +7,17 @@ Links are created by giving alternate names to the original file. The use of lin
 ## Code
 ```
 #include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
   if (argc != 3) {
-    printf("Usage: %s <src_file><dest_file>\n",argv[0]);
+    printf("Usage: %s <src_file> <dest_file>\n", argv[0]);
     return 0;
   }
 
-  if (link(argv[1],argv[2]) == -1) {
+  if (link(argv[1], argv[2]) == -1) {
     printf("Link Error\n");
     return 1;
   }
@@ -24,7 +26,7 @@ int main(int argc, char *argv[]) {
   printf("Inode Number of Linked Files\n");
 
   char str[100];
-  sprintf(str, "ls -i %s %s\n", argv[1], argv[2]);
+  sprintf(str, "ls -i1 %s %s\n", argv[1], argv[2]);
   system(str);
 
   return 0;
@@ -34,29 +36,14 @@ int main(int argc, char *argv[]) {
 ## Execution
 ```
 cc 05b_UnixLinking.c
-./a.out  
+./a.out <original_file> <linked_file>
 ```
 
 ## Output
 ```
-TERM_PROGRAM=Apple_Terminal
-SHELL=/bin/bash
-TERM=xterm-256color
-TMPDIR=/var/folders/_m/zpbbm4d906x58rn7jqpmbrp00000gn/T/
-Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.twMDEehCyJ/Render
-TERM_PROGRAM_VERSION=388.1
-OLDPWD=/Users/amruthpillai/Documents/GitHub/CS-VTU-Lab-Manual/6th-Sem/UnixSystemProgramming_Lab
-TERM_SESSION_ID=C62FD36A-C0C1-48F6-A23E-136B206B7B75
-USER=amruthpillai
-SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.YUJ4tPNnSb/Listeners
-__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
-PATH=/usr/bin/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/amruthpillai/Library/Android/sdk/platform-tools:/Users/amruthpillai/Library/Android/sdk/tools:/Users/amruthpillai/anaconda/bin
-PWD=/Users/amruthpillai/Documents/GitHub/CS-VTU-Lab-Manual/6th-Sem/UnixSystemProgramming_Lab/05a_EnvironList
-XPC_FLAGS=0x0
-XPC_SERVICE_NAME=0
-SHLVL=1
-HOME=/Users/amruthpillai
-LOGNAME=amruthpillai
-LC_CTYPE=UTF-8
-_=./a.out
+./a.out original linked
+Files Linked
+Inode Number of Linked Files
+7937480 linked
+7937480 original
 ```
