@@ -36,7 +36,7 @@ static void charAtATime(char *str) {
 
 ## Execution
 ```
-cc 06_RaceCondition.c
+g++ 06_RaceCondition.c
 ./a.out  
 ```
 
