@@ -48,9 +48,9 @@ The following command `yacc -d grammar.y` functions the same as Example 1, but i
 /* To Store Productions*/
 #define MAX 100
 
-int getREindex (const char*);
+int getREindex(const char*);
 signed char productions[MAX][MAX];
-int count, i ,j;
+int count, i, j;
 char temp[200], temp2[200];
 %}
 

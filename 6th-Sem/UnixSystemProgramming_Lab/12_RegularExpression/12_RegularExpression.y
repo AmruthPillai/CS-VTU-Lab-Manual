@@ -8,9 +8,9 @@
 /* To Store Productions*/
 #define MAX 100
 
-int getREindex (const char*);
+int getREindex(const char*);
 signed char productions[MAX][MAX];
-int count, i ,j;
+int count, i, j;
 char temp[200], temp2[200];
 %}
 
