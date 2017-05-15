@@ -15,7 +15,7 @@ static void charAtATime(char *);
 int main() {
         int pid;
 
-        if ((pid=fork()) < 0)
+        if ((pid = fork()) < 0)
                 printf("Fork Error\n");
         else if (pid == 0)
                 charAtATime("output from child\n");
