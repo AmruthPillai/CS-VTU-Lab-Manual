@@ -62,11 +62,11 @@ char temp[200], temp2[200];
 %%
 
 /* Rules Section */
-S : RE '\n' {
+S : re '\n' {
   printf("\nThis is the rightmost derivation:\n");
   for(i = count - 1; i >= 0; --i) {
     if (i == count - 1) {
-      printf("\nRE => ");
+      printf("\nre => ");
       strcpy(temp, productions[i]);
       printf("%s", productions[i]);
     } else {
@@ -82,22 +82,22 @@ S : RE '\n' {
   exit(0);
 }
 
-RE : ALPHABET {
+re : ALPHABET {
   temp[0] = yylval;
   temp[1] = '\0';
   /* Copy the input to the Prodcution Array */
   strcpy(productions[count++], temp);
 } /* Only conditions defined here will be valid, this is the structure. */
-| '(' RE ')' /* Adds the (expression) to the Production Array */
-{ strcpy(productions[count++], "(RE)"); }
-| RE '*'
-{ strcpy(productions[count++], "RE*"); }
-| RE '+' /* Adds expression+ type to the Production Array */
-{ strcpy(productions[count++], "RE+"); }
-| RE '|' RE /* Adds the expression|expression to the Production Array */
-{ strcpy(productions[count++], "RE | RE"); }
-| RE '.' RE /* Adds the expression.expression to the Production Array */
-{ strcpy(productions[count++], "RE . RE"); }
+| '(' re ')' /* Adds the (expression) to the Production Array */
+{ strcpy(productions[count++], "( re )"); }
+| re '*'
+{ strcpy(productions[count++], "re *"); }
+| re '+' /* Adds expression+ type to the Production Array */
+{ strcpy(productions[count++], "re +"); }
+| re '|' re /* Adds the expression|expression to the Production Array */
+{ strcpy(productions[count++], "re | re"); }
+| re '.' re /* Adds the expression.expression to the Production Array */
+{ strcpy(productions[count++], "re . re"); }
 ;
 
 %%
@@ -154,7 +154,7 @@ a+|b*|(b.c*)
 
 This is the rightmost derivation:
 
-RE => re | re
+re => re | re
  => re | ( re )
  => re | ( re . re )
  => re | ( re . re * )
