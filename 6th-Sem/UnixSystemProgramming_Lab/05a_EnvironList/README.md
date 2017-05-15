@@ -2,9 +2,9 @@
 Write a C/C++ program that output the contents of its Environment List.  
 
 ## Description
-Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.  
+Environment Variables are a set of dynamic named values that can affect the way running processes will behave on a computer.  
 
-They are part of the operating environment in which a process runs. For example, a running process can query the value of the TEMP environment variable to discover a suitable location to store temporary files, or the HOME or USERPROFILE variable to find the directory structure owned by the user running the process.  
+They are part of the operating environment in which a process runs. For example, a running process can query the value of the `TEMP` environment variable to discover a suitable location to store temporary files, or the `HOME` or `USERPROFILE` variable to find the directory structure owned by the user running the process.  
 
 ## Code
 ```
