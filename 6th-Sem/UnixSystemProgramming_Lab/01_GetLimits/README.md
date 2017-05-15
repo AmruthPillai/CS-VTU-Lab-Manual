@@ -6,6 +6,16 @@ To Write a C/C++ POSIX compliant program to check the following limits:
 * Max. no. of characters in a file name
 * Max. no. of open files/ process
 
+## Description
+To check system configuration variables: `sysconf(int CONSTANT);`  
+To check file system configuration variables: `pathconf(char* PATH_TO_ROOT, int CONSTANT);`
+
+* No. of clock ticks - `_SC_CLK_TCK`
+* Max. no. of child processes - `_SC_CHILD_MAX`
+* Max. path length - `_PC_PATH_MAX`
+* Max. no. of characters in a file name - `_PC_NAME_MAX`
+* Max. no. of open files/ process - `_SC_OPEN_MAX`
+
 ## Code
 ```
 #define POSIX_SOURCE
