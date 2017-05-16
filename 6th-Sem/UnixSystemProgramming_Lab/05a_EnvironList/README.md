@@ -8,14 +8,14 @@ They are part of the operating environment in which a process runs. For example,
 
 ## Code
 ```
-#include<stdio.h>
-#include<unistd.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[]) {
   char **ptr;
   extern char **environ;
 
-  for(ptr = environ; *ptr; ptr++)
+  for (ptr = environ; *ptr; ptr++)
     printf("%s\n", *ptr);
 
   return 0;
