@@ -101,17 +101,17 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
+	// Optional Block of Code
 	if (access(argv[1], F_OK) == -1) {
-		if (mkfifo(argv[1], 0777)) {
+		if (mkfifo(argv[1], 0777) == -1) {
 			perror("Error during mkfifo");
 			exit(0);
 		}
 	}
 
 	cout << "Process ID: " << getpid() << " is Opening FIFO in Write mode..." << endl;
-	pipe_fd = open(argv[1], O_WRONLY);
 
-	if (pipe_fd != -1) {
+	if ((pipe_fd = open(argv[1], O_WRONLY)) != -1) {
 		cout << "Enter data: ";
 		gets(buffer);
 		res = write(pipe_fd, buffer, BUFFER_SIZE);
