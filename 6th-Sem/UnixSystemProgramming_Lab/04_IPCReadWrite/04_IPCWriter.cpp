@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 
 	cout << "Process ID: " << getpid() << " is Opening FIFO in Write mode..." << endl;
 	pipe_fd = open(argv[1], O_WRONLY);
-	cout << "File Descriptor of FIFO in Write mode: " << pipe_fd << endl;
+
 	if (pipe_fd != -1) {
 		cout << "Enter data: ";
 		gets(buffer);

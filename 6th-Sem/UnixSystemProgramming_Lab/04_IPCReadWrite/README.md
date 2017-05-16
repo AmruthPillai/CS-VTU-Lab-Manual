@@ -53,12 +53,10 @@ int main(int argc, char *argv[]) {
 	int pipe_fd, res = 0;
 	char buffer[BUFFER_SIZE + 1];
 
-	if(argc!=2) {
+	if(argc != 2) {
 		cout << "Proper Usage: " << argv[1] << " sample_file" << endl;
 		return -1;
 	}
-
-	cout << "File Descriptor of FIFO in Read mode: " << pipe_fd << endl;
 
 	if ((pipe_fd = open(argv[1], O_RDONLY)) != -1) {
 		res = read(pipe_fd, buffer, BUFFER_SIZE);
@@ -112,7 +110,7 @@ int main(int argc, char *argv[]) {
 
 	cout << "Process ID: " << getpid() << " is Opening FIFO in Write mode..." << endl;
 	pipe_fd = open(argv[1], O_WRONLY);
-	cout << "File Descriptor of FIFO in Write mode: " << pipe_fd << endl;
+
 	if (pipe_fd != -1) {
 		cout << "Enter data: ";
 		gets(buffer);
