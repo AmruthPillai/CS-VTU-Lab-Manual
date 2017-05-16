@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
 ## Execution
 ```
-cc 09_SystemFunction.c  
+g++ 09_SystemFunction.cpp  
 ./a.out ps date who  
 ```
 
