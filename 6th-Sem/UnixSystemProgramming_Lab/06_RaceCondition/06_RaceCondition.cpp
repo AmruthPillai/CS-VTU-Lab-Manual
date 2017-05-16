@@ -14,7 +14,7 @@ int main() {
   else
     charAtATime("output from parent\n");
 
-  _exit(0);
+  return 0;
 }
 
 static void charAtATime(char *str) {

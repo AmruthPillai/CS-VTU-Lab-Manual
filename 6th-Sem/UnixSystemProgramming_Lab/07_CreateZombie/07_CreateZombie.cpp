@@ -13,5 +13,5 @@ int main() {
   sleep(2);
   system("ps -o pid,ppid,state,tty,command");
 
-  _exit(0);
+  return 0;
 }
