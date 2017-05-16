@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 
 ## Execution
 ```
-cc 05a_EnvironList.c
+g++ 05a_EnvironList.cpp
 ./a.out  
 ```
 
