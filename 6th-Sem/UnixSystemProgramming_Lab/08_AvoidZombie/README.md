@@ -16,7 +16,7 @@ int main() {
 	int pid;
 
 	if ((pid = fork()) == 0) {
-    printf("First child: My PID is %d\n", getpid());
+		printf("First child: My PID is %d\n", getpid());
 		if ((pid = fork()) == 0) {
 			sleep(1);
 			printf("Second child: My PID is %d\n", getpid());
