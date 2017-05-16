@@ -13,24 +13,21 @@ We call sleep in the second child to ensure that the first child terminates befo
 #include <unistd.h>
 
 int main() {
-	int pid = fork();
+	int pid;
 
-	if (pid == 0) {
+	if ((pid = fork()) == 0) {
     printf("First child: My PID is %d\n", getpid());
-		pid = fork();
-		if (pid == 0) {
+		if ((pid = fork()) == 0) {
 			sleep(1);
 			printf("Second child: My PID is %d\n", getpid());
 		}
 	}	else {
-		wait(NULL);
 		sleep(2);
 		system("ps -o pid,ppid,state,tty,command");
 	}
 
 	return 0;
 }
-
 ```
 
 ## Execution
