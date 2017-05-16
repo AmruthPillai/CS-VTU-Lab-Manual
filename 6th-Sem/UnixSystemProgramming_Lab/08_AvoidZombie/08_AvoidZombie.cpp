@@ -11,7 +11,7 @@ int main() {
 			sleep(1);
 			printf("Second child: My PID is %d\n", getpid());
 		}
-	}	else {
+	} else {
 		sleep(2);
 		system("ps -o pid,ppid,state,tty,command");
 	}
