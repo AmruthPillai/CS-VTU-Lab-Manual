@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   printf("Inode Number of Linked Files\n");
 
   char str[100];
-  sprintf(str, "ls -i %s %s\n", argv[1], argv[2]);
+  sprintf(str, "ls -i1 %s %s\n", argv[1], argv[2]);
   system(str);
 
   return 0;
