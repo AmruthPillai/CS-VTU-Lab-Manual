@@ -106,9 +106,9 @@ void reshape(int w, int h) {
   glLoadIdentity();
 
   if (w <= h)
-    glOrtho(-2, 2, -2 * (GLfloat) h / (GLfloat) w, 2 * (GLfloat) h / (GLfloat) w, -10, 10);
+    glOrtho(-2, 2, -2 * h / w, 2 * h / w, -10, 10);
   else
-    glOrtho(-2 * (GLfloat) w / (GLfloat) h, 2 * (GLfloat) w / (GLfloat) h, -2, 2, -10, 10);
+    glOrtho(-2 * w / h, 2 * w / h, -2, 2, -10, 10);
 
   glMatrixMode(GL_MODELVIEW);
   glutPostRedisplay();
