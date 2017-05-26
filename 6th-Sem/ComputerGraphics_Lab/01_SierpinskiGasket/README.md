@@ -145,4 +145,4 @@ g++ -framework OpenGL -framwork GLUT 01_SierpinskiGasket.c -w
 ```
 
 ## Output
-![Sierpinski Gasket](01_SierpinskiGasket.png)
+![Sierpinski Gasket](SierpinskiGasket-Output.png)
