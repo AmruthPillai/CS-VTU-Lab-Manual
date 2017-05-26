@@ -1,3 +1,20 @@
+## Aim
+Program to recursively subdivide a tetrahedron to from 3D Sierpinski gasket. The number of recursive steps is to be specified by the user.
+
+## Theory
+A geometric method of creating the gasket is to start with a vertex of the object and get all the mid points to the other vertices. This results in smaller structure of the original geometric object (repeat for all the vertices). For another iteration take the smaller object and perform the same as above.
+
+The gasket is perfectly self similar, an attribute of many fractal images. Any portion is an exact replica of the phase of the gasket The construction of the 3 dimensional version of the gasket follows similar rules for the 2D case except that the building blocks are square based pyramids instead of triangles.
+
+## Algorithm
+1. Start with a tetrahedron.
+2. Inside this, take the edges, calculate their midpoints.
+3. Now, from each original vertex construct a new tetrahedron consisting of vertex `(original, midpoint, midpoint, midpoint)`
+4. Repeat it recursively (till `m > 0`)
+5. At `m = 0`, draw all the leaf nodes of the recursive tree
+
+## Code
+```
 #include <stdio.h>
 
 // Apple Specific Compatibility Issues
@@ -119,3 +136,13 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
+```
+
+## Execution
+```
+g++ -framework OpenGL -framwork GLUT 01_SierpinskiGasket.c -w
+./a.out
+```
+
+## Output
+![Sierpinski Gasket](01_SierpinskiGasket.png)

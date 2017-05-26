@@ -49,7 +49,7 @@ int main() {
   #ifdef _POSIX_VDISABLE
     cout << "Special Characters for Terminal Device Files will be disabled." << endl;
   #else
-    cout << "Special Characters for Terminal Device Files will not be diasbled."<<endl;
+    cout << "Special Characters for Terminal Device Files will not be disabled."<<endl;
   #endif
 
   return 0;
