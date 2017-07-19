@@ -210,7 +210,6 @@ void main(int argc, char **argv) {
   glInit();
   glutMainLoop();
 }
-
 ```
 
 ## Execution

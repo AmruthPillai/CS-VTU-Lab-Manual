@@ -16,16 +16,16 @@
 #define dx 20
 #define dy 15
 
-GLfloat x[maxx] = {0.0}, y[maxy] = {0.0};
+GLfloat x[maxx] = {0}, y[maxy] = {0};
 GLfloat x0 = 50, y0 = 50;
 GLint i, j;
 
 void glInit() {
-  glClearColor(1.0, 1.0, 1.0, 1.0);
-  glPointSize(5.0);
+  glClearColor(1, 1, 1, 1);
+  glPointSize(5);
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-  gluOrtho2D(0.0, 499.0, 0.0, 499.0);
+  gluOrtho2D(0, 500, 0, 500);
   glutPostRedisplay();
 }
 
@@ -39,7 +39,7 @@ void display(void) {
 
   for (i = 0; i < maxx - 1; i++) {
     for (j = 0; j < maxy - 1; j++) {
-      glColor3f(0.0, 0.0, 1.0);
+      glColor3f(0, 0, 1);
 
       glBegin(GL_LINE_LOOP);
         glVertex2f(x[i], y[j]);
@@ -56,7 +56,7 @@ void display(void) {
 int main(int argc, char **argv) {
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-  glutInitWindowSize(500, 400);
+  glutInitWindowSize(500, 500);
   glutInitWindowPosition(0, 0);
   glutCreateWindow("Rectangular Mesh");
   glutDisplayFunc(display);

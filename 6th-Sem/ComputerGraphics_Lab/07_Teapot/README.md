@@ -9,7 +9,6 @@ Write a program using OpenGL functions, to draw a simple shaded scene consisting
 ## Code
 ```
 #include <stdio.h>
-#include <math.h>
 
 // Apple Specific Compatibility Issues
 #ifdef __APPLE__
@@ -18,100 +17,123 @@ Write a program using OpenGL functions, to draw a simple shaded scene consisting
 	#include "GL\glut.h"
 #endif
 
-void drawPixel(GLint cx, GLint cy) {
-  glColor3f(1.0, 0.0, 0.0);
-  glBegin(GL_POINTS);
-  glVertex2i(cx, cy);
-  glEnd();
-}
-void plotPixels(GLint h, GLint k, GLint x, GLint y) {
-  drawPixel(x + h, y + k);
-  drawPixel(-x + h, y + k);
-  drawPixel(x + h, -y + k);
-  drawPixel(-x + h, -y + k);
-  drawPixel(y + h, x + k);
-  drawPixel(-y + h, x + k);
-  drawPixel(y + h, -x + k);
-  drawPixel(-y + h, -x + k);
+void wall(double thickness) {
+  glPushMatrix();
+  glTranslated(0.5, 0.5 * thickness, 0.5);
+  glScaled(1.0, thickness, 1.0);
+  glutSolidCube(1.0);
+  glPopMatrix();
 }
 
-// Midpoint Circle Drawing Algorithm
-void circleDraw(GLint h, GLint k, GLint r) {
-  GLint d = 1 - r, x = 0, y = r;
-  while (y > x) {
-    plotPixels(h, k, x, y);
-    if (d < 0)
-      d += 2 * x + 3;
-    else {
-      d += 2 * (x - y) + 5;
-      --y;
-    }
-    ++x;
-  }
-  plotPixels(h, k, x, y);
+void tableLeg(double thickness, double length) {
+  glPushMatrix();
+  glTranslated(0, length / 2, 0);
+  glScaled(thickness, length, thickness);
+  glutSolidCube(1.0);
+  glPopMatrix();
 }
 
-void cylinderDraw() {
-  GLint xc = 100, yc = 100, r = 50;
-  GLint i, n = 50;
-
-  for (i = 0; i < n; i += 3)
-    circleDraw(xc, yc + i, r);
+void table(double topWidth, double topThickness, double legThickness, double legLength) {
+  glPushMatrix();
+  glTranslated(0, legLength, 0);
+  glScaled(topWidth, topThickness, topWidth);
+  glutSolidCube(1.0);
+  glPopMatrix();
+  double dist = 0.95 * topWidth / 2.0 - legThickness / 2.0;
+  glPushMatrix();
+  glTranslated(dist, 0, dist);
+  tableLeg(legThickness, legLength);
+  glTranslated(0.0, 0.0, -2 * dist);
+  tableLeg(legThickness, legLength);
+  glTranslated(-2 * dist, 0, 2 * dist);
+  tableLeg(legThickness, legLength);
+  glTranslated(0, 0, -2 * dist);
+  tableLeg(legThickness, legLength);
+  glPopMatrix();
 }
 
-void parallelepiped(int x1, int x2, int y1, int y2, int y3, int y4) {
-  glColor3f(0.0, 0.0, 1.0);
-  glPointSize(2.0);
-  glBegin(GL_LINE_LOOP);
-  glVertex2i(x1, y1);
-  glVertex2i(x2, y3);
-  glVertex2i(x2, y4);
-  glVertex2i(x1, y2);
-  glEnd();
-}
+void displaySolid(void) {
+  GLfloat mat_ambient[] = {0.7f, 0.7f, 0.7f, 1.0f};
+  GLfloat mat_diffuse[] = {0.5f, 0.5f, 0.5f, 1.0f};
+  GLfloat mat_specular[] = {1.0f, 1.0f, 1.0f, 1.0f};
+  GLfloat mat_shininess[] = {50.0f};
 
-void parallelepipedDraw() {
-  int x1 = 200, x2 = 300, y1 = 100, y2 = 175, y3 = 100, y4 = 175;
-  GLint i, n = 40;
+  // The glMaterialfv function specifies material parameters for the lighting model.
+  glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+  glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+  glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+  glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+  GLfloat lightIntensity[] = {0.7f, 0.7f, 0.7f, 0.7f};
+  GLfloat light_position[] = {2.0f, 6.0f, 3.0f, 0.0f};
 
-  for (i = 0; i < n; i += 2)
-    parallelepiped(x1 + i, x2 + i, y1 + i, y2 + i, y3 + i, y4 + i);
-}
+  // The glLightfv function returns light source parameter values.
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, lightIntensity);
 
-void glInit(void) {
-  // Set Display Window color to White
-  glClearColor(1.0, 1.0, 1.0, 0.0);
   glMatrixMode(GL_PROJECTION);
-  gluOrtho2D(0.0, 400.0, 0.0, 300.0);
-}
+  glLoadIdentity();
 
-void display(void) {
-  // Clear Display Window
-  glClear(GL_COLOR_BUFFER_BIT);
+  double winHt = 1.0;
+  glOrtho(-winHt * 64 / 48.0, winHt * 64 / 48.0, -winHt, winHt, 0.1, 100.0);
+  glMatrixMode(GL_MODELVIEW);
+  glLoadIdentity();
+  gluLookAt(2.3, 1.3, 2.0, 0.0, 0.25, 0.0, 0.0, 1.0, 0.0);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  // Set Circle Color to Red
-  glColor3f(1.0, 0.0, 0.0);
-  glPointSize(2.0);
+  glPushMatrix();
+  glTranslated(0.4, 0.4, 0.6);
+  glRotated(45, 0, 0, 1);
+  glScaled(0.08, 0.08, 0.08);
+  glPopMatrix();
+  glPushMatrix();
+  glTranslated(0.6, 0.38, 0.5);
+  glRotated(30, 0, 1, 0);
+  glutSolidTeapot(0.08);
+  glPopMatrix();
 
-  // Draw Cylinder
-  cylinderDraw();
+  glPushMatrix();
+  glTranslated(0.25, 0.42, 0.35);
+  glPopMatrix();
+  glPushMatrix();
+  glTranslated(0.4, 0, 0.4);
+  table(0.6, 0.02, 0.02, 0.3);
+  glPopMatrix();
 
-  // Draw Parallelepiped
-  parallelepipedDraw();
+  // Draw the First Wall
+  wall(0.02);
+
+  // Draw Second Wall after rotating X-axis by 90 degrees
+  glPushMatrix();
+  glRotated(90.0, 0.0, 0.0, 1.0);
+  wall(0.02);
+  glPopMatrix();
+
+  // Draw Floor
+  glPushMatrix();
+  glRotated(-90.0, 1.0, 0.0, 0.0);
+  wall(0.02);
+  glPopMatrix();
 
   glFlush();
 }
 
 int main(int argc, char **argv) {
-  glutInit(&argc, argv); // Initialize GLUT
-  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Set Display mode
-  glutInitWindowPosition(50, 50); // Set top left window position
-  glutInitWindowSize(400, 300); // Set Display window width and height
-  glutCreateWindow("Cylinder and Parallelepiped Display"); // Create Display Window
-  glInit();
-  glutDisplayFunc(display); // Send the Graphics to Display Window
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+  glutInitWindowSize(640, 480);
+  glutInitWindowPosition(100, 100);
+  glutCreateWindow("Simple Shaded Scene of a Teapot");
+  glutDisplayFunc(displaySolid);
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+  glShadeModel(GL_SMOOTH); // Specifies a symbolic value representing a shading
+                           // technique. Accepted values are GL_FLAT and
+                           // GL_SMOOTH.
+  glEnable(GL_DEPTH_TEST);
+  glEnable(GL_NORMALIZE);
+  glClearColor(0.1, 0.1, 0.1, 0.0);
+  glViewport(0, 0, 640, 480);
   glutMainLoop();
-  return 0;
 }
 ```
 
