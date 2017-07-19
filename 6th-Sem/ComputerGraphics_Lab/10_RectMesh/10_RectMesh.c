@@ -20,6 +20,8 @@ GLfloat x[maxx] = {0}, y[maxy] = {0};
 GLfloat x0 = 50, y0 = 50;
 GLint i, j;
 
+long int loop;
+
 void glInit() {
   glClearColor(1, 1, 1, 1);
   glPointSize(5);
@@ -47,6 +49,10 @@ void display(void) {
         glVertex2f(x[i + 1], y[j + 1]);
         glVertex2f(x[i + 1], y[j]);
       glEnd();
+
+			// Delay
+			for (loop = 0; loop < 100000000; loop++);
+			glFlush();
     }
   }
 
