@@ -24,24 +24,24 @@ The gasket is perfectly self similar, an attribute of many fractal images. Any p
 	#include "GL\glut.h"
 #endif
 
-// Each point must have 3 vertices
+// Each Point must have 3 Vertices
 typedef float point[3];
 
-// Variable for number of divisions
+// Number of Divisions
 int n;
 
-// Initial vertices to form a triangle
+// Initial Vertices to Form a Tetrahedron
 point v[] = {
   {0, 0, 1}, {0, 1, -0.33},
   {-0.8, -0.5, -0.33}, {0.8, -0.5, -0.33}
 };
 
-// Function to draw a triangle
+// Function to Draw a Triangle
 void drawTriangle(point a, point b, point c) {
   glBegin(GL_POLYGON);
-  glVertex3fv(a);
-  glVertex3fv(b);
-  glVertex3fv(c);
+	  glVertex3fv(a);
+	  glVertex3fv(b);
+	  glVertex3fv(c);
   glEnd();
 }
 
@@ -90,8 +90,11 @@ void divideTetrahedron(point a, point b, point c, point d, int m) {
 }
 
 void display() {
-  glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-  glLoadIdentity();
+	// Clear the Color Buffer and the Depth Buffer
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// Optional Code
+  // glLoadIdentity();
 
   // Call the `divideTetrahedron()` function for the first time
   divideTetrahedron(v[0], v[1], v[2], v[3], n);
@@ -102,7 +105,6 @@ void display() {
 // Function to redraw the window in case the window resized
 void reshape(int w, int h) {
   glViewport(0, 0, w, h);
-  glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
 
   if (w <= h)
@@ -110,7 +112,6 @@ void reshape(int w, int h) {
   else
     glOrtho(-2 * w / h, 2 * w / h, -2, 2, -10, 10);
 
-  glMatrixMode(GL_MODELVIEW);
   glutPostRedisplay();
 }
 
@@ -120,7 +121,7 @@ int main(int argc, char *argv[]) {
   scanf("%d", &n);
 
   glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB|GLUT_DEPTH);
+  glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
   glutInitWindowSize(500, 500);
   glutCreateWindow("3D Sierpinski Gasket");
 

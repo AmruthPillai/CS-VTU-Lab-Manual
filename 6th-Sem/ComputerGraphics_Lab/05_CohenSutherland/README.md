@@ -170,8 +170,6 @@ void display() {
   // Draw the lines with Red Color
   glColor3f(1.0, 0.0, 0.0);
   glBegin(GL_LINES);
-  glVertex2d(x0,y0);
-  glVertex2d(x1,y1);
   glVertex2d(x1, y1);
   glVertex2d(x2, y2);
   glEnd();
@@ -198,7 +196,7 @@ void glInit() {
   gluOrtho2D(0.0, 500.0, 0.0, 500.0);
 }
 
-void main(int argc, char **argv) {
+int main(int argc, char **argv) {
   printf("Enter End Points: (x1, y1, x2, y2)\n");
   scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
   glutInit(&argc, argv);
