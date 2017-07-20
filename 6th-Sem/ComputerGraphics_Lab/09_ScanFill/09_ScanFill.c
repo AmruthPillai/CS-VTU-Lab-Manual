@@ -44,10 +44,10 @@ void edgeDetect(float x1, float y1, float x2, float y2, int *le, int *re) {
    * quadrilateral and assign them to 'le' and 're' respectively.
    */
   for (i = y1; i <= y2; i++) {
-    if (x < (float) le[i])
-      le[i] = (int) x;
-    if (x > (float) re[i])
-      re[i] = (int) x;
+    if (x < le[i])
+      le[i] = x;
+    if (x > re[i])
+      re[i] = x;
 
     // A change of '1' (one) (in for loop) for 'y' causes a change of 'mx' in 'x'.
     x += mx;
@@ -89,9 +89,9 @@ void scanFill(float x1, float y1, float x2, float y2, float x3, float y3, float 
   edgeDetect(x4, y4, x1, y1, left_edge, right_edge);
 
   // Go through the the canvas and color each line from left_edge to right_edge.
-  for (j = 0; j < 500; j = j + 1) {
+  for (j = 0; j < 500; j++) {
     if (left_edge[j] <= right_edge[j])
-      for (i = (int) left_edge[j]; i < (int) right_edge[j]; i = i + 1)
+      for (i = left_edge[j]; i < right_edge[j]; i++)
         drawPixel(i, j);
   }
 }
