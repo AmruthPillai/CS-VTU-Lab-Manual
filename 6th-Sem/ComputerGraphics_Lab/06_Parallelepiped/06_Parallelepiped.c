@@ -28,6 +28,7 @@ void cylinderDraw() {
   for (i = 0; i < n; i += 3)
     circleDraw(xc, yc + i, r);
 }
+
 void parallelepiped(int x1, int x2, int y1, int y2) {
   glColor3f(0, 0, 1);
   glPointSize(2);

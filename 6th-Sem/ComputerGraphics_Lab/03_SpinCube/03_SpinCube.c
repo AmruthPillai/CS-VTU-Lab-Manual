@@ -56,8 +56,8 @@ void display(void) {
   glLoadIdentity();
 
   glRotatef(theta[0], 1, 0, 0);
-  glRotatef(theta[1], 1, 1, 0);
-  glRotatef(theta[2], 1, 0, 1);
+  glRotatef(theta[1], 0, 1, 0);
+  glRotatef(theta[2], 0, 0, 1);
   colorCube();
 
   glutSwapBuffers();

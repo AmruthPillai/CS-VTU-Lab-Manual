@@ -37,13 +37,13 @@ void cohenSutherlandLineClipAndDraw(double x0, double y0, double x1, double y1) 
   // compute outcodes
   outcode0 = computeOutcode(x0, y0);
   outcode1 = computeOutcode(x1, y1);
+
   do {
     // If logical OR is 0, then trivially accept & exit
     if (!(outcode0 | outcode1)) {
       accept = true;
       done = true;
     }
-
     // If logical AND is 0, then trivially reject & exit
     else if (outcode0 & outcode1) {
       done = true;
@@ -97,6 +97,7 @@ void cohenSutherlandLineClipAndDraw(double x0, double y0, double x1, double y1) 
       }
     }
   } while (!done);
+
   if (accept) {
     // Calculate the Scale Factor
     double sx = (xvmax - xvmin) / (xmax - xmin);
@@ -162,6 +163,7 @@ void display() {
   glEnd();
 
   cohenSutherlandLineClipAndDraw(x1, y1, x2, y2);
+
   glFlush();
 }
 

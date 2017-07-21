@@ -62,7 +62,6 @@ void drawPixel(int x, int y) {
   glEnd();
 }
 
-
 // Given the points of the quadrilateral on the canvas, fill it with color.
 void scanFill(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
   /*
