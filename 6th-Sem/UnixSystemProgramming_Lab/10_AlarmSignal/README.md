@@ -11,10 +11,13 @@ First, every signal has a name. These names all begin with the three characters 
 #include <unistd.h>
 #include <signal.h>
 
-#define INTERVAL 2
+#define INTERVAL 5
+
+int flag = 0;
 
 void callme(int sig_no) {
   printf("Alarm has been fired!\n");
+  flag = 1;
 }
 
 int main() {
@@ -22,9 +25,12 @@ int main() {
   action.sa_handler = callme;
 
   sigaction(SIGALRM, &action, 0);
-
   alarm(INTERVAL);
-  sleep(INTERVAL);
+
+  while (flag == 0) {
+    printf("1 second passed...\n");
+    usleep(1000000);
+  }
 
   return 0;
 }
@@ -38,6 +44,10 @@ g++ 10_AlarmSignal.cpp
 
 ## Output
 ```
--- after 2 seconds --
+1 second has passed...
+1 second has passed...
+1 second has passed...
+1 second has passed...
+1 second has passed...
 Alarm has been fired!
 ```
