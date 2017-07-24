@@ -5,11 +5,8 @@
 
 #define INTERVAL 5
 
-int flag = 0;
-
 void callme(int sig_no) {
   printf("Alarm has been fired!\n");
-  flag = 1;
 }
 
 int main() {
@@ -19,9 +16,9 @@ int main() {
   sigaction(SIGALRM, &action, 0);
   alarm(INTERVAL);
 
-  while (flag == 0) {
-    printf("1 second passed...\n");
-    usleep(1000000);
+  for (int i = 1; i <= INTERVAL; i++) {
+    printf("%d second(s) passed...\n", %i);
+    usleep(1000000); // 1000000 microseconds = 1 second
   }
 
   return 0;
