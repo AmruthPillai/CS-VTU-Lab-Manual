@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Program 01b - Squares</title>
+
+    <script type="text/javascript">
+      function calcSquares() {
+        var n = prompt("Enter a number:");
+
+        if (n > 0 && n != null) {
+          msg = "Number and it's Squares:\n";
+
+          for (var i = 1; i <= n; i++)
+            msg += i + " -- " + (i * i) + "\n";
+
+          alert(msg);
+        } else {
+          alert("Please enter proper input!");
+        }
+      }
+    </script>
+  </head>
+  <body onload="calcSquares()">
+
+  </body>
+</html>
