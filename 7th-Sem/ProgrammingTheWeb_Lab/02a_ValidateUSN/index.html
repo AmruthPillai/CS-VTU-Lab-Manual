@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Program 2 - Validate USN</title>
+
+    <script type="text/javascript">
+      function validateUSN() {
+        var usnRegExp = /^[1-4][A-Z][A-Z][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]$/;
+        var str = document.getElementById('usn').value;
+
+        if (!str.match(usnRegExp) || str.length != 10) {
+          alert("Invalid USN");
+          return false;
+        } else {
+          alert("Valid USN");
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label>Enter an USN:</label>
+      <input type="text" id="usn">
+      <input type="submit" value="Validate USN" onclick="validateUSN()">
+    </form>
+  </body>
+</html>
