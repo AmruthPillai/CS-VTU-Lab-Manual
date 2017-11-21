@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function validateUSNSem() {
+        var usn = document.getElementById('usn').value;
+        var usnRegExp = /^[1-4][A-Z][A-Z][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]$/;
+        var sem = document.getElementById('sem').value;
+        var semRegExp = /^[1-8]$/;
+
+        if (!usn.match(usnRegExp) && !sem.match(semRegExp)) {
+          alert('Invalid USN & Semester');
+          return false;
+        } else if (!usn.match(usnRegExp)) {
+          alert('Invalid USN');
+          return false;
+        } else if (!sem.match(semRegExp)) {
+          alert('Invalid Semester');
+          return false;
+        } else {
+          alert('Valid USN & Semester');
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Enter USN: <input type="text" id="usn">
+      Enter Sem: <input type="text" id="sem">
+      <input type="submit" onclick="validateUSNSem()" value="Validate USN & Sem">
+    </form>
+  </body>
+</html>

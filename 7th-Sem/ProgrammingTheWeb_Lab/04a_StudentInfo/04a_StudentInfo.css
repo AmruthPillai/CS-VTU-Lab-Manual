@@ -1,0 +1,8 @@
+student { clear: both; float: left; }
+
+name { background: red; color: white; }
+usn { color: green; }
+college { background: blue; color: white; }
+branch { color: orange; }
+year { background: green; color: white; }
+email { color: red; }

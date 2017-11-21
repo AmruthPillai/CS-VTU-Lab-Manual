@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function calcSquares() {
+        var num = prompt("Enter a number: ");
+
+        if (num > 0 && num != null) {
+          msgstr = "Number and it's squares:\n";
+
+          for (i = 1; i<= num; i++)
+            msgstr += i + " -- " + (i * i) + "\n";
+
+          alert(msgstr);
+        } else {
+          alert("No proper input");
+        }
+      }
+    </script>
+  </head>
+  <body onload="calcSquares()">
+
+  </body>
+</html>

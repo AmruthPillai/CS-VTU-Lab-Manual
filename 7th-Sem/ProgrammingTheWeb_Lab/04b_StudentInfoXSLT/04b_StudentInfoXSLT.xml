@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="student.xsl" type="text/xsl" ?>
+
+<vtu>
+  <student>
+    <name>Raja Rajan A</name>
+    <usn>1DS15CS417</usn>
+    <college>DSCE</college>
+    <branch>CSE</branch>
+    <year>2018</year>
+    <email>im.amruth@gmail.com</email>
+  </student>
+
+  <student>
+    <name>Prabhu B.</name>
+    <usn>1KS15CS412</usn>
+    <college>KSIT</college>
+    <branch>CSE</branch>
+    <year>2018</year>
+    <email>im.prabhub@gmail.com</email>
+  </student>
+  
+  <student>
+    <name>Alim Pasha S</name>
+    <usn>1DT15CS401</usn>
+    <college>DSATM</college>
+    <branch>CSE</branch>
+    <year>2018</year>
+    <email>aspawn22@gmail.com</email>
+  </student>
+</vtu>

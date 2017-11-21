@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function calcFibonacci() {
+        var x = prompt("Enter the value to fibonacci: ");
+        x = parseInt(x);
+
+        var y1 = 0, y2 = 1, res;
+
+        if (x < 0 || x == 0)
+          document.write("Fibonacci Series is not possible!");
+
+        if (x == 1)
+          document.write(y1);
+
+        if (x > 1)
+          document.write(y1 + " " + y2);
+
+        for (i = 2; i < x; i++) {
+          res = y1 + y2;
+          y1 = y2;
+          y2 = res;
+          document.write(" " + res);
+        }
+      }
+    </script>
+  </head>
+  <body onload="calcFibonacci()">
+
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var topLayer = 'stack1';
+
+      function move(currLayer) {
+        oldStack = document.getElementById(topLayer).style;
+        newStack = document.getElementById(currLayer).style;
+
+        oldStack.zIndex = '0';
+        newStack.zIndex = '10';
+
+        topLayer = currLayer;
+      }
+    </script>
+
+    <style>
+      .one {
+        border: solid thick black;
+        background-color: brown;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        z-index: 0;
+      }
+
+      .two {
+        border: solid thick black;
+        background-color: gray;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 140px;
+        left: 240px;
+        z-index: 0;
+      }
+
+      .three {
+        border: solid thick black;
+        background-color: white;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 180px;
+        left: 280px;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="one" id="stack1" onmouseover="move('stack1')">This is the first paragraph.</p>
+    <p class="two" id="stack2" onmouseover="move('stack2')">This is the second paragraph.</p>
+    <p class="three" id="stack3" onmouseover="move('stack3')">This is the third paragraph.</p>
+  </body>
+</html>
