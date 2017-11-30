@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]) {
   mknod(fifo1, S_IFIFO | 0777, 0);
 
   printf("Client Online\n");
-  fd = open(fifo1, O_WRONLY, 0);
+  fd1 = open(fifo1, O_WRONLY, 0);
 
   printf("Enter filename: \n");
   scanf("%s\n", filename);
