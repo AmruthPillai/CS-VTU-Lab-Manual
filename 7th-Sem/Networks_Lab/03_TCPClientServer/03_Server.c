@@ -1,13 +1,12 @@
 #include <stdio.h>
+#include <fcntl.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <fcntl.h>
 
 int main(int argc, char const *argv[]) {
-  int fd, sockfd, newsockfd, portno = 7000, client_length;
+  int fd, sockfd, newsockfd, clienlen, portno = 7000;
   char filename[256], c[2000];
-
   struct sockaddr_in serv_addr, clin_addr;
 
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -20,13 +19,14 @@ int main(int argc, char const *argv[]) {
   listen(sockfd, 5);
   printf("Server waiting for client...\n");
 
-  newsockfd = accept(sockfd, (struct sockaddr *) &serv_addr, &client_length);
+  clienlen = sizeof(clin_addr);
+  newsockfd = accept(sockfd, (struct sockaddr *) &serv_addr, &clienlen);
+
   read(newsockfd, filename, 255);
 
   fd = open(filename, O_RDONLY, 0);
-  read(fd, c, 1000);
-
-  send(newsockfd, c, 1000, 0);
+  read(fd, c, 2000);
+  send(newsockfd, c, 2000, 0);
   close(newsockfd);
 
   return 0;

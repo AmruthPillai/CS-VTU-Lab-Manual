@@ -7,7 +7,6 @@
 int main(int argc, char const *argv[]) {
   int sockfd, portno = 7000;
   char filename[256], c[2000];
-
   struct sockaddr_in serv_addr;
 
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
