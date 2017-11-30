@@ -27,6 +27,7 @@ int main(int argc, char const *argv[]) {
   fd = open(filename, O_RDONLY, 0);
   read(fd, c, 2000);
   send(newsockfd, c, 2000, 0);
+  
   close(newsockfd);
 
   return 0;

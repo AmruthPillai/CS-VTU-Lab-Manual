@@ -1,61 +1,44 @@
-#include <math.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<math.h>
+#include<unistd.h>
 
-int t_rand(int a) {
-  int rn = (random() % 10) % a;
-	return rn == 0 ? 1 : rn;
-}
+int bkt_size, pkt_size, op_rate;
 
 int main(int argc, char const *argv[]) {
-  int packets[5], i, j, clk, bsize, orate, pszrm, psz, ptime;
-  system("clear");
+  int n, delay, i;
 
-  for (i = 0; i < 5; i++)
-    packets[i] = t_rand(6) * 10;
+  printf("Enter the size of bucket: ");
+  scanf("%d", &bkt_size);
 
-  printf("Enter the output rate: ");
-  scanf("%d", &orate);
+  printf("Enter the ouput rate: ");
+  scanf("%d", &op_rate);
 
-  printf("Enter the bucket size: ");
-  scanf("%d", &bsize);
+  printf("Enter the number of packets: ");
+  scanf("%d", &n);
 
-  for (i = 0; i < 5; i++) {
-    if ((packets[i] + pszrm) > bsize) {
-      if (packets[i] > bsize)
-        printf("Incoming packet size (%d) is greater than bucker capacity. REJECTED!\n", packets[i]);
-      else
-        printf("Bucket capacity exceeded. REJECTED!\n");
-    } else {
-      for (j = 0; ; ++j) {
-        psz = packets[i];
-        pszrm += psz;
+  for (i = 0; i < n; i++) {
+    sleep(2);
 
-        printf("Incoming Packet Size: %d\n", psz);
-        printf("Transmission Left: %d\n", pszrm);
+    pkt_size = rand() % 100;
+    printf("Packet number %d has the size %d\n", i + 1, pkt_size);
 
-        ptime = t_rand(4) * 10;
-        printf("Next packet will come at %d seconds.\n", ptime);
-
-        for (clk = 0; clk <= ptime; clk += 10) {
-          printf("Time Left: %d sec\n", ptime - clk);
-          sleep(1);
-
-          if (pszrm) {
-            printf("Transmitted\n");
-            if (pszrm <= orate)
-              pszrm;
-            else
-              pszrm -= orate;
-            printf("Bytes Remaining: %d\n", pszrm);
-          } else
-            printf("No packet to transmit.\n");
-        }
-        break;
-      }
-    }
+    leakybucket();
   }
 
   return 0;
+}
+
+int leakybucket() {
+  if (pkt_size > bkt_size)
+    printf("The packet is discarded.\n");
+  else {
+    while (pkt_size > op_rate) {
+      printf("Packet %d bytes are sent.\n", op_rate);
+      pkt_size = pkt_size - op_rate;
+      sleep(2);
+    }
+
+    if (pkt_size > 0)
+      printf("Last bytes transmitted is %d.\n", pkt_size);
+  }
 }

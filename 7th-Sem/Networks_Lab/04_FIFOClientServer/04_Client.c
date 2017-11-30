@@ -9,13 +9,13 @@
 
 int main(int argc, char const *argv[]) {
   char filename[100], c[2000];
-  int fd1, fd2;
-  int num;
+  int fd1, fd2, num;
 
   mknod(fifo1, S_IFIFO | 0777, 0);
   mknod(fifo1, S_IFIFO | 0777, 0);
 
   printf("Client Online\n");
+
   fd1 = open(fifo1, O_WRONLY, 0);
 
   printf("Enter filename: \n");

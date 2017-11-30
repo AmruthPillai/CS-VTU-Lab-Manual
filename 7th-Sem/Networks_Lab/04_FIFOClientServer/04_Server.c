@@ -15,6 +15,7 @@ int main(int argc, char const *argv[]) {
   mknod(fifo2, S_IFIFO | 0777, 0);
 
   printf("Server Online\n");
+
   fd = open(fifo1, O_RDONLY);
   printf("Waiting for request..\n");
 

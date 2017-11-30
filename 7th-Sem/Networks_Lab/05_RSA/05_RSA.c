@@ -12,17 +12,12 @@ unsigned int mod_exp(int base, int exp, int n) {
 }
 
 int gcd(int m, int n) {
-  while (m != n) {
-    if (m == n || n == 1) {
-      m = 1;
-      m = 1;
-      break;
-    } else {
-      if (m > n)
-        m = m - n;
-      else
-        n = n - m;
-    }
+  int temp;
+
+  while (n != 0) {
+    temp = m % n;
+    m = n;
+    n = temp;
   }
 
   return m;
@@ -34,10 +29,10 @@ int main(int argc, char const *argv[]) {
   int d = 1, e = n - 1;
   int i, j, z;
 
-  char in[20] = " ";
-  unsigned int out[20] = {0}, decr[20];
+  char in[20];
+  int out[20], decr[20];
 
-  z = ((p - 1) * (q - 1));
+  z = (p - 1) * (q - 1);
 
   for (;;) {
     if (gcd(e, z) == 1)
